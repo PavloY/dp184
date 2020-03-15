@@ -12,8 +12,10 @@ import page.SuccessPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class FirstTest {
+public class FTC_Main_Registration_RegisterUserWithValidData {
     WebDriver driver;
+    HomePage homePage;
+    RegisterPage regPage;
 
     @BeforeClass
     public static void start(){
@@ -23,17 +25,37 @@ public class FirstTest {
     @Before
     public void setUp(){
         driver = new FirefoxDriver();
+        driver.get("http://184-dp.tk/");
+        homePage = new HomePage(driver);
+        regPage = homePage.goToRegisterPage();
     }
 
     @Test
-    public void firstTest(){
-        driver.get("http://184-dp.tk/");
-        HomePage homePage = new HomePage(driver);
-        RegisterPage regPage = homePage.goToRegisterPage();
-        SuccessPage successPage = regPage.registerOnlyWithOnlyNecessaryFields();
+    public void registerUserWithValidDataUsingAllFields(){
+        regPage.fillFirstName("Boris").fillLastName("Borisov").fillEmail("Borisov@gmail.com").fillPhone("380506526595")
+                .fillFax("8-812-1234567").fillCompany("SoftServe").fillAddress1("Kyev")
+                .fillAddress2("Peremohy Avenue, 32").fillCity("Kyiv").fillPostCode("0411687").chooseCountry("Ukraine")
+                .chooseRegion("Kyiv").fillPassword("12345").fillConfirmPassword("12345").chooseSubscribe("Yes")
+                .checkAgree();
+        SuccessPage successPage = regPage.clickOnButtonWithValidData();
         String actual = successPage.getContent();
+
         String expected = "Your Account Has Been Created!";
         Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void registerUserWithValidDataUsingOnlyNecessaryFields(){
+        regPage.fillFirstName("Boris").fillLastName("Borisov").fillEmail("Borisov@gmail.com").fillPhone("79055625489")
+                .fillAddress1("Moscow").fillCity("Moscow").chooseCountry("Russian Federation")
+                .chooseRegion("Moscow").fillPassword("QWERTY").fillConfirmPassword("QWERTY").checkAgree();
+        SuccessPage successPage = regPage.clickOnButtonWithValidData();
+        String actual = successPage.getContent();
+
+        String expected = "Your Account Has Been Created!";
+        Assert.assertEquals(expected, actual);
+
     }
 
     @After

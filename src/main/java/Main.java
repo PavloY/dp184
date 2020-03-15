@@ -15,8 +15,9 @@ public class Main {
 //        WebDriver driver = new ChromeDriver();
         driver.get("http://184-dp.tk/");
         HomePage homePage = new HomePage(driver);
-        RegisterPage regPage = homePage.goToRegisterPage();
-        SuccessPage successPage = regPage.registerOnlyWithOnlyNecessaryFields();
-        successPage.getContent();
+        RegisterPage registerPage = homePage.goToRegisterPage();
+        registerPage.chooseSubscribe("Yes");
+
+
     }
 }
