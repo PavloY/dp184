@@ -3,16 +3,14 @@ package test;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import page.HomePage;
 import page.RegisterPage;
 import page.SuccessPage;
 
 import java.util.concurrent.TimeUnit;
+
 
 public class FTC_Main_Registration_RegisterUserWithValidData {
     WebDriver driver;
@@ -62,21 +60,18 @@ public class FTC_Main_Registration_RegisterUserWithValidData {
 
     @After
     public void tearDown(){
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("http://184-dp.tk/admin");
         WebDriverWait wait = new WebDriverWait(driver, 5);
         driver.findElement(By.id("input-username")).sendKeys("admin");
         driver.findElement(By.id("input-password")).sendKeys("1234566aZ$");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        WebElement link = driver.findElement(By.xpath("/html/body/div[1]/nav/ul/li[6]/a/i"));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(link).build().perform();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Customers")));
-        driver.findElement(By.linkText("Customers")).click();
+        driver.findElement(By.id("button-menu")).click();
+        driver.findElement(By.xpath("//li[@id='menu-customer']/a")).click();
+        driver.findElement(By.xpath("//li[@id='menu-customer']//a[text()='Customers']")).click();
         driver.findElement(By.xpath("//tr/td[2][text()='Boris Borisov']/..//input[@name='selected[]']")).click();
         driver.findElement(By.xpath("//div[@class='pull-right']//button[@class='btn btn-danger']")).click();
         driver.switchTo().alert().accept();
         driver.quit();
     }
-
-
 }
