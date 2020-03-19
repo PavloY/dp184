@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +9,9 @@ import page.HomePage;
 import page.RegisterPage;
 
 public abstract class BasePage {
+
+    @FindBy(className = "dropdown-toggle")
+    protected WebElement currency;
 
     @FindBy(className = "dropdown")
     protected WebElement myAccount;
@@ -23,6 +26,12 @@ public abstract class BasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
+    public BasePage chooseCurrency(){
+        currency.click();
+        return this;
+    }
+
 
     public RegisterPage goToRegisterPage(){
         myAccount.click();
@@ -41,7 +50,7 @@ public abstract class BasePage {
         return this;
     }
 
-    public BasePage chooseDataInField(WebElement webElement, String userData){
+    public BasePage chooseDataFromDropDownMenu(WebElement webElement, String userData){
         webElement.click();
         driver.findElement(By.xpath("//option[text()='" + userData + "']")).click();
         return this;
@@ -52,13 +61,28 @@ public abstract class BasePage {
         return this;
     }
 
-    public BasePage checkAgree(WebElement webElement){
+    public BasePage chooseCheckBox(WebElement webElement){
+        //check if selected
         webElement.click();
+        return this;
+    }
+
+    public BasePage chooseUncheckBox(WebElement webElement){
+//        //check if selected
+//        webElement.click();
         return this;
     }
 
     public String getTextContent(WebElement webElement){
         return webElement.getText();
     }
+
+    public String getTitlePage(){
+        return driver.getTitle();
+    }
+
+    //scrollPage
+
+    //is Element avileable
 
 }
