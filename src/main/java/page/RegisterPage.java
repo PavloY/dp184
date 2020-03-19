@@ -61,6 +61,10 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//input[@value='Continue']")
     private WebElement button;
 
+    public RegisterPage(WebDriver driver) {
+        super(driver);
+    }
+
 
     public WebElement getFirstName() {
         return firstName;
@@ -126,9 +130,6 @@ public class RegisterPage extends BasePage {
         return agree;
     }
 
-    public RegisterPage(WebDriver driver) {
-        super(driver);
-    }
 
     public SuccessPage clickOnButtonWithValidData(){
         button.click();
