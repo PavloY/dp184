@@ -16,7 +16,7 @@ public final class Config {
 
     public static String adminSite;
     public static String site;
-    public static  String pathForDriver;
+    public static String pathForDriver;
     public static String driver;
     public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\dev.properties";
 
@@ -24,28 +24,28 @@ public final class Config {
         getConfig();
     }
 
-    public static WebDriver getBrowserInstance(){
-        if(driver.contains("gecko")){
+    public static WebDriver getBrowserInstance() {
+        if (driver.contains("gecko")) {
             return new FirefoxDriver();
-        }else if(driver.contains("chrome")){
+        } else if (driver.contains("chrome")) {
             return new ChromeDriver();
-        }else if(driver.contains("edge")){
+        } else if (driver.contains("edge")) {
             return new EdgeDriver();
-        }else if(driver.contains(".ie.")){
+        } else if (driver.contains(".ie.")) {
             return new InternetExplorerDriver();
-        }else if(driver.contains("opera")){
+        } else if (driver.contains("opera")) {
             return new OperaDriver();
-        }else if(driver.contains("safari")){
+        } else if (driver.contains("safari")) {
             return new SafariDriver();
         }
         return null;//Exception
     }
 
-    private static void getConfig(){
+    private static void getConfig() {
         Properties properties = new Properties();
-        try(FileInputStream in = new FileInputStream(PATH_PROPERTY_FILE)){
+        try (FileInputStream in = new FileInputStream(PATH_PROPERTY_FILE)) {
             properties.load(in);
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Sorry, unable to find config.properties");
         }
         Config.site = properties.getProperty("Site");
