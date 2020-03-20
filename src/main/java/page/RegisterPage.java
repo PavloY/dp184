@@ -61,95 +61,75 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//input[@value='Continue']")
     private WebElement button;
 
-
     public RegisterPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
     }
 
-    public RegisterPage fillFirstName(String userFirstName){
-        firstName.sendKeys(userFirstName);
-        return this;
+
+    public WebElement getFirstName() {
+        return firstName;
     }
 
-    public RegisterPage fillLastName(String userLastName){
-        lastName.sendKeys(userLastName);
-        return this;
+    public WebElement getLastName() {
+        return lastName;
     }
 
-    public RegisterPage fillEmail(String userEmail){
-        _email.sendKeys(userEmail);
-        return this;
+    public WebElement getEmail() {
+        return email;
     }
 
-    public RegisterPage fillPhone(String userPhone){
-        telephone.sendKeys(userPhone);
-        return this;
+    public WebElement get_email() {
+        return _email;
     }
 
-    public RegisterPage fillFax(String userFax){
-        fax.sendKeys(userFax);
-        return this;
+    public WebElement getTelephone() {
+        return telephone;
     }
 
-    public RegisterPage fillCompany(String userCompany){
-        company.sendKeys(userCompany);
-        return this;
+    public WebElement getFax() {
+        return fax;
     }
 
-    public RegisterPage fillAddress1(String userAddress1){
-        address1.sendKeys(userAddress1);
-        return this;
+    public WebElement getCompany() {
+        return company;
     }
 
-    public RegisterPage fillAddress2(String userAddress2){
-        address2.sendKeys(userAddress2);
-        return this;
+    public WebElement getAddress1() {
+        return address1;
     }
 
-    public RegisterPage fillCity (String userCity){
-        city.sendKeys(userCity);
-        return this;
+    public WebElement getAddress2() {
+        return address2;
     }
 
-    public RegisterPage fillPostCode(String userPostCode){
-        postcode.sendKeys(userPostCode);
-        return this;
+    public WebElement getCity() {
+        return city;
     }
 
-    public RegisterPage chooseCountry(String userCountry){
-        country.click();
-        driver.findElement(By.xpath("//*[@id='input-country']/option[text()='"+ userCountry + "']")).click();
-        return this;
+    public WebElement getPostcode() {
+        return postcode;
     }
 
-    public RegisterPage chooseRegion(String userRegion){
-        zone.click();
-        driver.findElement(By.xpath("//*[@id='input-zone']/option[text()='" + userRegion + "']")).click();
-        return this;
+    public WebElement getCountry() {
+        return country;
     }
 
-    public RegisterPage fillPassword(String userPassword){
-        password.sendKeys(userPassword);
-        return this;
+    public WebElement getZone() {
+        return zone;
     }
 
-    public RegisterPage fillConfirmPassword(String userConfirmPassword){
-        confirm.sendKeys(userConfirmPassword);
-        return this;
+    public WebElement getPassword() {
+        return password;
     }
 
-    public RegisterPage chooseSubscribe(String userSubscribe){
-        if(userSubscribe.equals("Yes")){
-            driver.findElement(By.xpath("//label[@class='radio-inline'][1]/input")).click();
-        }
-        return this;
+    public WebElement getConfirm() {
+        return confirm;
     }
 
-    public RegisterPage checkAgree(){
-        agree.click();
-        return  this;
+    public WebElement getAgree() {
+        return agree;
     }
+
 
     public SuccessPage clickOnButtonWithValidData(){
         button.click();
@@ -160,22 +140,4 @@ public class RegisterPage extends BasePage {
         button.click();
         return this;
     }
-
-//    public SuccessPage registerOnlyWithOnlyNecessaryFields(){
-//        firstName.sendKeys("Boris");
-//        lastName.sendKeys("Borisov");
-//        _email.sendKeys("Borisov@gmail.com");
-//        telephone.sendKeys("79055625489");
-//        address1.sendKeys("Moscow");
-//        city.sendKeys("Moscow");
-//        country.click();
-//        driver.findElement(By.xpath("//*[@id='input-country']/option[text()='Russian Federation']")).click();
-//        zone.click();
-//        driver.findElement(By.xpath("//*[@id='input-zone']/option[text()='Moscow']")).click();
-//        password.sendKeys("QWERTY");
-//        confirm.sendKeys("QWERTY");
-//        agree.click();
-//        button.click();
-//        return new SuccessPage(driver);
-//    }
 }
