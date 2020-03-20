@@ -83,6 +83,6 @@ public abstract class BasePage {
 
     //scrollPage
 
-    //is Element avileable
+    //is Element available
 
 }
