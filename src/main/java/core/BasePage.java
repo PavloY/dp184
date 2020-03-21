@@ -16,7 +16,7 @@ public abstract class BasePage {
     @FindBy(className = "dropdown")
     protected WebElement myAccount;
 
-    @FindBy(xpath = "//div[@id='logo']/a/img")
+    @FindBy(xpath = "//*[@id=\"logo\"]/a/img")
     protected WebElement homeRedirect;
 
 
