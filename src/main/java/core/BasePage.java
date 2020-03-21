@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import page.ContactUsPage;
 import page.HomePage;
 import page.RegisterPage;
 
@@ -19,6 +20,10 @@ public abstract class BasePage {
     @FindBy(xpath = "//*[@id=\"logo\"]/a/img")
     protected WebElement homeRedirect;
 
+    //@FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=information/contact']")
+    @FindBy(xpath = "/html/body/footer/div/div/div[2]/ul/li[1]/a")
+    protected  WebElement contactUs;
+
 
     protected WebDriver driver;
 
@@ -27,9 +32,9 @@ public abstract class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public BasePage chooseCurrency(){
+    public void chooseCurrency(){
         currency.click();
-        return this;
+
     }
 
 
@@ -44,21 +49,26 @@ public abstract class BasePage {
         return new HomePage(driver);
     }
 
-    public BasePage fillField(WebElement webElement, String userData){
+    public ContactUsPage goToContactUsPage(){
+        contactUs.click();
+        return new ContactUsPage(driver);
+    }
+
+    public void fillField(WebElement webElement, String userData){
         webElement.clear();
         webElement.sendKeys(userData);
-        return this;
+
     }
 
-    public BasePage chooseDataFromDropDownMenu(WebElement webElement, String userData){
+    public void chooseDataFromDropDownMenu(WebElement webElement, String userData){
         webElement.click();
         driver.findElement(By.xpath("//option[text()='" + userData + "']")).click();
-        return this;
+
     }
 
-    public BasePage checkRadioButtonByName(String className, int numberOfRadioButton){
+    public void checkRadioButtonByName(String className, int numberOfRadioButton){
         driver.findElement(By.xpath("//*[@class='"+ className +"']//label[" + numberOfRadioButton + "]/input")).click();
-        return this;
+
     }
 
     public BasePage chooseCheckBox(WebElement webElement){
@@ -67,10 +77,10 @@ public abstract class BasePage {
         return this;
     }
 
-    public BasePage chooseUncheckBox(WebElement webElement){
+    public void chooseUncheckBox(WebElement webElement){
 //        //check if selected
 //        webElement.click();
-        return this;
+
     }
 
     public String getTextContent(WebElement webElement){
@@ -83,6 +93,6 @@ public abstract class BasePage {
 
     //scrollPage
 
-    //is Element avileable
+    //is Element available
 
 }
