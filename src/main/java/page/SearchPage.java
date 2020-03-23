@@ -28,7 +28,6 @@ public class SearchPage extends BasePage {
 
     public SearchPage(WebDriver driver) {
         super(driver);
-        driver.get(super.url.concat(PATH_TO_SEARCH_PAGE));
     }
 
     public void fillSearchField(String desireItem){
