@@ -1,28 +1,37 @@
 import core.Config;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-import page.HomePage;
-import page.RegisterPage;
-import page.SuccessPage;
+import page.ContactUsPage;
+import page.SearchPage;
 
 public class Main {
     public static void main(String []args){
 
-        //System.setProperty("webdriver.gecko.driver", "C:\\Users\\alexv\\Downloads\\Java\\drivers\\geckodriver.exe");
         System.setProperty(Config.driver, Config.pathForDriver);
+        WebDriver browser = Config.getBrowserInstance();
+//        browserInstance.get(Config.site);
+//        browserInstance.get(Config.site + "index.php?route=product/search");
+        SearchPage searchPage = new SearchPage(browser);
+        searchPage.fillSearchField("iPhone");
+        searchPage.sellectKategory("Phones & PDAs");
+        searchPage.selectSearchInSubkategories();
+        searchPage.selectSearchInDescription();
 
-        WebDriver driver = Config.getBrowserInstance();
+        searchPage.clickToSearchButton();
 
-        //driver.get("http://184-dp.tk/");
-        driver.get(Config.site);
-        HomePage homePage = new HomePage(driver);
-//      RegisterPage registerPage = homePage.goToRegisterPage();
-//      registerPage.chooseSubscribe("Yes");
-        homePage.chooseCurrency();
-        homePage.goToContactUsPage();
+//        ContactUsPage contactUsPage = new ContactUsPage(browser);
+
+
+
+
+//        RegisterPage registerPage = new RegisterPage(browser);
+
+
+//        SearchPage searchPage = new SearchPage(driver);
+//        searchPage.fillSearchField("iPhone");
+
+
+//        browser.quit();
 
 
     }
