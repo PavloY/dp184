@@ -25,68 +25,69 @@ public class FTC_Main_Registration_RegisterUserWithValidData {
     @Before
     public void setUp(){
         driver = Config.getBrowserInstance();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(Config.site);
         homePage = new HomePage(driver);
         regPage = homePage.goToRegisterPage();
     }
 
 
-    @Test
-    public void registerUserWithValidDataUsingAllFields() {
-
-        String expected = "Your Account Has Been Created!";
-
-        regPage.fillField(regPage.getFirstName(), "Boris")
-                .fillField(regPage.getLastName(), "Borisov")
-                .fillField(regPage.getEmail(), "Borisov@gmail.com")
-                .fillField(regPage.getTelephone(), "380506526595")
-                .fillField(regPage.getFax(), "8-812-1234567")
-                .fillField(regPage.getCompany(), "SoftServe")
-                .fillField(regPage.getAddress1(), "Kyiv")
-                .fillField(regPage.getAddress2(), "Peremohy Avenue, 32")
-                .fillField(regPage.getCity(), "Kyiv")
-                .fillField(regPage.getPostcode(), "0411687541")
-                .chooseDataFromDropDownMenu(regPage.getCountry(), "Ukraine")
-                .chooseDataFromDropDownMenu(regPage.getZone(), "Kyiv")
-                .fillField(regPage.getPassword(), "12345")
-                .fillField(regPage.getConfirm(), "12345")
-                .checkRadioButtonByName("form-group", 1)
-                .chooseCheckBox(regPage.getAgree());
-        SuccessPage successPage = regPage.clickOnButtonWithValidData();
-                String actual = successPage.getTextContent(successPage.getContent());
-
-        Assert.assertEquals(expected, actual);
-    }
-
-
-    @Test
-    public void registerUserWithValidDataUsingOnlyNecessaryFields(){
-
-        String expected = "Your Account Has Been Created!";
-
-        regPage.fillField(regPage.getFirstName(), "Boris")
-                .fillField(regPage.getLastName(), "Borisov")
-                .fillField(regPage.getEmail(), "Borisov@gmail.com")
-                .fillField(regPage.getTelephone(), "79055625489")
-                .fillField(regPage.getAddress1(), "Moscow")
-                .fillField(regPage.getCity(), "Moscow")
-                .chooseDataFromDropDownMenu(regPage.getCountry(), "Russian Federation")
-                .chooseDataFromDropDownMenu(regPage.getZone(), "Moscow")
-                .fillField(regPage.getPassword(), "QWERTY")
-                .fillField(regPage.getConfirm(), "QWERTY")
-                .chooseCheckBox(regPage.getAgree());
-
-        SuccessPage successPage = regPage.clickOnButtonWithValidData();
-        String actual = successPage.getTextContent(successPage.getContent());
-        Assert.assertEquals(expected, actual);
-
-    }
+//    @Test
+//    public void registerUserWithValidDataUsingAllFields() {
+//
+//        String expected = "Your Account Has Been Created!";
+//
+//        regPage.fillFirstName("Boris")
+//                .fillLastName("Borisov")
+//                .fillEmail("Borisov@gmail.com")
+//                .fillTelephone("380506526595")
+//                .fillFax("8-812-1234567")
+//                .fillCompany("SoftServe")
+//                .fillAddress1("Kyiv")
+//                .fillAddress2("Peremohy Avenue, 32")
+//                .fillCity("Kyiv")
+//                .fillPostCode("0411687541")
+//                .chooseCountry("Ukraine")
+//                .chooseRegion("Kyiv")
+//                .fillPassword("12345")
+//                .fillConfirmPassword("12345")
+//                .checkRadioButtonByName("form-group", 1)
+//                .chooseCheckBox(regPage.getAgree());
+//
+//        SuccessPage successPage = regPage.clickOnButtonWithValidData();
+//                String actual = successPage.getContent();
+//
+//        Assert.assertEquals(expected, actual);
+//    }
+//
+//
+//    @Test
+//    public void registerUserWithValidDataUsingOnlyNecessaryFields(){
+//
+//        String expected = "Your Account Has Been Created!";
+//
+//        regPage.fillFirstName("Boris")
+//                .fillLastName("Borisov")
+//                .fillEmail("Borisov@gmail.com")
+//                .fillTelephone("79055625489")
+//                .fillAddress1("Moscow")
+//                .fillCity("Moscow")
+//                .chooseCountry("Russian Federation")
+//                .chooseRegion("Moscow")
+//                .fillPassword("QWERTY")
+//                .fillConfirmPassword("QWERTY")
+//                .chooseCheckBox(regPage.getAgree());
+//
+//        SuccessPage successPage = regPage.clickOnButtonWithValidData();
+//        String actual = successPage.getContent();
+//        Assert.assertEquals(expected, actual);
+//
+//    }
 
     @After
     public void tearDown(){
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(Config.adminSite);
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
         driver.findElement(By.id("input-username")).sendKeys("admin");
         driver.findElement(By.id("input-password")).sendKeys("1234566aZ$");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
