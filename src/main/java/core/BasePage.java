@@ -81,9 +81,6 @@ public abstract class BasePage {
         return this;
     }
 
-    public String getTextContent(WebElement webElement){
-        return webElement.getText();
-    }
 
     public String getTitlePage(){
         return driver.getTitle();
