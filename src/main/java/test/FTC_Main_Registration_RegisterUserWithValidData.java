@@ -17,7 +17,7 @@ public class FTC_Main_Registration_RegisterUserWithValidData {
     HomePage homePage;
     RegisterPage regPage;
 
-    @BeforeClass
+   /* @BeforeClass
     public static void start(){
         System.setProperty(Config.driver, Config.pathForDriver);
     }
@@ -98,5 +98,5 @@ public class FTC_Main_Registration_RegisterUserWithValidData {
         driver.findElement(By.xpath("//div[@class='pull-right']//button[@class='btn btn-danger']")).click();
         driver.switchTo().alert().accept();
         driver.quit();
-    }
+    }*/
 }
