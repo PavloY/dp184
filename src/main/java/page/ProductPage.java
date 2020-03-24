@@ -5,22 +5,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+
+import java.util.List;
 
 
 public class ProductPage extends BasePage {
-    @FindBy(xpath = "//*[@id=\"content\"]/div[1]/div[2]/div[1]/button[1]/i")
-    protected WebElement wishListButton;
-
-    @FindBy(xpath = "//*[@id=\"content\"]/div[1]/div[2]/div[1]/button[2]")
-    protected WebElement productComparisonButton;
+    @FindBy(className = "btn-default")
+    protected List<WebElement> wishListAndComparisonListButton;
 
     @FindBy(id = "input-quantity")
     protected WebElement quantityInput;
 
-    @FindBy(xpath = "//*[@id=\"content\"]/div[1]/div[1]/ul[1]/li[1]/a")
-    protected WebElement photo;
+    @FindBy(className = "thumbnail")
+    protected List<WebElement> listPhoto;
 
-    @FindBy(xpath = "/html/body/div[2]/div/button[2]")
+    @FindBy(className = "mfp-arrow")
     protected WebElement turnPhotoButton;
 
     @FindBy(className = "mfp-close")
@@ -29,7 +29,7 @@ public class ProductPage extends BasePage {
     @FindBy(id ="button-cart")
     protected WebElement addToCartButton;
 
-    @FindBy(xpath = "//*[@id=\"content\"]/div[1]/div[1]/ul[2]/li[2]/a")
+    @FindBy(xpath = "//*[contains(text(), 'Reviews')]")
     protected WebElement reviewProductButton;
 
     @FindBy(id = "input-name")
@@ -41,17 +41,20 @@ public class ProductPage extends BasePage {
     @FindBy(id = "button-review")
     protected WebElement sendReviewButton;
 
+    @FindBy(name = "rating")
+    protected List<WebElement> listRatingButton;
+
     public ProductPage(WebDriver driver){
         super(driver);
     }
 
-    public WishListPage addProductToWishList(){
-        wishListButton.click();
-        return new WishListPage(driver);
+    public void addProductToWishList(){
+        wishListAndComparisonListButton.get(1).click();
+        //return new WishListPage(driver);
     }
 
     public void addProductToProductComparison(){
-        productComparisonButton.click();
+        wishListAndComparisonListButton.get(2).click();
         // return new ProductComparisonPage(driver);
     }
 
@@ -61,7 +64,7 @@ public class ProductPage extends BasePage {
     }
 
     public ProductPage zoomPhoto(){
-        photo.click();
+        listPhoto.get(0).click();
         return this;
     }
 
@@ -89,7 +92,7 @@ public class ProductPage extends BasePage {
         return this;
     }
     private void checkRatingButton(int numberOfRatingButton){
-        driver.findElement(By.xpath("//*[@id=\"form-review\"]/div[4]/div/input[" + numberOfRatingButton +"]")).click();
+        listRatingButton.get(numberOfRatingButton).click();
     }
     // add method sharing the products
 }
