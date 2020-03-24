@@ -4,9 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import page.HomePage;
-import page.RegisterPage;
-import page.SuccessPage;
+import page.*;
 
 public class Main {
     public static void main(String []args){
@@ -17,12 +15,20 @@ public class Main {
         WebDriver driver = Config.getBrowserInstance();
 
         //driver.get("http://184-dp.tk/");
-        driver.get(Config.site);
-        HomePage homePage = new HomePage(driver);
+       driver.get("http://184-dp.tk/index.php?route=account/wishlist");
+       // HomePage homePage = new HomePage(driver);
 //      RegisterPage registerPage = homePage.goToRegisterPage();
 //      registerPage.chooseSubscribe("Yes");
-        homePage.chooseCurrency();
-        homePage.goToContactUsPage();
+        //homePage.chooseCurrency();
+        //homePage.goToContactUsPage();
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.fillLoginEmail("ira@i.ua");
+        loginPage.fillLoginPassword("Ira007");
+        loginPage.clickLoginButton();
+        WishListPage wishListPage = new WishListPage(driver);
+        wishListPage.removeProductFromWishList();
+
 
 
     }

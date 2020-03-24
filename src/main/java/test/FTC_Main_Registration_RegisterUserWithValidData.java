@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class FTC_Main_Registration_RegisterUserWithValidData {
-    WebDriver driver;
+/*    WebDriver driver;
     HomePage homePage;
     RegisterPage regPage;
 
@@ -98,4 +98,6 @@ public class FTC_Main_Registration_RegisterUserWithValidData {
         driver.switchTo().alert().accept();
         driver.quit();
     }
+
+ */
 }
