@@ -7,9 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.concurrent.TimeUnit;
-
 public class RegisterPage extends BasePage {
+
     @FindBy(id = "input-firstname")
     private WebElement firstName;
 
@@ -62,82 +61,93 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//input[@value='Continue']")
     private WebElement button;
 
+
     public RegisterPage(WebDriver driver) {
         super(driver);
     }
 
 
-    public WebElement getFirstName() {
-        return firstName;
+    public RegisterPage fillFirstName(String userFirstName){
+        fillField(firstName, userFirstName);
+        return this;
     }
 
-    public WebElement getLastName() {
-        return lastName;
+    public RegisterPage fillLastName(String userLastName){
+        fillField(lastName, userLastName);
+        return this;
     }
 
-    public WebElement getEmail() {
-        return email;
+    public RegisterPage fillEmail(String userEmail){
+        fillField(email, userEmail);
+        return this;
     }
 
-    public WebElement get_email() {
-        return _email;
+    public RegisterPage fillTelephone(String userTelephone){
+        fillField(telephone, userTelephone);
+        return this;
     }
 
-    public WebElement getTelephone() {
-        return telephone;
+    public RegisterPage fillFax(String userFax){
+        fillField(fax, userFax);
+        return this;
     }
 
-    public WebElement getFax() {
-        return fax;
+    public RegisterPage fillCompany(String userCompany){
+        fillField(company, userCompany);
+        return this;
     }
 
-    public WebElement getCompany() {
-        return company;
+    public RegisterPage fillAddress1(String userAddress1){
+        fillField(address1, userAddress1);
+        return this;
     }
 
-    public WebElement getAddress1() {
-        return address1;
+    public RegisterPage fillAddress2(String userAddress2){
+        fillField(address2, userAddress2);
+        return this;
     }
 
-    public WebElement getAddress2() {
-        return address2;
+    public RegisterPage fillCity(String userCity){
+        fillField(city, userCity);
+        return this;
     }
 
-    public WebElement getCity() {
-        return city;
+    public RegisterPage fillPostCode(String userPostCode){
+        fillField(postcode, userPostCode);
+        return this;
     }
 
-    public WebElement getPostcode() {
-        return postcode;
+    public RegisterPage chooseCountry(String userCountry){
+        chooseDataFromDropDownMenu(country, userCountry);
+        return this;
     }
 
-    public WebElement getCountry() {
-        return country;
+    public RegisterPage chooseRegion(String userRegion){
+        chooseDataFromDropDownMenu(zone, userRegion);
+        return this;
     }
 
-    public WebElement getZone() {
-        return zone;
+    public RegisterPage fillPassword(String userPassword){
+        fillField(password, userPassword);
+        return this;
     }
 
-    public WebElement getPassword() {
-        return password;
-    }
-
-    public WebElement getConfirm() {
-        return confirm;
+    public RegisterPage fillConfirmPassword(String userConfirmPassword){
+        fillField(confirm, userConfirmPassword);
+        return this;
     }
 
     public WebElement getAgree() {
         return agree;
     }
 
-
-    public SuccessPage clickOnButtonWithValidData() {
+    public SuccessPage clickOnButtonWithValidData(){
+        System.out.println(5555);
         button.click();
         return new SuccessPage(driver);
     }
 
-    public RegisterPage clickOnButtonWithInvalidData() {
+    public RegisterPage clickOnButtonWithInvalidData(){
         button.click();
         return this;
     }
