@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import page.HomePage;
+import page.ProductPage;
 import page.RegisterPage;
 import page.SuccessPage;
 
@@ -17,12 +18,15 @@ public class Main {
         WebDriver driver = Config.getBrowserInstance();
 
         //driver.get("http://184-dp.tk/");
-        driver.get(Config.site);
-        HomePage homePage = new HomePage(driver);
+       driver.get(Config.site);
+       // HomePage homePage = new HomePage(driver);
 //      RegisterPage registerPage = homePage.goToRegisterPage();
 //      registerPage.chooseSubscribe("Yes");
-        homePage.chooseCurrency();
-        homePage.goToContactUsPage();
+        //homePage.chooseCurrency();
+        //homePage.goToContactUsPage();
+
+        ProductPage productPage = new ProductPage(driver);
+
 
 
     }
