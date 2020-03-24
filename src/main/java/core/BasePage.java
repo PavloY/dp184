@@ -87,12 +87,17 @@ public abstract class BasePage {
         return webElement.getText();
     }
 
+
+    public String getTextContent(WebElement webElement){
+        return webElement.getText();
+    }
+
     public String getTitlePage(){
         return driver.getTitle();
     }
 
     //scrollPage
 
-    //is Element available
+    //is Element avileable
 
 }
