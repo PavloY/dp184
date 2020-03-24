@@ -1,13 +1,12 @@
 package core;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import page.ContactUsPage;
-import page.HomePage;
-import page.RegisterPage;
+import page.*;
 
 public abstract class BasePage {
 
@@ -24,6 +23,11 @@ public abstract class BasePage {
     @FindBy(xpath = "/html/body/footer/div/div/div[2]/ul/li[1]/a")
     protected  WebElement contactUs;
 
+    @FindBy(xpath = "//*[@id=\"content\"]/div[2]/div[2]/div/div[2]/h4/a")
+    protected  WebElement product;
+
+    @FindBy(id = "wishlist-total")
+    protected WebElement wishList;
 
     protected WebDriver driver;
 
@@ -34,7 +38,6 @@ public abstract class BasePage {
 
     public void chooseCurrency(){
         currency.click();
-
     }
 
 
@@ -54,10 +57,19 @@ public abstract class BasePage {
         return new ContactUsPage(driver);
     }
 
+    /*public ProductPage goToProductPage(){
+        product.click();
+        return new ProductPage(driver);
+    }
+*/
+    /*public LoginPage goToWishListPage(){
+        wishList.click();
+        return new LoginPage(driver);
+    }
+*/
     public void fillField(WebElement webElement, String userData){
         webElement.clear();
         webElement.sendKeys(userData);
-
     }
 
     public void chooseDataFromDropDownMenu(WebElement webElement, String userData){
@@ -68,7 +80,6 @@ public abstract class BasePage {
 
     public void checkRadioButtonByName(String className, int numberOfRadioButton){
         driver.findElement(By.xpath("//*[@class='"+ className +"']//label[" + numberOfRadioButton + "]/input")).click();
-
     }
 
     public BasePage chooseCheckBox(WebElement webElement){
@@ -92,6 +103,11 @@ public abstract class BasePage {
     }
 
     //scrollPage
+    public BasePage scrollDownPage(){
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+        return this;
+    }
 
     //is Element available
 

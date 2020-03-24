@@ -19,6 +19,7 @@ public class ContactUsPage extends BasePage {
     @FindBy(xpath = "//input[@value='Submit']")
     private WebElement submitButton;
 
+
     public ContactUsPage(WebDriver driver) {
         super(driver);
     }
