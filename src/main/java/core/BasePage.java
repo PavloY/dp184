@@ -66,22 +66,22 @@ public abstract class BasePage {
 
     }
 
-    public void checkRadioButtonByName(String className, int numberOfRadioButton){
+    public BasePage checkRadioButtonByName(String className, int numberOfRadioButton){
         driver.findElement(By.xpath("//*[@class='"+ className +"']//label[" + numberOfRadioButton + "]/input")).click();
-
-    }
-
-    public BasePage chooseCheckBox(WebElement webElement){
-        //check if selected
-        webElement.click();
         return this;
     }
 
-    public void chooseUncheckBox(WebElement webElement){
-//        //check if selected
-//        webElement.click();
-
+    public BasePage chooseCheckBox(WebElement webElement){
+        if(!webElement.isSelected()) webElement.click();
+        return this;
     }
+
+    public BasePage chooseUncheckBox(WebElement webElement){
+        if(webElement.isSelected()) webElement.click();
+        return this;
+    }
+
+
 
     public String getTextContent(WebElement webElement){
         return webElement.getText();
