@@ -10,21 +10,21 @@ import java.util.List;
 
 public class WishListPage extends BasePage {
 
-    @FindBy(className = "btn-primary")
-    protected List<WebElement> addProductToCartButton;
+    @FindBy(xpath = "//button[@data-original-title=\"Add to Cart\"]")
+    private WebElement addProductToCartButton;
 
-    @FindBy(xpath = "//*[@id=\"content\"]/div[1]/table/tbody/tr/td[6]/a")
+    @FindBy(xpath = "//a[@data-original-title=\"Remove\"]")
     protected WebElement removeProductFromWishListButton;
 
-    @FindBy(xpath = "//*[@id=\"content\"]/div[2]/div")
+    @FindBy(xpath = "//*[contains(text(), 'Continue')]")
     protected WebElement continueShoppingFromWishListButton;
 
     public WishListPage(WebDriver driver){
         super(driver);
     }
 
-    public ShoppingCartPage addProductFromWishListToCart(int numberOfProduct){
-        addProductToCartButton.get(numberOfProduct).click();
+    public ShoppingCartPage addProductToCart(){
+        addProductToCartButton.click();
         return new ShoppingCartPage(driver);
     }
 
