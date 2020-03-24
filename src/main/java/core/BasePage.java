@@ -20,79 +20,72 @@ public abstract class BasePage {
     @FindBy(xpath = "//div[@id='logo']/a/img")
     protected WebElement homeRedirect;
 
-    //@FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=information/contact']")
     @FindBy(xpath = "/html/body/footer/div/div/div[2]/ul/li[1]/a")
-    protected  WebElement contactUs;
-
+    protected WebElement contactUs;
 
     protected WebDriver driver;
 
-    public BasePage(WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public void chooseCurrency(){
+    public void chooseCurrency() {
         currency.click();
-
     }
 
-
-    public RegisterPage goToRegisterPage(){
+    public RegisterPage goToRegisterPage() {
         myAccount.click();
         driver.findElement(By.linkText("Register")).click();
         return new RegisterPage(driver);
     }
 
-    public HomePage goToHomePage(){
+    public HomePage goToHomePage() {
         homeRedirect.click();
         return new HomePage(driver);
     }
 
-    public ContactUsPage goToContactUsPage(){
+    public ContactUsPage goToContactUsPage() {
         contactUs.click();
         return new ContactUsPage(driver);
     }
 
-    public void fillField(WebElement webElement, String userData){
+    public void fillField(WebElement webElement, String userData) {
         webElement.clear();
         webElement.sendKeys(userData);
-
     }
 
-    public void chooseDataFromDropDownMenu(WebElement webElement, String userData){
+    public void chooseDataFromDropDownMenu(WebElement webElement, String userData) {
         webElement.click();
         driver.findElement(By.xpath("//option[text()='" + userData + "']")).click();
 
     }
 
-    public void checkRadioButtonByName(String className, int numberOfRadioButton){
-        driver.findElement(By.xpath("//*[@class='"+ className +"']//label[" + numberOfRadioButton + "]/input")).click();
+    public void checkRadioButtonByName(String className, int numberOfRadioButton) {
+        driver.findElement(By.xpath("//*[@class='" + className + "']//label[" + numberOfRadioButton + "]/input")).click();
 
     }
 
-    public BasePage chooseCheckBox(WebElement webElement){
-        //check if selected
-        webElement.click();
+    public BasePage chooseCheckBox(WebElement webElement) {
+        if (!webElement.isSelected()) webElement.click();
         return this;
     }
 
-    public void chooseUncheckBox(WebElement webElement){
+    public void chooseUncheckBox(WebElement webElement) {
 //        //check if selected
 //        webElement.click();
 
     }
 
-    public String getTextContent(WebElement webElement){
+    public String getTextContent(WebElement webElement) {
         return webElement.getText();
     }
 
-    public String getTitlePage(){
+    public String getTitlePage() {
         return driver.getTitle();
     }
 
     //scrollPage
 
     //is Element available
-
 }

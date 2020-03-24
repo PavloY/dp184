@@ -7,8 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class RegisterPage extends BasePage {
+import java.util.concurrent.TimeUnit;
 
+public class RegisterPage extends BasePage {
     @FindBy(id = "input-firstname")
     private WebElement firstName;
 
@@ -131,12 +132,12 @@ public class RegisterPage extends BasePage {
     }
 
 
-    public SuccessPage clickOnButtonWithValidData(){
+    public SuccessPage clickOnButtonWithValidData() {
         button.click();
         return new SuccessPage(driver);
     }
 
-    public RegisterPage clickOnButtonWithInvalidData(){
+    public RegisterPage clickOnButtonWithInvalidData() {
         button.click();
         return this;
     }

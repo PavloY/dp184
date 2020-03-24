@@ -38,65 +38,76 @@ public class ProductReturns extends BasePage {
     @FindBy(id = "input-quantity")
     private WebElement quantity;
 
-    ////Reason for Return?????????////////
-///////// copy XPATH vs full XPATH
-
-//    change to short xpath
-    @FindBy(xpath = "/html/body/div[2]/div/div/form/fieldset[2]/div[4]/div/div[1]/label/input")
+    @FindBy(xpath = "//input[@value='1']")
     private WebElement deadOnArrival;
 
     @FindBy(id = "input-comment")
     private WebElement faultyOrOtherDetails;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div/form/div/div[2]/input")
+    @FindBy(xpath = "//input[@value='Submit']")
     private WebElement submitButton;
 
-    public WebElement getFirstName() {
-        return firstName;
+    public ProductReturns fillFirstName(String userFirstName) {
+        fillField(firstName, userFirstName);
+        return this;
     }
 
-    public WebElement getEmail() {
-        return email;
+    public ProductReturns fillLastName(String userLastName) {
+        fillField(lastName, userLastName);
+        return this;
     }
 
-    public WebElement getTelephone() {
-        return telephone;
+    public ProductReturns fillEmail(String userEmail) {
+        fillField(email, userEmail);
+        return this;
     }
 
-    public WebElement getOrderId() {
-        return orderId;
+    public ProductReturns fillTelephone(String userTelephone) {
+        fillField(telephone, userTelephone);
+        return this;
     }
 
-    public WebElement getOrderDate() {
-        return orderDate;
+    public ProductReturns fillOrderId(String userOrderId) {
+        fillField(orderId, userOrderId);
+        return this;
     }
 
-    public WebElement getProductName() {
-        return productName;
+    public ProductReturns fillOrderDate(String userOrderDate) {
+        fillField(orderDate, userOrderDate);
+        return this;
     }
 
-    public WebElement getProductCode() {
-        return productCode;
+    public ProductReturns fillProductName(String userProductName) {
+        fillField(productName, userProductName);
+        return this;
     }
 
-    public WebElement getQuantity() {
-        return quantity;
+    public ProductReturns fillProductCode(String userProductCode) {
+        fillField(productCode, userProductCode);
+        return this;
     }
 
-    public WebElement getDeadOnArrival() {
-        return deadOnArrival;
+    public ProductReturns fillQuantity(String userQuantity) {
+        fillField(quantity, userQuantity);
+        return this;
     }
 
-    public WebElement getFaultyOrOtherDetails() {
-        return faultyOrOtherDetails;
+    public ProductReturns fillFaultyOrOtherDetails(String userFaultyOrOtherDetails) {
+        fillField(faultyOrOtherDetails, userFaultyOrOtherDetails);
+        return this;
     }
 
-    //    public SuccessPage clickOnButtonWithValidData(){
-//        submitButton.click();
-//        return new SuccessPage(driver);
-//    }
+    public ProductReturns chooseCheckBoxDeadOnArrival(WebElement deadOnArrival) {
+        chooseCheckBox(deadOnArrival);
+        return this;
+    }
 
-    public ProductReturns clickOnButtonWithInvalidData() {
+    public SuccessPage clickOnButtonForValidData() {
+        submitButton.click();
+        return new SuccessPage(driver);
+    }
+
+    public ProductReturns clickOnButtonForInvalidData() {
         submitButton.click();
         return this;
     }
