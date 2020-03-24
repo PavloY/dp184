@@ -1,11 +1,10 @@
 package page;
 
 import core.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
+
 
 import java.util.List;
 
@@ -48,14 +47,14 @@ public class ProductPage extends BasePage {
         super(driver);
     }
 
-    public void addProductToWishList(){
+    public WishListPage addProductToWishList(){
         wishListAndComparisonListButton.get(1).click();
-        //return new WishListPage(driver);
+        return new WishListPage(driver);
     }
 
-    public void addProductToProductComparison(){
+    public ProductComparisonPage addProductToProductComparison(){
         wishListAndComparisonListButton.get(2).click();
-        // return new ProductComparisonPage(driver);
+        return new ProductComparisonPage(driver);
     }
 
     public ProductPage fillProductQuantity(String userQuantity){
