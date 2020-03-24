@@ -72,9 +72,9 @@ public class ProductPage extends BasePage {
         return this;
     }
 
-    public ShoppingCartPage addToCart(){
+    public void addToCart(){
         addToCartButton.click();
-        return new ShoppingCartPage(driver);
+        //return new ShoppingCartPage(driver);
     }
 
     public ProductPage clickOnReviewLink() {
