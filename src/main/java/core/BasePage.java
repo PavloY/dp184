@@ -20,6 +20,7 @@ public abstract class BasePage {
     @FindBy(xpath = "//div[@id='logo']/a/img")
     protected WebElement homeRedirect;
 
+    //@FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=information/contact']")
     @FindBy(xpath = "/html/body/footer/div/div/div[2]/ul/li[1]/a")
     protected  WebElement contactUs;
 
@@ -91,6 +92,7 @@ public abstract class BasePage {
     }
 
     //scrollPage
+
     //is Element avileable
 
 }
