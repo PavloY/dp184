@@ -5,11 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 
 public class WishListPage extends BasePage {
 
-    @FindBy(xpath = "//*[@id=\"content\"]/div[1]/table/tbody/tr/td[6]/button")
-    protected WebElement addProductToCartButton;
+    @FindBy(className = "btn-primary")
+    protected List<WebElement> addProductToCartButton;
 
     @FindBy(xpath = "//*[@id=\"content\"]/div[1]/table/tbody/tr/td[6]/a")
     protected WebElement removeProductFromWishListButton;
@@ -21,9 +23,9 @@ public class WishListPage extends BasePage {
         super(driver);
     }
 
-    public void addProductFromWishListToCart(){
-        addProductToCartButton.click();
-        // return new ShoppingCartPage(driver);
+    public ShoppingCartPage addProductFromWishListToCart(int numberOfProduct){
+        addProductToCartButton.get(numberOfProduct).click();
+        return new ShoppingCartPage(driver);
     }
 
     public WishListPage removeProductFromWishList(){
@@ -31,9 +33,9 @@ public class WishListPage extends BasePage {
         return this;
     }
 
-    public void continueShoppingFromWishList(){
+    public LoginPage continueShoppingFromWishList(){
         continueShoppingFromWishListButton.click();
-        // return new LoginPage(driver);
+        return new LoginPage(driver);
     }
 
 }
