@@ -26,12 +26,10 @@ public abstract class BasePage {
 
 
     protected WebDriver driver;
-    protected String url = Config.site;
 
     public BasePage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        driver.get(url);
     }
 
     public void chooseCurrency(){

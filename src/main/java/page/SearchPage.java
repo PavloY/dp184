@@ -30,24 +30,29 @@ public class SearchPage extends BasePage {
         super(driver);
     }
 
-    public void fillSearchField(String desireItem){
+    public SearchPage fillSearchField(String desireItem){
         fillField(searchField,desireItem);
+        return this;
     }
 
-    public void sellectKategory(String categotiOfItem){
+    public SearchPage sellectKategory(String categotiOfItem){
         chooseDataFromDropDownMenu(category,categotiOfItem);
+        return this;
     }
 
-    public void selectSearchInSubkategories(){
-        searchInSubcategories.click();
+    public SearchPage selectSearchInSubkategories(){
+        chooseCheckBox(searchInSubcategories);
+        return this;
     }
 
-    public void selectSearchInDescription(){
-        searchInProductDescriptions.click();
+    public SearchPage selectSearchInDescription(){
+        chooseCheckBox(searchInProductDescriptions);
+        return this;
     }
 
-    public void clickToSearchButton(){
+    public SearchPage clickToSearchButton(){
         searchButton.click();
+        return this;
     }
 
 
