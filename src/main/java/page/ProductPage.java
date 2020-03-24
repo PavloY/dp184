@@ -10,50 +10,60 @@ import java.util.List;
 
 
 public class ProductPage extends BasePage {
-    @FindBy(className = "btn-default")
-    protected List<WebElement> wishListAndComparisonListButton;
+    @FindBy(tagName = "h1")
+    private WebElement productName;
+
+    @FindBy(xpath = "//li/h2")
+    private WebElement productPrice;
+
+    @FindBy(xpath = "//button[@data-original-title=\"Add to Wish List\"]")
+    private WebElement wishListButton;
+
+    @FindBy(xpath = "//button[@data-original-title=\"Compare this Product\"]")
+    private WebElement comparisonButton;
 
     @FindBy(id = "input-quantity")
-    protected WebElement quantityInput;
-
-    @FindBy(className = "thumbnail")
-    protected List<WebElement> listPhoto;
-
-    @FindBy(className = "mfp-arrow")
-    protected WebElement turnPhotoButton;
-
-    @FindBy(className = "mfp-close")
-    protected WebElement closePhotoButton;
+    private WebElement quantityInput;
 
     @FindBy(id ="button-cart")
-    protected WebElement addToCartButton;
+    private WebElement addToCartButton;
 
     @FindBy(xpath = "//*[contains(text(), 'Reviews')]")
-    protected WebElement reviewProductButton;
+    private WebElement reviewProductButton;
 
     @FindBy(id = "input-name")
-    protected WebElement nameInput;
+    private WebElement nameInput;
 
     @FindBy(id = "input-review")
-    protected WebElement reviewInput;
+    private WebElement reviewInput;
 
     @FindBy(id = "button-review")
-    protected WebElement sendReviewButton;
+    private WebElement sendReviewButton;
 
     @FindBy(name = "rating")
-    protected List<WebElement> listRatingButton;
+    private List<WebElement> listRatingButton;
 
     public ProductPage(WebDriver driver){
         super(driver);
     }
 
+    public ProductPage getNameValue() {
+        productName.getText();
+        return this;
+    }
+
+    public ProductPage getPriceValue() {
+        productPrice.getText();
+        return this;
+    }
+
     public WishListPage addProductToWishList(){
-        wishListAndComparisonListButton.get(1).click();
+        wishListButton.click();
         return new WishListPage(driver);
     }
 
     public ProductComparisonPage addProductToProductComparison(){
-        wishListAndComparisonListButton.get(2).click();
+        comparisonButton.click();
         return new ProductComparisonPage(driver);
     }
 
@@ -62,36 +72,34 @@ public class ProductPage extends BasePage {
         return this;
     }
 
-    public ProductPage zoomPhoto(){
-        listPhoto.get(0).click();
-        return this;
-    }
-
-    public ProductPage turnPhoto(){
-        turnPhotoButton.click();
-        return this;
-    }
-
-    public ProductPage closePhoto(){
-        closePhotoButton.click();
-        return this;
-    }
-
-    public void addToCart(){
+    public ShoppingCartPage addToCart(){
         addToCartButton.click();
-        // return new ShoppingCartPage;
+        return new ShoppingCartPage(driver);
     }
 
-    public ProductPage addReviewOfProduct(String userName, String userReview, int userRating){
+    public ProductPage clickOnReviewLink() {
         reviewProductButton.click();
+        return this;
+    }
+
+    public ProductPage fillName(String userName) {
         fillField(nameInput, userName);
+        return this;
+    }
+
+    public ProductPage fillReview(String userReview) {
         fillField(reviewInput, userReview);
-        checkRatingButton(userRating);
+        return this;
+    }
+    public ProductPage checkRating(int userRating){
+        listRatingButton.get(userRating).click();
+        return this;
+    }
+
+    public ProductPage sendReview(){
         sendReviewButton.click();
         return this;
     }
-    private void checkRatingButton(int numberOfRatingButton){
-        listRatingButton.get(numberOfRatingButton).click();
-    }
+
     // add method sharing the products
 }
