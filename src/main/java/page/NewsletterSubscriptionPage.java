@@ -11,9 +11,14 @@ public class NewsletterSubscriptionPage extends BasePage/*extends LoginPage*/ {
         super(driver);
     }
 
-    //E-Mail Address from LoginPage
-    //Password from LoginPage
-    // LoginButton from LoginPage
+    //E-Mail Address from LoginPage & method
+    //Password from LoginPage & method
+    //LoginButton from LoginPage & method
+//    driver.get("http://184-dp.tk/index.php?route=account/login");
+//    driver.findElement(By.xpath("//*[@id=\"input-email\"]")).sendKeys("opencard@mailforspam.com");
+//    driver.findElement(By.xpath("//*[@id=\"input-password\"]")).sendKeys("Qwerty");
+//    driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[2]/div/form/input[1]")).click();
+
     @FindBy(xpath = "//input[@value='0']")
     private WebElement no;
     @FindBy(xpath = "//input[@value='1']")
@@ -22,12 +27,12 @@ public class NewsletterSubscriptionPage extends BasePage/*extends LoginPage*/ {
     @FindBy(xpath = "//input[@value='Continue']")
     private WebElement continueButton;
 
-    public NewsletterSubscriptionPage chooseCheckBoxNo(WebElement no) {
+    public NewsletterSubscriptionPage chooseCheckBoxNo() {
         chooseCheckBox(no);
         return this;
     }
 
-    public NewsletterSubscriptionPage chooseCheckBoxYes(WebElement yes) {
+    public NewsletterSubscriptionPage chooseCheckBoxYes() {
         chooseCheckBox(yes);
         return this;
     }
