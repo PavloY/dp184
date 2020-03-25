@@ -15,9 +15,9 @@ public class LogoutPage extends BasePage {
         super(driver);
     }
 
-    @Override
-    public HomePage goToHomePage() {
+
+    public HomePage clickOnContinueButton() {
         continueButton.click();
-        return super.goToHomePage();
+        return new HomePage(driver);
     }
 }
