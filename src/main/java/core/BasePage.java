@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import page.BrandsPage;
 import page.ContactUsPage;
 import page.HomePage;
 import page.RegisterPage;
@@ -20,10 +21,11 @@ public abstract class BasePage {
     @FindBy(xpath = "//div[@id='logo']/a/img")
     protected WebElement homeRedirect;
 
-    //@FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=information/contact']")
     @FindBy(xpath = "/html/body/footer/div/div/div[2]/ul/li[1]/a")
     protected  WebElement contactUs;
 
+    @FindBy(xpath = "/html/body/footer/div/div/div[3]/ul/li[1]/a")
+    protected  WebElement Brands;
 
     protected WebDriver driver;
 
@@ -52,6 +54,11 @@ public abstract class BasePage {
     public ContactUsPage goToContactUsPage(){
         contactUs.click();
         return new ContactUsPage(driver);
+    }
+
+    public BrandsPage goToBrandsPage(){
+        Brands.click();
+        return new BrandsPage(driver);
     }
 
     public void fillField(WebElement webElement, String userData){
