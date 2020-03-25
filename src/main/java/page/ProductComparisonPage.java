@@ -7,8 +7,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class ProductComparisonPage extends BasePage {
 
-    @FindBy(xpath = "//*[@id=\"content\"]/div/div")
-    protected WebElement continueFromProductComparisonButton;
+    @FindBy(xpath = "//*[contains(text(), 'Continue')]")
+    private WebElement continueFromProductComparisonButton;
 
     public ProductComparisonPage(WebDriver driver){
         super(driver);
