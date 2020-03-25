@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 
 public class WishListPage extends BasePage {
 
@@ -33,9 +31,9 @@ public class WishListPage extends BasePage {
         return this;
     }
 
-    public LoginPage continueShoppingFromWishList(){
+    public LogInPage continueShoppingFromWishList(){
         continueShoppingFromWishListButton.click();
-        return new LoginPage(driver);
+        return new LogInPage(driver);
     }
 
 }
