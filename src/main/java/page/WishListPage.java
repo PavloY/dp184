@@ -31,9 +31,9 @@ public class WishListPage extends BasePage {
         return this;
     }
 
-    public LogInPage continueShoppingFromWishList(){
+    public void continueShoppingFromWishList(){
         continueShoppingFromWishListButton.click();
-        return new LogInPage(driver);
+       // return new LogInPage(driver);
     }
 
 }
