@@ -19,6 +19,10 @@ public class AddressBookPage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Delete')]")
     private WebElement deleteButton;
 
+    @FindBy(className = "alert-warning")
+    private WebElement warningMessage;
+
+
     public AddressBookPage(WebDriver driver) {
         super(driver);
     }
@@ -42,5 +46,17 @@ public class AddressBookPage extends BasePage {
         deleteButton.click();
         return this;
     }
+
+     private boolean isWarningMessageDisplay (){
+        return warningMessage.isDisplayed();
+     }
+
+     public String getContentWarningMessage () {
+        if(isWarningMessageDisplay()) {
+            return warningMessage.getText();
+        }
+        return null;
+     }
+
 
 }
