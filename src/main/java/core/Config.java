@@ -54,6 +54,4 @@ public final class Config {
         Config.driver = properties.getProperty("Driver");
 
     }
-
-
 }
