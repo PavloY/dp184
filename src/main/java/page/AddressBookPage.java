@@ -17,7 +17,7 @@ public class AddressBookPage extends BasePage {
     private WebElement editButton;
 
     @FindBy(xpath = "//*[@id=\"content\"]/div[1]/table/tbody/tr/td[2]/a[2]")
-    private WebElement deleteButton;
+    private WebElement deleteButton;jjj
 
     public AddressBookPage(WebDriver driver) {
         super(driver);
