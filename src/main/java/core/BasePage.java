@@ -5,9 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import page.ContactUsPage;
-import page.HomePage;
-import page.RegisterPage;
+import page.*;
 
 public abstract class BasePage {
 
@@ -17,13 +15,12 @@ public abstract class BasePage {
     @FindBy(className = "dropdown")
     protected WebElement myAccount;
 
-    @FindBy(xpath = "//div[@id='logo']/a/img")
+    @FindBy(xpath = "//*[@id=\"logo\"]/a/img")
     protected WebElement homeRedirect;
 
     //@FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=information/contact']")
     @FindBy(xpath = "/html/body/footer/div/div/div[2]/ul/li[1]/a")
     protected  WebElement contactUs;
-
 
     protected WebDriver driver;
 
@@ -34,9 +31,7 @@ public abstract class BasePage {
 
     public void chooseCurrency(){
         currency.click();
-
     }
-
 
     public RegisterPage goToRegisterPage(){
         myAccount.click();
