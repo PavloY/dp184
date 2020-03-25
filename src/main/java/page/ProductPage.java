@@ -47,14 +47,12 @@ public class ProductPage extends BasePage {
         super(driver);
     }
 
-    public ProductPage getNameValue() {
-        productName.getText();
-        return this;
+    public String getNameValue() {
+        return productName.getText();
     }
 
-    public ProductPage getPriceValue() {
-        productPrice.getText();
-        return this;
+    public String getPriceValue() {
+        return productPrice.getText();
     }
 
     public WishListPage addProductToWishList(){
