@@ -32,7 +32,29 @@ public class ContactUsPage extends BasePage {
         return this;
     }
     public ContactUsPage fillEnquiry(String userEnquiry){
-        name.sendKeys(userEnquiry);
+        fillField(enquiry, userEnquiry);
         return this;
     }
+
+
+    public SuccessPage clickOnSubmitButtonWithValidData(){
+        submitButton.click();
+        return new SuccessPage(driver);
+    }
+
+
+    public ContactUsPage clickOnSubmitButtonWithInvalidData(){
+        submitButton.click();
+        return this;
+    }
+
+
+    /*public SuccessPage testMethod(){
+        this.fillName("Alex");
+        this.fillEmail("alex@gmail.com");
+        this.fillEnquiry("ALDfwfenfjenfvjenjv");
+        submitButton.click();
+        return new SuccessPage(driver);
+    }*/
+
 }
