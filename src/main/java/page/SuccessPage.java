@@ -14,7 +14,6 @@ public class SuccessPage extends BasePage {
 
     SuccessPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
     }
 
     public String getContent(){
