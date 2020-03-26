@@ -15,7 +15,7 @@ public class ProductPageTest extends BaseTest {
     public void setUp() {
         super.setUp();
         driver.get("http://184-dp.tk/index.php?route=product/product&product_id=40");
-        productPage = new ProductPage(driver);
+        productPage = new ProductPage(driver);//ProductStep
     }
 
     @Test

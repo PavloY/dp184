@@ -28,9 +28,8 @@ public class AddressBookPage extends BasePage {
     }
 
 
-    public AccountPage clickOnBackButton (){
+    public void clickOnBackButton (){
         backButton.click();
-        return new AccountPage(driver);
     }
 
     public void clickOnNewAddressButton (){

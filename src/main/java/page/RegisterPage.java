@@ -61,94 +61,76 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//input[@value='Continue']")
     private WebElement button;
 
+    @FindBy(xpath = "//div[contains(text(), 'First Name must be')]")
+    public WebElement firstNameDanger;
+
 
     public RegisterPage(WebDriver driver) {
         super(driver);
     }
 
 
-    public RegisterPage fillFirstName(String userFirstName){
+    public void fillFirstName(String userFirstName){
         fillField(firstName, userFirstName);
-        return this;
     }
 
-    public RegisterPage fillLastName(String userLastName){
+    public void fillLastName(String userLastName){
         fillField(lastName, userLastName);
-        return this;
     }
 
-    public RegisterPage fillEmail(String userEmail){
+    public void fillEmail(String userEmail){
         fillField(email, userEmail);
-        return this;
     }
 
-    public RegisterPage fillTelephone(String userTelephone){
+    public void fillTelephone(String userTelephone){
         fillField(telephone, userTelephone);
-        return this;
     }
 
-    public RegisterPage fillFax(String userFax){
+    public void fillFax(String userFax){
         fillField(fax, userFax);
-        return this;
     }
 
-    public RegisterPage fillCompany(String userCompany){
+    public void fillCompany(String userCompany){
         fillField(company, userCompany);
-        return this;
     }
 
-    public RegisterPage fillAddress1(String userAddress1){
+    public void fillAddress1(String userAddress1){
         fillField(address1, userAddress1);
-        return this;
     }
 
-    public RegisterPage fillAddress2(String userAddress2){
+    public void fillAddress2(String userAddress2){
         fillField(address2, userAddress2);
-        return this;
     }
 
-    public RegisterPage fillCity(String userCity){
+    public void fillCity(String userCity){
         fillField(city, userCity);
-        return this;
     }
 
-    public RegisterPage fillPostCode(String userPostCode){
+    public void fillPostCode(String userPostCode){
         fillField(postcode, userPostCode);
-        return this;
     }
 
-    public RegisterPage chooseCountry(String userCountry){
+    public void chooseCountry(String userCountry){
         chooseDataFromDropDownMenu(country, userCountry);
-        return this;
     }
 
-    public RegisterPage chooseRegion(String userRegion){
+    public void chooseRegion(String userRegion){
         chooseDataFromDropDownMenu(zone, userRegion);
-        return this;
     }
 
-    public RegisterPage fillPassword(String userPassword){
+    public void fillPassword(String userPassword){
         fillField(password, userPassword);
-        return this;
     }
 
-    public RegisterPage fillConfirmPassword(String userConfirmPassword){
+    public void fillConfirmPassword(String userConfirmPassword){
         fillField(confirm, userConfirmPassword);
-        return this;
     }
 
     public WebElement getAgree() {
         return agree;
     }
 
-    public SuccessPage clickOnButtonWithValidData(){
-        System.out.println(5555);
+    public void clickOnButtonContinue(){
         button.click();
-        return new SuccessPage(driver);
-    }
-
-    public RegisterPage clickOnButtonWithInvalidData(){
-        button.click();
-        return this;
     }
 }
