@@ -106,7 +106,7 @@ public class ProductReturnsPage extends BasePage {
     }
 
     public ProductReturnsPage chooseRadioButtonDeadOnArrival() {
-        chooseRadioButton(deadOnArrival);
+        //chooseRadioButton(deadOnArrival);
         return this;
     }
 
