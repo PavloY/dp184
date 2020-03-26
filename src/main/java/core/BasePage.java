@@ -5,10 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import page.BrandsPage;
-import page.ContactUsPage;
-import page.HomePage;
-import page.RegisterPage;
+import page.*;
 
 public abstract class BasePage {
 
@@ -18,7 +15,7 @@ public abstract class BasePage {
     @FindBy(className = "dropdown")
     protected WebElement myAccount;
 
-    @FindBy(xpath = "//div[@id='logo']/a/img")
+    @FindBy(xpath = "//*[@id=\"logo\"]/a/img")
     protected WebElement homeRedirect;
 
     @FindBy(xpath = "//a[contains(text(), 'Contact Us')]")
