@@ -38,8 +38,16 @@ public class ProductReturnsPage extends BasePage {
     @FindBy(id = "input-quantity")
     private WebElement quantity;
 
-    @FindBy(xpath = "//input[@value='1']")
+    @FindBy(xpath = "//div[@class=\"radio\"]/label[contains(.,\"Dead On Arrival\")]/input")
     private WebElement deadOnArrival;
+    @FindBy(xpath = "//div[@class=\"radio\"]/label[contains(.,\"Faulty, please supply details\")]/input")
+    private WebElement faultyPleaseSupplyDetails;
+    @FindBy(xpath = "//div[@class=\"radio\"]/label[contains(.,\"Other, please supply details\")]/input")
+    private WebElement otherPleaseSupplyDetails;
+    @FindBy(xpath = "//div[@class=\"radio\"]/label[contains(.,\"Order Error\")]/input")
+    private WebElement orderError;
+    @FindBy(xpath = "//div[@class=\"radio\"]/label[contains(.,\"Received Wrong Item\")]/input")
+    private WebElement receivedWrongItem;
 
     @FindBy(id = "input-comment")
     private WebElement faultyOrOtherDetails;
@@ -97,8 +105,8 @@ public class ProductReturnsPage extends BasePage {
         return this;
     }
 
-    public ProductReturnsPage chooseCheckBoxDeadOnArrival(WebElement deadOnArrival) {
-        chooseCheckBox(deadOnArrival);
+    public ProductReturnsPage chooseRadioButtonDeadOnArrival() {
+        chooseRadioButton(deadOnArrival);
         return this;
     }
 
