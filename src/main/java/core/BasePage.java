@@ -22,10 +22,10 @@ public abstract class BasePage {
     protected WebElement homeRedirect;
 
     @FindBy(xpath = "//a[contains(text(), 'Contact Us')]")
-    protected  WebElement contactUs;
+    private   WebElement contactUs;
 
     @FindBy(xpath = "//a[contains(text(), 'Brands')]")
-    protected  WebElement Brands;
+    private   WebElement Brands;
 
     protected WebDriver driver;
 
