@@ -21,10 +21,10 @@ public abstract class BasePage {
     @FindBy(xpath = "//div[@id='logo']/a/img")
     protected WebElement homeRedirect;
 
-    @FindBy(xpath = "/html/body/footer/div/div/div[2]/ul/li[1]/a")
+    @FindBy(xpath = "//a[contains(text(), 'Contact Us')]")
     protected  WebElement contactUs;
 
-    @FindBy(xpath = "/html/body/footer/div/div/div[3]/ul/li[1]/a")
+    @FindBy(xpath = "//a[contains(text(), 'Brands')]")
     protected  WebElement Brands;
 
     protected WebDriver driver;
