@@ -52,8 +52,6 @@ public final class Config {
         adminSite = properties.getProperty("AdminSite");
         pathForDriver = properties.getProperty("PathForDriver");
         Config.driver = properties.getProperty("Driver");
-
     }
-
 
 }
