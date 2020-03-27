@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+
 import page.HomePage;
 import page.RegisterPage;
 import page.SuccessPage;
@@ -21,8 +22,7 @@ public class Main {
         HomePage homePage = new HomePage(driver);
 //      RegisterPage registerPage = homePage.goToRegisterPage();
 //      registerPage.chooseSubscribe("Yes");
-        homePage.chooseCurrency();
-        homePage.goToContactUsPage();
+        
 
 
     }
