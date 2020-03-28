@@ -6,10 +6,14 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.util.Properties;
 
 public final class Config {
@@ -24,7 +28,14 @@ public final class Config {
         getConfig();
     }
 
-    public static WebDriver getBrowserInstance(){
+    public static WebDriver getBrowserInstance() throws MalformedURLException {
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+        capabilities.setVersion("latest");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+
         if(driver.contains("gecko")){
             return new FirefoxDriver();
         }else if(driver.contains("chrome")){
@@ -37,6 +48,8 @@ public final class Config {
             return new OperaDriver();
         }else if(driver.contains("safari")){
             return new SafariDriver();
+        }else if(driver.contains("remote")){
+            return new RemoteWebDriver(URI.create("http://134.209.252.19:4444/wd/hub").toURL(),capabilities);
         }
         return null;//Exception
     }

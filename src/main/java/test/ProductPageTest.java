@@ -6,13 +6,15 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import page.ProductPage;
 
+import java.net.MalformedURLException;
+
 import static org.junit.Assert.*;
 
 public class ProductPageTest extends BaseTest {
     ProductPage productPage;
 
     @Override
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         super.setUp();
         driver.get("http://184-dp.tk/index.php?route=product/product&product_id=40");
         productPage = new ProductPage(driver);//ProductStep

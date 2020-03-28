@@ -4,9 +4,11 @@ import org.openqa.selenium.WebDriver;
 
 import page.HomePage;
 
+import java.net.MalformedURLException;
+
 
 public class Main {
-    public static void main(String []args){
+    public static void main(String []args) throws MalformedURLException {
 
 
         System.setProperty(Config.driver, Config.pathForDriver);
