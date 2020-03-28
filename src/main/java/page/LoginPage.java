@@ -22,32 +22,28 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@value='Login']")
     protected WebElement loginButton;
 
-    String allertByText = ("//div[text()[contains(.,'%s')]]");
+    String allertByText = ("//div[text()[contains(.,'Warning')]]");
 
     public LoginPage (WebDriver driver){
         super(driver);
     }
 
-    public LoginPage fillLoginEmail(String userEmail){
+    public void fillLoginEmail(String userEmail){
         fillField(emailAddressField,userEmail);
-        return this;
     }
-    public LoginPage fillLoginPassword(String userPassword){
+    public void  fillLoginPassword(String userPassword){
         fillField(passwordField,userPassword);
-        return this;
     }
 
-    public boolean isAllertVisible(String message) {
+    public boolean isAllertVisible() {
         return driver.findElement(By.xpath(allertByText)).isDisplayed();
     }
 
-    public LoginPage clickLogInPageButton() {
+    public void clickLogInPageButton() {
         loginButton.click();
-        return this;
     }
 
-    public LoginPage forgottenPasswordLink() {
+    public void forgottenPasswordLink() {
         loginButton.click();
-        return this; //new ForgottenPasswordPage(driver);
     }
 }
