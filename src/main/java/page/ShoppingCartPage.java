@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class ShoppingCartPage extends BasePage {
 
     @FindBy(xpath = "//*[contains(text(), 'Use Coupon Code')]")
-    private WebElement useCoupon;
+    private WebElement useCouponArea;
 
     @FindBy(name = "coupon")
     private WebElement useCouponField;
@@ -16,10 +16,8 @@ public class ShoppingCartPage extends BasePage {
     @FindBy(id = "button-coupon")
     private WebElement applyCoupon;
 
-
-
     @FindBy(xpath = "//*[contains(text(), 'Estimate Shipping')]")
-    private WebElement estimateShipping;
+    private WebElement estimateShippingArea;
 
     @FindBy(name = "country_id")
     private WebElement country;
@@ -33,7 +31,6 @@ public class ShoppingCartPage extends BasePage {
     @FindBy(id = "button-quote")
     private WebElement getQuotesButton;
 
-
     @FindBy(xpath = "//*[contains(text(), 'Use Gift Certificate')]")
     private WebElement useGiftCertificate;
 
@@ -43,11 +40,10 @@ public class ShoppingCartPage extends BasePage {
     @FindBy(id = "button-voucher")
     private WebElement applyGiftSertificateButton;
 
+    @FindBy(xpath = "//*[contains(text(), 'Continue Shopping')]")
+    private WebElement continueShoppingButton;
+
     public ShoppingCartPage (WebDriver driver){
         super(driver);
     }
-
-
-
-
 }
