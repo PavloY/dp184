@@ -13,13 +13,11 @@ public abstract class BaseElement {
     public void fillField(WebElement webElement, String userData){
         webElement.clear();
         webElement.sendKeys(userData);
-
     }
 
     public void chooseDataFromDropDownMenu(WebElement webElement, String userData){
         webElement.click();
         driver.findElement(By.xpath("//option[text()='" + userData + "']")).click();
-
     }
 
     public BaseElement checkRadioButtonByName(String className, int numberOfRadioButton){
