@@ -45,46 +45,4 @@ public class SearchPageStep extends BaseStep<SearchPage> {
                 .clickToSearchButton();
         return this.page;
     }
-
-
-
-
-
-
-
-
-
-//    public SearchPage fillSearchField(String desireItem){
-//        page.fillField(page.getSearchField(),desireItem);
-//        return page;
-//    }
-
-
-    /*
-    public SearchPage sellectKategory(String categotiOfItem){
-        chooseDataFromDropDownMenu(category,categotiOfItem);
-        return this;
-    }
-
-    public SearchPage selectSearchInSubkategories(){
-        chooseCheckBox(searchInSubcategories);
-        return this;
-    }
-
-    public SearchPage selectSearchInDescription(){
-        chooseCheckBox(searchInProductDescriptions);
-        return this;
-    }
-
-    public SearchPage clickToSearchButton(){
-        searchButton.click();
-        return this;
-
-    public static void main(String[] args) {
-        page.
-    }
-*/
-
-
-
 }
