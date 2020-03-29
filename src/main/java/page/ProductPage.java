@@ -55,49 +55,40 @@ public class ProductPage extends BasePage {
         return productPrice.getText();
     }
 
-    public WishListPage addProductToWishList(){
+    public void addProductToWishList(){
         wishListButton.click();
-        return new WishListPage(driver);
-    }
+     }
 
-    public ProductComparisonPage addProductToProductComparison(){
+    public void addProductToProductComparison(){
         comparisonButton.click();
-        return new ProductComparisonPage(driver);
     }
 
-    public ProductPage fillProductQuantity(String userQuantity){
+    public void fillProductQuantity(String userQuantity){
        fillField(quantityInput, userQuantity);
-        return this;
     }
 
     public void addToCart(){
         addToCartButton.click();
-        //return new ShoppingCartPage(driver);
     }
 
-    public ProductPage clickOnReviewLink() {
+    public void clickOnReviewLink() {
         reviewProductButton.click();
-        return this;
     }
 
-    public ProductPage fillName(String userName) {
+    public void fillName(String userName) {
         fillField(nameInput, userName);
-        return this;
     }
 
-    public ProductPage fillReview(String userReview) {
+    public void fillReview(String userReview) {
         fillField(reviewInput, userReview);
-        return this;
     }
-    public ProductPage checkRating(int userRating){
+
+    public void checkRating(int userRating){
         listRatingButton.get(userRating).click();
-        return this;
     }
 
-    public ProductPage sendReview(){
+    public void sendReview(){
         sendReviewButton.click();
-        return this;
     }
 
-    // add method sharing the products
 }
