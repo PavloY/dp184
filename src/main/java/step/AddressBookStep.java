@@ -19,4 +19,19 @@ public class AddressBookStep extends BaseStep<AddressBookPage> {
         Assert.assertEquals(expected, actual);
         return new MyAccountStep(driver);
     }
+
+//    public NewAddressStep clickOnNewAddressButton(){
+//        page.clickOnNewAddressButton();
+//        String expected = "Address Book";//проверка на непустой элемент
+//        String actual= driver.;
+//        Assert.assertEquals(expected, actual);//isEmty()
+//        return new NewAddressStep(driver);
+//    }
+//
+//    public EditAddressStep clickOnEditButton(){
+//        page.clickOnEditButton();
+//        String expected
+//    }
+
+
 }
