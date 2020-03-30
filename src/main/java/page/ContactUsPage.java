@@ -24,38 +24,22 @@ public class ContactUsPage extends BasePage {
         super(driver);
     }
 
-    public ContactUsPage fillName(String userName){
+    public void fillName(String userName){
         fillField(name,userName);
-        return this;
     }
-    public ContactUsPage fillEmail(String userEmail){
+    public void fillEmail(String userEmail){
         fillField(email,userEmail);
-        return this;
     }
-    public ContactUsPage fillEnquiry(String userEnquiry){
+
+    public void fillEnquiry(String userEnquiry){
         fillField(enquiry, userEnquiry);
-        return this;
     }
 
 
-    public SuccessPage clickOnSubmitButtonWithValidData(){
+    public void clickOnSubmitButton(){
         submitButton.click();
-        return new SuccessPage(driver);
     }
 
 
-    public ContactUsPage clickOnSubmitButtonWithInvalidData(){
-        submitButton.click();
-        return this;
-    }
-
-
-    /*public SuccessPage testMethod(){
-        this.fillName("Alex");
-        this.fillEmail("alex@gmail.com");
-        this.fillEnquiry("ALDfwfenfjenfvjenjv");
-        submitButton.click();
-        return new SuccessPage(driver);
-    }*/
 
 }
