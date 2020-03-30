@@ -21,9 +21,9 @@ public class Main {
         driver.findElement(By.xpath("//*[@id=\"top-links\"]/ul/li[4]/a")).click();
 
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        shoppingCartPage.useCouponCode.click();
+//        shoppingCartPage.useCouponCode.click();
 //        shoppingCartPage.estimateShipping.click();
-        shoppingCartPage.useGiftCertificate.click();
+//        shoppingCartPage.useGiftCertificate.click();
 
 
 //      RegisterPage registerPage = homePage.goToRegisterPage();

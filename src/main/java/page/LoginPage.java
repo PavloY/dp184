@@ -6,9 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static java.lang.String.format;
-import static org.openqa.selenium.By.xpath;
-
 public class LoginPage extends BasePage {
     @FindBy(id = "input-email")
     protected WebElement emailAddressField;
@@ -22,32 +19,29 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@value='Login']")
     protected WebElement loginButton;
 
-    String allertByText = ("//div[text()[contains(.,'%s')]]");
+    String allertByText = ("//div[text()[contains(.,'Warning')]]");
 
     public LoginPage (WebDriver driver){
         super(driver);
     }
 
-    public LoginPage fillLoginEmail(String userEmail){
+    public void fillLoginEmail(String userEmail){
         fillField(emailAddressField,userEmail);
-        return this;
-    }
-    public LoginPage fillLoginPassword(String userPassword){
-        fillField(passwordField,userPassword);
-        return this;
     }
 
-    public boolean isAllertVisible(String message) {
+    public void  fillLoginPassword(String userPassword){
+        fillField(passwordField,userPassword);
+    }
+
+    public boolean isAllertVisible() {
         return driver.findElement(By.xpath(allertByText)).isDisplayed();
     }
 
-    public LoginPage clickLogInPageButton() {
+    public void clickLogInPageButton() {
         loginButton.click();
-        return this;
     }
 
-    public LoginPage forgottenPasswordLink() {
+    public void forgottenPasswordLink() {
         loginButton.click();
-        return this; //new ForgottenPasswordPage(driver);
     }
 }
