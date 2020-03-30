@@ -2,5 +2,5 @@ target
 *.iml
 
 .idea
-*.properties
+#*.properties
 *.log

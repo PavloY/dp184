@@ -19,6 +19,7 @@ import java.util.Properties;
 public final class Config {
 
     public static String adminSite;
+    public static String selenoidServer;
     public static String site;
     public static  String pathForDriver;
     public static String driver;
@@ -32,7 +33,6 @@ public final class Config {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-        capabilities.setVersion("latest");
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", false);
 
@@ -49,7 +49,7 @@ public final class Config {
         }else if(driver.contains("safari")){
             return new SafariDriver();
         }else if(driver.contains("remote")){
-            return new RemoteWebDriver(URI.create("http://134.209.252.19:4444/wd/hub").toURL(),capabilities);
+            return new RemoteWebDriver(URI.create(selenoidServer).toURL(),capabilities);
         }
         return null;//Exception
     }
@@ -65,6 +65,7 @@ public final class Config {
         adminSite = properties.getProperty("AdminSite");
         pathForDriver = properties.getProperty("PathForDriver");
         Config.driver = properties.getProperty("Driver");
+        selenoidServer = properties.getProperty("Selenoid");
     }
 
 }
