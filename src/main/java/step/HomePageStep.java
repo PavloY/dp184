@@ -11,7 +11,7 @@ public class HomePageStep extends BaseStep<HomePage> {
   }
 
   public HomePageStep clickMyAccount(){
-    page.clickMyAccount();;
+    page.clickMyAccount();
     return this;
   }
 
