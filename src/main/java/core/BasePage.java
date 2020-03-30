@@ -25,6 +25,16 @@ public abstract class BasePage extends BaseElement {
     @FindBy(xpath = "//a[contains(text(), 'Brands')]")
     private   WebElement Brands;
 
+    @FindBy(id = "wishlist-total")
+    private WebElement wishList;
+
+    @FindBy(xpath = "//a[@title = 'Shopping Cart']")
+    private WebElement shoppingCart;
+
+    @FindBy(xpath = "//a[contains(text(), 'product comparison')]")
+    private WebElement productComparison;
+
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -55,5 +65,19 @@ public abstract class BasePage extends BaseElement {
         return new BrandsPage(driver);
     }
 
+    public ShoppingCartPage goToShoppingCartPage() {
+        shoppingCart.click();
+        return new ShoppingCartPage(driver);
+    }
+
+    public LoginPage goToWishList() {
+        wishList.click();
+        return new LoginPage(driver);
+    }
+
+    public ProductComparisonPage goToProductComparison(){
+        productComparison.click();
+        return new ProductComparisonPage(driver);
+    }
 
 }

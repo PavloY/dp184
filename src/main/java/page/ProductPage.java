@@ -1,6 +1,7 @@
 package page;
 
 import core.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -42,6 +43,15 @@ public class ProductPage extends BasePage {
 
     @FindBy(name = "rating")
     private List<WebElement> listRatingButton;
+
+    @FindBy(partialLinkText = "product/compare")
+    private WebElement productComparisonLink;
+
+    @FindBy(xpath = "//a[contains(text(), 'wish list')]")
+    private WebElement wishListLink;
+
+    @FindBy(xpath = "//a[contains(text(), 'shopping cart')]")
+    private WebElement shoppingCartLink;
 
     public ProductPage(WebDriver driver){
         super(driver);
@@ -91,4 +101,15 @@ public class ProductPage extends BasePage {
         sendReviewButton.click();
     }
 
+    public String getMessageOnAlertProductComparison() {
+        return productComparisonLink.getText();
+    }
+
+    public String getMessageOnAlertWishList() {
+        return wishListLink.getText();
+    }
+
+    public String getMessageOnAlertCart() {
+        return shoppingCartLink.getText();
+    }
 }

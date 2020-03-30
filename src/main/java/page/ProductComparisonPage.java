@@ -30,4 +30,6 @@ public class ProductComparisonPage extends BasePage {
     public void removeFromProductComparisonPage(){
         removeFromProductComparisonButton.click();
     }
+
+
 }
