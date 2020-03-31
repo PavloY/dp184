@@ -1,5 +1,6 @@
 package core;
 
+import io.qameta.allure.Attachment;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -41,6 +42,7 @@ import java.util.concurrent.TimeUnit;
         System.setProperty(Config.driver, Config.pathForDriver);
     }
 
+    @Attachment
     @Before
     public void setUp() throws MalformedURLException {
         driver = Config.getBrowserInstance();
