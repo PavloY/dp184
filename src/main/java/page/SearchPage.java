@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class SearchPage extends BasePage {
 
-    private static final String PATH_TO_SEARCH_PAGE = "index.php?route=product/search";
-
     @FindBy(id = "input-search")
     private WebElement searchField;
 
@@ -24,8 +22,6 @@ public class SearchPage extends BasePage {
     @FindBy(id = "button-search")
     private WebElement searchButton;
 
-    
-
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -35,12 +31,12 @@ public class SearchPage extends BasePage {
         return this;
     }
 
-    public SearchPage sellectKategory(String categotiOfItem){
-        chooseDataFromDropDownMenu(category,categotiOfItem);
+    public SearchPage selectCategory(String categoryOfItem){
+        chooseDataFromDropDownMenu(category,categoryOfItem);
         return this;
     }
 
-    public SearchPage selectSearchInSubkategories(){
+    public SearchPage selectSearchInSubCategories(){
         chooseCheckBox(searchInSubcategories);
         return this;
     }

@@ -43,8 +43,29 @@ public class ProductPage extends BasePage {
     @FindBy(name = "rating")
     private List<WebElement> listRatingButton;
 
+    @FindBy(xpath = "//a[contains(text(), 'product comparison')]")
+    private WebElement productComparisonLink;
+
+    @FindBy(xpath = "//a[contains(text(), 'wish list')]")
+    private WebElement wishListLink;
+
+    @FindBy(xpath = "//a[contains(text(), 'shopping cart')]")
+    private WebElement shoppingCartLink;
+
     public ProductPage(WebDriver driver){
         super(driver);
+    }
+
+    public WebElement getProductComparisonLink() {
+        return productComparisonLink;
+    }
+
+    public WebElement getWishListLink() {
+        return wishListLink;
+    }
+
+    public WebElement getShoppingCartLink() {
+        return shoppingCartLink;
     }
 
     public String getNameValue() {
@@ -55,49 +76,52 @@ public class ProductPage extends BasePage {
         return productPrice.getText();
     }
 
-    public WishListPage addProductToWishList(){
+    public void addProductToWishList(){
         wishListButton.click();
-        return new WishListPage(driver);
     }
 
-    public ProductComparisonPage addProductToProductComparison(){
+    public void addProductToProductComparison(){
         comparisonButton.click();
-        return new ProductComparisonPage(driver);
     }
 
-    public ProductPage fillProductQuantity(String userQuantity){
-       fillField(quantityInput, userQuantity);
-        return this;
+    public void fillProductQuantity(String userQuantity){
+        fillField(quantityInput, userQuantity);
     }
 
     public void addToCart(){
         addToCartButton.click();
-        //return new ShoppingCartPage(driver);
     }
 
-    public ProductPage clickOnReviewLink() {
+    public void clickOnReviewLink() {
         reviewProductButton.click();
-        return this;
     }
 
-    public ProductPage fillName(String userName) {
+    public void fillName(String userName) {
         fillField(nameInput, userName);
-        return this;
     }
 
-    public ProductPage fillReview(String userReview) {
+    public void fillReview(String userReview) {
         fillField(reviewInput, userReview);
-        return this;
     }
-    public ProductPage checkRating(int userRating){
+
+    public void checkRating(int userRating){
         listRatingButton.get(userRating).click();
-        return this;
     }
 
-    public ProductPage sendReview(){
+    public void sendReview(){
         sendReviewButton.click();
-        return this;
     }
 
-    // add method sharing the products
+    public String getMessageOnAlertProductComparison() {
+        return productComparisonLink.getText();
+    }
+
+    public String getMessageOnAlertWishList() {
+        return wishListLink.getText();
+    }
+
+    public String getMessageOnAlertCart() {
+        return shoppingCartLink.getText();
+    }
+
 }
