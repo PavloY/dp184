@@ -15,8 +15,8 @@ public class FTC_Main_Login_SignInRegisteredUserWithInvalidData extends BaseTest
   HomePageStep homePageStep;
   LoginStep loginStep;
 
-
-  @Test(timeout = 10000)
+  @Step
+  @Test
   public void testSignInRegisteredUserWithInvalidData() {
     homePageStep = new HomePageStep(driver);
     homePageStep.clickMyAccount();

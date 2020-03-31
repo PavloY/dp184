@@ -10,8 +10,8 @@ import java.net.MalformedURLException;
 
 import static org.junit.Assert.*;
 
-public class ProductPageTest extends BaseTest {
-    ProductPage productPage;
+public class ProductPageTest {//extends BaseTest {
+/*    ProductPage productPage;
 
     @Override
     public void setUp() throws MalformedURLException {
@@ -48,4 +48,6 @@ public class ProductPageTest extends BaseTest {
     @Test
     public void checkRating() {
     }
+
+ */
 }
