@@ -13,7 +13,10 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
 
     public ContactUsStep fillName(String userName){
         page.fillName(userName);
-
+        //String expected = "";
+        //String actual = page.getWarningMessage(page.getName);
+        //page.clickOnSubmitButton();
+        // Assert
         return this;
     }
 
