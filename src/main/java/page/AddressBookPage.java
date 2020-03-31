@@ -36,14 +36,14 @@ public class AddressBookPage extends BasePage {
         newAddressButton.click();
     }
 
-    public EditAddressPage clickOnEditButton (){
+    public EditAddressPage clickOnEditButton(){
         editButton.click();
-        return new EditAddressPage(driver);
+       return new EditAddressPage(driver);
     }
 
-    public  AddressBookPage clickOnDeleteButton (){
+    public  AddressBookPage clickOnDeleteButton(){
         deleteButton.click();
-        return this;
+       return this;
     }
 
      private boolean isWarningMessageDisplay (){
