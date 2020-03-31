@@ -7,6 +7,12 @@ import org.openqa.selenium.support.FindBy;
 
 public class ProductComparisonPage extends BasePage {
 
+    @FindBy(xpath = "//*[@value=\"Add to Cart\"]")
+    protected WebElement addToCartButton;
+
+    @FindBy(xpath = "//*[contains(text(), 'Remove')]")
+    protected WebElement removeFromProductComparisonButton;
+
     @FindBy(xpath = "//*[contains(text(), 'Continue')]")
     private WebElement continueFromProductComparisonButton;
 
@@ -14,8 +20,16 @@ public class ProductComparisonPage extends BasePage {
         super(driver);
     }
 
-    public HomePage goToHomePageFromProductComparison(){
+    public void goToHomePageFromProductComparison(){
         continueFromProductComparisonButton.click();
-        return new HomePage(driver);
     }
+
+    public void addToCart(){
+        addToCartButton.click();
+    }
+
+    public void removeFromProductComparisonPage(){
+        removeFromProductComparisonButton.click();
+    }
+
 }
