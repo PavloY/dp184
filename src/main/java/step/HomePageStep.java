@@ -2,6 +2,7 @@ package step;
 
 import core.BaseStep;
 import org.openqa.selenium.WebDriver;
+import page.ContactUsPage;
 import page.HomePage;
 import page.LoginPage;
 
@@ -18,5 +19,10 @@ public class HomePageStep extends BaseStep<HomePage> {
   public LoginPage clickloginDropDown(){
     page.clickloginDropDown();
     return new LoginPage(driver);
+  }
+
+  public ContactUsPage clickContactUs(){
+    page.goToContactUsPage();
+    return new ContactUsPage(driver);
   }
 }
