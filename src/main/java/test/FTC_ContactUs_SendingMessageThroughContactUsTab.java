@@ -22,8 +22,9 @@ public class FTC_ContactUs_SendingMessageThroughContactUsTab extends BaseTest {
         contactUsStep.fillEmail("alexvonbor@gmail.com");
         contactUsStep.fillEnquiry("Hello world test message");
         contactUsStep.clickOnSubmitButton();
-
-
+        //String actual= driver.getTitle();
+        //String actual = driver.findElement(By.)
+        //String expected = ""
     }
 
 
