@@ -1,5 +1,6 @@
 target
 *.iml
-*.xml
+#*.xml
 .idea
-*.properties
+#*.properties
+*.log
