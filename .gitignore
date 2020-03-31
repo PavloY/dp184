@@ -1,6 +1,8 @@
 target
 *.iml
-#*.xml
+*.xml
 .idea
-#*.properties
+*.log
+src/main/java/Run.java
+*.properties
 *.log

@@ -1,10 +1,13 @@
 import core.Config;
+import data.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
 import page.HomePage;
+import page.RegisterPage;
 import page.ShoppingCartPage;
+import step.RegisterStep;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,12 +20,20 @@ public class Main {
 
         System.setProperty(Config.driver, Config.pathForDriver);
         WebDriver driver = Config.getBrowserInstance();
+        User user = new User("Borys", "Borysov", "borysov@gmail.com",
+                "380665624585", "8-123-55-66", "SoftServe", "Kyiv",
+                "Peremohy Avenue, 32", "Kyiv", "0411687541", "Ukraine", "Kyiv",
+                "12345", "12345");
         driver.get(Config.site);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//*[@id=\"content\"]/div[2]/div[1]/div/div[3]/button[1]")).click();
-        driver.findElement(By.xpath("//*[@id=\"top-links\"]/ul/li[4]/a")).click();
+        HomePage homePage = new HomePage(driver);
+        homePage.goToRegisterPage();
+        RegisterStep registerStep = new RegisterStep(driver);
+        registerStep.fillOnlyNecessaryFieldWithValidData(user);
 
-        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+
+
+//        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
 //        shoppingCartPage.useCouponCode.click();
 //        shoppingCartPage.estimateShipping.click();
 //        shoppingCartPage.useGiftCertificate.click();

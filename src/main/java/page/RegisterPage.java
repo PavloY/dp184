@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.HashMap;
+
 public class RegisterPage extends BasePage {
 
     @FindBy(id = "input-firstname")
@@ -54,6 +56,9 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "input-confirm")
     private WebElement confirm;
 
+    @FindBy(xpath = "//input[@value='1']")
+    private WebElement subscribe;
+
 
     @FindBy(name = "agree")
     private WebElement agree;
@@ -61,8 +66,41 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//input[@value='Continue']")
     private WebElement button;
 
+    @FindBy(className = "alert-danger")
+    private WebElement policyWarning;
+
     @FindBy(xpath = "//div[contains(text(), 'First Name must be')]")
-    public WebElement firstNameDanger;
+    private WebElement firstNameDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'Last Name must be')]")
+    private WebElement lastNameDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'E-Mail Address does not appear to be valid!')]")
+    private WebElement emailDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'Telephone must be')]")
+    private WebElement telephoneDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'Address 1 must be')]")
+    private WebElement address1Danger;
+
+    @FindBy(xpath = "//div[contains(text(), 'City must be')]")
+    private WebElement cityDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'Postcode must be')]")
+    private WebElement postCodeDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'Please select a country!')]")
+    private WebElement countryDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'Please select a region / state!')]")
+    private WebElement regionDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'Password must be')]")
+    private WebElement passwordDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'Password confirmation does not match password!')]")
+    private WebElement confirmPassDanger;
 
 
     public RegisterPage(WebDriver driver) {
@@ -126,11 +164,56 @@ public class RegisterPage extends BasePage {
         fillField(confirm, userConfirmPassword);
     }
 
+    public void subscribe(){
+        subscribe.click();
+    }
+
     public WebElement getAgree() {
         return agree;
     }
 
     public void clickOnButtonContinue(){
         button.click();
+    }
+
+    public HashMap<String, String> getAllWarningMessages(){
+        HashMap<String, String> result = new HashMap<>();
+        if(isWarningMessage(policyWarning )){
+            result.put("policy", policyWarning.getText());
+        }
+        if(isWarningMessage(firstNameDanger)){
+            result.put("fName", firstNameDanger.getText());
+        }
+        if(isWarningMessage(lastNameDanger)){
+            result.put("lName", lastNameDanger.getText());
+        }
+        if(isWarningMessage(emailDanger)){
+            result.put("email", emailDanger.getText());
+        }
+        if(isWarningMessage(telephoneDanger)){
+            result.put("telephone", telephoneDanger.getText());
+        }
+        if(isWarningMessage(address1Danger)){
+            result.put("address1", address1Danger.getText());
+        }
+        if (isWarningMessage(cityDanger)) {
+            result.put("city", cityDanger.getText());
+        }
+        if(isWarningMessage(postCodeDanger)){
+            result.put("postCode", postCodeDanger.getText());
+        }
+        if(isWarningMessage(countryDanger)){
+            result.put("country", countryDanger.getText());
+        }
+        if(isWarningMessage(regionDanger)){
+            result.put("region", regionDanger.getText());
+        }
+        if(isWarningMessage(passwordDanger)){
+            result.put("password", passwordDanger.getText());
+        }
+        if(isWarningMessage(confirmPassDanger)){
+            result.put("confirmPass", confirmPassDanger.getText());
+        }
+        return result;
     }
 }
