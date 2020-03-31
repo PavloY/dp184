@@ -21,8 +21,8 @@ public class HomePageStep extends BaseStep<HomePage> {
     return new LoginPage(driver);
   }
 
-  public ContactUsPage clickContactUs(){
+  public ContactUsStep clickContactUs(){
     page.goToContactUsPage();
-    return new ContactUsPage(driver);
+    return new ContactUsStep(driver);
   }
 }

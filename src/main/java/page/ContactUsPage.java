@@ -40,6 +40,6 @@ public class ContactUsPage extends BasePage {
         submitButton.click();
     }
 
-
+    // getWarning Message Map<имя поля. сообщение>
 
 }
