@@ -39,7 +39,7 @@ import java.util.concurrent.TimeUnit;
 
     @BeforeClass
     public static void start(){
-        System.setProperty(Config.driver, Config.pathForDriver);
+        System.setProperty(Config.driver, "http://144.76.5.68:4444/wd/hub");
     }
 
     @Attachment
