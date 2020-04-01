@@ -23,7 +23,7 @@ public final class Config {
     public static String site;
     public static  String pathForDriver;
     public static String driver;
-    public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\dev.properties";
+    public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\develop.properties";
 
     static {
         getConfig();
@@ -58,7 +58,7 @@ public final class Config {
         try(FileInputStream in = new FileInputStream(PATH_PROPERTY_FILE)){
             properties.load(in);
         }catch (IOException e){
-            System.out.println("Sorry, unable to find config.properties");
+            System.out.println("Can't find file: " + PATH_PROPERTY_FILE);
         }
         Config.site = properties.getProperty("Site");
         adminSite = properties.getProperty("AdminSite");
