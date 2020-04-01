@@ -29,9 +29,11 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
 }
     public BaseStep fillAllFieldsWithValidData(ContactUsUser user){
         fillAllFields(user);
-        //assert
         String expected = "Your enquiry has been successfully sent to the store owner!";
         //String actual = driver.findElement(By.xpath().get);
+
+        HashMap<String,String> actual = page.getAllWarningMessages();   // ????
+        Assert.assertTrue(actual.isEmpty());                            // ????
 
         return this;
     }
