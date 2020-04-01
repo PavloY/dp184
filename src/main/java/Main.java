@@ -38,21 +38,5 @@ public class Main {
 
 
 
-//        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-//        shoppingCartPage.useCouponCode.click();
-//        shoppingCartPage.estimateShipping.click();
-//        shoppingCartPage.useGiftCertificate.click();
-
-
-//      RegisterPage registerPage = homePage.goToRegisterPage();
-//      registerPage.chooseSubscribe("Yes");
-
-
-        //driver.quit();
-
-
-
-
-
     }
 }
