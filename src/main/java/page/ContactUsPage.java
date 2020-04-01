@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.HashMap;
+
 public class ContactUsPage extends BasePage {
 
     @FindBy(id="input-name")
@@ -18,6 +20,15 @@ public class ContactUsPage extends BasePage {
 
     @FindBy(xpath = "//input[@value='Submit']")
     private WebElement submitButton;
+
+    @FindBy(xpath = "//div[contains(text(), 'Name must be between 3 and 32')]")
+    private WebElement nameDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'E-Mail Address does not appear to be')]")
+    private WebElement emailDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'Enquiry must be between 10')]")
+    private WebElement enquiryDanger;
 
 
     public ContactUsPage(WebDriver driver) {
@@ -40,6 +51,21 @@ public class ContactUsPage extends BasePage {
         submitButton.click();
     }
 
+    public HashMap<String, String> getAllWarningMessages(){
+
+        HashMap<String, String> result = new HashMap<>();
+        if(isWarningMessage(nameDanger )){
+            result.put("name", nameDanger.getText());
+        }
+        if(isWarningMessage(emailDanger )){
+            result.put("email", emailDanger.getText());
+        }
+        if(isWarningMessage(enquiryDanger )){
+            result.put("enquiry", enquiryDanger.getText());
+        }
+
+        return result;
+    }
     // getWarning Message Map<имя поля. сообщение>
 
 }

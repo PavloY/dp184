@@ -20,10 +20,7 @@ public class Main {
 
         System.setProperty(Config.driver, Config.pathForDriver);
         WebDriver driver = Config.getBrowserInstance();
-        User user = new User("Borys", "Borysov", "borysov@gmail.com",
-                "380665624585", "8-123-55-66", "SoftServe", "Kyiv",
-                "Peremohy Avenue, 32", "Kyiv", "0411687541", "Ukraine", "Kyiv",
-                "12345", "12345");
+        User user = new User("Alex","alex@mail.com","fefjengjengj");
         driver.get(Config.site);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         HomePage homePage = new HomePage(driver);
