@@ -31,11 +31,6 @@ public final class Config {
 
     public static WebDriver getBrowserInstance() throws MalformedURLException {
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName("chrome");
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
-
         if(driver.contains("gecko")){
             return new FirefoxDriver();
         }else if(driver.contains("chrome")){
@@ -49,6 +44,10 @@ public final class Config {
         }else if(driver.contains("safari")){
             return new SafariDriver();
         }else if(driver.contains("remote")){
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName("chrome");
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", false);
             return new RemoteWebDriver(URI.create(selenoidServer).toURL(),capabilities);
         }
         return null;//Exception
@@ -67,5 +66,4 @@ public final class Config {
         Config.driver = properties.getProperty("Driver");
         selenoidServer = properties.getProperty("Selenoid");
     }
-
 }

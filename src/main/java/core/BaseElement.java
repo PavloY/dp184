@@ -38,15 +38,12 @@ public abstract class BaseElement {
         return this;
     }
 
-    private boolean isWarningMessageDisplay(WebElement webElement) {
-        return webElement.isDisplayed();
-    }
-
-    public String getWarningMessage(WebElement webElement) {
+    public boolean isWarningMessage(WebElement webElement) {
         try {
-            return webElement.getText();
+            webElement.getText();
+            return true;
         } catch (NoSuchElementException e) {
-            return null;
+            return false;
         }
     }
 
