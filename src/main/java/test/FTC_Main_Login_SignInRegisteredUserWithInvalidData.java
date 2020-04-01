@@ -14,7 +14,6 @@ public class FTC_Main_Login_SignInRegisteredUserWithInvalidData extends BaseTest
 
   @Test
   public void testSignInRegisteredUserWithInvalidData() {
-    driver.get("http\\://184-dp.tk");
     homePageStep = new HomePageStep(driver);
     homePageStep.clickMyAccount();
     homePageStep.clickloginDropDown();
