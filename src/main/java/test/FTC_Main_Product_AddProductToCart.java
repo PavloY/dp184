@@ -12,7 +12,7 @@ import step.ProductStep;
 import java.net.MalformedURLException;
 
 public class FTC_Main_Product_AddProductToCart extends BaseTest {
-    HomePageStep homePageStep;//homeStep
+    HomePageStep homePageStep;
 
 
     @Override
