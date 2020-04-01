@@ -6,15 +6,20 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.util.Properties;
 
 public final class Config {
 
     public static String adminSite;
+    public static String selenoidServer;
     public static String site;
     public static  String pathForDriver;
     public static String driver;
@@ -24,7 +29,8 @@ public final class Config {
         getConfig();
     }
 
-    public static WebDriver getBrowserInstance(){
+    public static WebDriver getBrowserInstance() throws MalformedURLException {
+
         if(driver.contains("gecko")){
             return new FirefoxDriver();
         }else if(driver.contains("chrome")){
@@ -37,6 +43,12 @@ public final class Config {
             return new OperaDriver();
         }else if(driver.contains("safari")){
             return new SafariDriver();
+        }else if(driver.contains("remote")){
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName("chrome");
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", false);
+            return new RemoteWebDriver(URI.create(selenoidServer).toURL(),capabilities);
         }
         return null;//Exception
     }
@@ -52,6 +64,6 @@ public final class Config {
         adminSite = properties.getProperty("AdminSite");
         pathForDriver = properties.getProperty("PathForDriver");
         Config.driver = properties.getProperty("Driver");
+        selenoidServer = properties.getProperty("Selenoid");
     }
-
 }

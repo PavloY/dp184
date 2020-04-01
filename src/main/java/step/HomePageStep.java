@@ -6,12 +6,12 @@ import page.HomePage;
 import page.LoginPage;
 
 public class HomePageStep extends BaseStep<HomePage> {
-    public HomePageStep(WebDriver driver) {
-      super(driver, new HomePage(driver));
-    }
+  public HomePageStep(WebDriver driver) {
+    super(driver, new HomePage(driver));
+  }
 
   public HomePageStep clickMyAccount(){
-    page.clickMyAccount();;
+    page.clickMyAccount();
     return this;
   }
 

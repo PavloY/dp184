@@ -6,9 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static java.lang.String.format;
-import static org.openqa.selenium.By.xpath;
-
 public class LoginPage extends BasePage {
     @FindBy(id = "input-email")
     protected WebElement emailAddressField;
@@ -31,6 +28,7 @@ public class LoginPage extends BasePage {
     public void fillLoginEmail(String userEmail){
         fillField(emailAddressField,userEmail);
     }
+
     public void  fillLoginPassword(String userPassword){
         fillField(passwordField,userPassword);
     }
