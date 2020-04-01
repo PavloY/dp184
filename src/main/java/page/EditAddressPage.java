@@ -45,9 +45,9 @@ public class EditAddressPage extends BasePage {
         super(driver);
     }
 
-    public EditAddressPage fillFirstName(String userFirstName){
-        fillField(firstName, userFirstName);
-        return this;
+        public EditAddressPage fillFirstName(String userFirstName){
+            fillField(firstName, userFirstName);
+            return this;
     }
 
     public EditAddressPage fillLastName(String userLastName){
@@ -101,5 +101,10 @@ public class EditAddressPage extends BasePage {
     public EditAddressPage clickOnButtonContinueInvalidData(){
         buttonContinue.click();
         return this;
+    }
+
+    public String getFirstNameValue(){
+        return firstName.getAttribute("value");
+
     }
 }
