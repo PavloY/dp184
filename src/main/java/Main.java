@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import page.HomePage;
 import page.RegisterPage;
 import page.ShoppingCartPage;
+import step.ContactUsStep;
+import step.HomePageStep;
 import step.RegisterStep;
 
 import java.util.concurrent.TimeUnit;
@@ -20,13 +22,18 @@ public class Main {
 
         System.setProperty(Config.driver, Config.pathForDriver);
         WebDriver driver = Config.getBrowserInstance();
-        User user = new User("Alex","alex@mail.com","fefjengjengj");
+        User user = new User("Alex","alemail.com","fefjengjengjffg");
         driver.get(Config.site);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        HomePage homePage = new HomePage(driver);
-        homePage.goToRegisterPage();
-        RegisterStep registerStep = new RegisterStep(driver);
-        registerStep.fillOnlyNecessaryFieldWithValidData(user);
+
+        //HomePage homePage = new HomePage(driver);
+        //homePage.goToRegisterPage();
+        //RegisterStep registerStep = new RegisterStep(driver);
+        //registerStep.fillOnlyNecessaryFieldWithValidData(user);
+        HomePageStep homePageStep = new HomePageStep(driver);
+        homePageStep.clickContactUs();
+        ContactUsStep contactUsStep = new ContactUsStep(driver);
+        contactUsStep.fillAllFieldsWithInvalidData(user);
 
 
 
