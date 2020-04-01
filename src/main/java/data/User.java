@@ -18,7 +18,7 @@ public class User {
    private boolean subscribe;
    private boolean policy;
 
-   
+
     public User(String firstName, String lastName, String email, String telephone, String fax,
                 String company, String address1, String address2, String city, String postCode,
                 String country, String region, String password, String confirmPassword, boolean subscribe,
