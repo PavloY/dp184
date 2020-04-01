@@ -6,7 +6,9 @@ import org.junit.runners.Suite;
 import test.FTC_Main_Login_SignInRegisteredUserWithInvalidData;
 
 @RunWith(Categories.class)
-@Suite.SuiteClasses({FTC_Main_Login_SignInRegisteredUserWithInvalidData.class})
+@Suite.SuiteClasses({FTC_Main_Login_SignInRegisteredUserWithInvalidData.class,
+                     FTC_Main_Login_SignInRegisteredUserWithInvalidData.class,
+                     FTC_Main_Login_SignInRegisteredUserWithInvalidData.class,
+                     FTC_Main_Login_SignInRegisteredUserWithInvalidData.class})
 public class MyTest {
-
 }

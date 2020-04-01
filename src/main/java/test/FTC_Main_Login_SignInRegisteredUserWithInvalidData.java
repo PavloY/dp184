@@ -1,7 +1,6 @@
 package test;
 
 import core.BaseTest;
-import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.junit.Test;
 import step.HomePageStep;
