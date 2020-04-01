@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.HashMap;
+
 public class ContactUsPage extends BasePage {
 
     @FindBy(id="input-name")
@@ -19,43 +21,51 @@ public class ContactUsPage extends BasePage {
     @FindBy(xpath = "//input[@value='Submit']")
     private WebElement submitButton;
 
+    @FindBy(xpath = "//div[contains(text(), 'Name must be between 3 and 32')]")
+    private WebElement nameDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'E-Mail Address does not appear to be')]")
+    private WebElement emailDanger;
+
+    @FindBy(xpath = "//div[contains(text(), 'Enquiry must be between 10')]")
+    private WebElement enquiryDanger;
+
 
     public ContactUsPage(WebDriver driver) {
         super(driver);
     }
 
-    public ContactUsPage fillName(String userName){
+    public void fillName(String userName){
         fillField(name,userName);
-        return this;
     }
-    public ContactUsPage fillEmail(String userEmail){
+    public void fillEmail(String userEmail){
         fillField(email,userEmail);
-        return this;
     }
-    public ContactUsPage fillEnquiry(String userEnquiry){
+
+    public void fillEnquiry(String userEnquiry){
         fillField(enquiry, userEnquiry);
-        return this;
     }
 
 
-    public SuccessPage clickOnSubmitButtonWithValidData(){
+    public void clickOnSubmitButton(){
         submitButton.click();
-        return new SuccessPage(driver);
     }
 
+    public HashMap<String, String> getAllWarningMessages(){
 
-    public ContactUsPage clickOnSubmitButtonWithInvalidData(){
-        submitButton.click();
-        return this;
+        HashMap<String, String> result = new HashMap<>();
+        if(isWarningMessage(nameDanger )){
+            result.put("name", nameDanger.getText());
+        }
+        if(isWarningMessage(emailDanger )){
+            result.put("email", emailDanger.getText());
+        }
+        if(isWarningMessage(enquiryDanger )){
+            result.put("enquiry", enquiryDanger.getText());
+        }
+
+        return result;
     }
-
-
-    /*public SuccessPage testMethod(){
-        this.fillName("Alex");
-        this.fillEmail("alex@gmail.com");
-        this.fillEnquiry("ALDfwfenfjenfvjenjv");
-        submitButton.click();
-        return new SuccessPage(driver);
-    }*/
+    // getWarning Message Map<имя поля. сообщение>
 
 }

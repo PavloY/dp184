@@ -60,9 +60,8 @@ public abstract class BasePage extends BaseElement {
         return new HomePage(driver);
     }
 
-    public ContactUsPage goToContactUsPage() {
+    public void goToContactUsPage() {
         contactUs.click();
-        return new ContactUsPage(driver);
     }
 
     public BrandsPage goToBrandsPage() {
