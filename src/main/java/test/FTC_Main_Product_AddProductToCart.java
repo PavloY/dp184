@@ -6,13 +6,13 @@ import org.junit.Assert;
 import org.junit.Test;
 import page.HomePage;
 import page.ProductPage;
+import step.HomePageStep;
 import step.ProductStep;
 
 import java.net.MalformedURLException;
 
 public class FTC_Main_Product_AddProductToCart extends BaseTest {
-    ProductStep productStep;
-    HomePage homePage;//homeStep
+    HomePageStep homePageStep;//homeStep
 
 
     @Override
@@ -23,16 +23,14 @@ public class FTC_Main_Product_AddProductToCart extends BaseTest {
             e.printStackTrace();
         }// check
         driver.get(Config.site);
-        productStep = new ProductStep(driver);
+
     }
 
     @Test
     public void addProductToCart() {
-        homePage = new HomePage(driver);
-        homePage.getNameProductsList();
-        homePage.clickOnNameOfProduct("iPhone");//ProductStep
-        productStep = new ProductStep(driver);//add in homeStep, return ProductStep
-        productStep.checkAddToCart();
+        // check empty Shopping Cart
+        homePageStep = new HomePageStep(driver);
+        homePageStep.clickOnProduct("iPhone").checkAddToCart();
+        // assert item is on Shopping Cart
     }
-
 }
