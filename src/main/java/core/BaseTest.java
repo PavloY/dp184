@@ -10,10 +10,13 @@ import org.junit.runner.Description;
 import org.junit.runner.RunWith;
 import org.junit.Rule;
 import junitparams.JUnitParamsRunner;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.util.concurrent.TimeUnit;
 
     @RunWith(JUnitParamsRunner.class)
@@ -35,19 +38,17 @@ import java.util.concurrent.TimeUnit;
                 logger.error("Test {} failed with {}.", method.getMethodName(), e);
             }
         };
-        protected WebDriver driver;
+        protected RemoteWebDriver driver;
 
-    @BeforeClass
-    public static void start(){
-        System.setProperty(Config.driver, "http://144.76.5.68:4444/wd/hub");
-    }
-
+  
     @Attachment
     @Before
     public void setUp() throws MalformedURLException {
-        driver = Config.getBrowserInstance();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get(Config.site);
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+        driver = new RemoteWebDriver(URI.create("http://144.76.5.68:4444/wd/hub").toURL(),capabilities);
     }
 
     @After
