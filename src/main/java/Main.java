@@ -1,4 +1,5 @@
 import core.Config;
+import data.ContactUsUser;
 import data.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +23,7 @@ public class Main {
 
         System.setProperty(Config.driver, Config.pathForDriver);
         WebDriver driver = Config.getBrowserInstance();
-        User user = new User("Alex","alemail.com","fefjengjengjffg");
+        ContactUsUser user = new ContactUsUser("Alex","alemail.com","fefjengjengjffg");
         driver.get(Config.site);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 

@@ -18,10 +18,7 @@ public class User {
    private boolean subscribe;
    private boolean policy;
 
-    private String nameContactUs;
-    private String emailContactUS;
-    private String enquiryContactUs;
-
+   
     public User(String firstName, String lastName, String email, String telephone, String fax,
                 String company, String address1, String address2, String city, String postCode,
                 String country, String region, String password, String confirmPassword, boolean subscribe,
@@ -44,21 +41,6 @@ public class User {
         this.policy = policy;
     }
 
-    public User(String name, String email, String enquiry){
-        nameContactUs = name;
-        emailContactUS = email;
-        enquiryContactUs = enquiry;
-    }
-
-    public String getNameContactUs() {
-        return nameContactUs;
-    }
-    public String getEmailContactUs() {
-        return emailContactUS;
-    }
-    public String getEnquiryContactUs() {
-        return emailContactUS;
-    }
 
     public String getFirstName() {
         return firstName;

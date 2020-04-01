@@ -1,6 +1,7 @@
 package step;
 
 import core.BaseStep;
+import data.ContactUsUser;
 import data.User;
 import org.openqa.selenium.WebDriver;
 import page.ContactUsPage;
@@ -17,20 +18,20 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
         return this;
     }
 
-    public ContactUsStep fillAllFieldsWithInvalidData(User user){
+    public ContactUsStep fillAllFieldsWithInvalidData(ContactUsUser user){
         fillAllFields(user);
         //assert
         return this;
     }
-    public BaseStep fillAllFieldsWithValidData(User user){
+    public BaseStep fillAllFieldsWithValidData(ContactUsUser user){
         fillAllFields(user);
         //assert
         return this;
     }
-    private void fillAllFields(User user){
-        page.fillName(user.getNameContactUs());
-        page.fillEmail(user.getEmailContactUs());
-        page.fillEnquiry(user.getEnquiryContactUs());
+    private void fillAllFields(ContactUsUser user){
+        page.fillName(user.getName());
+        page.fillEmail(user.getEmail());
+        page.fillEnquiry(user.getEnquiry());
         page.clickOnSubmitButton();
     }
 
