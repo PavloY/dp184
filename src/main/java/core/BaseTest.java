@@ -50,7 +50,7 @@ import java.util.concurrent.TimeUnit;
         capabilities.setCapability("enableVideo", false);
         driver = new RemoteWebDriver(URI.create("http://144.76.5.68:4444/wd/hub").toURL(),capabilities);
         driver.manage().timeouts().implicitlyWait(610, TimeUnit.SECONDS);
-        driver.get("http\\://184-dp.tk");
+     //   driver.get("http\\://184-dp.tk");
     }
 
     @After
