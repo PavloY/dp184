@@ -18,6 +18,7 @@ public class FTC_ContactUs_SendingMessageThroughContactUsTab extends BaseTest {
         homePageStep = new HomePageStep(driver);
         contactUsStep = new ContactUsStep(driver);
         homePageStep.clickContactUs();
+        
 
     }
 
