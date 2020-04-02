@@ -16,7 +16,7 @@ public class SuccessPage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Success')]")
     private WebElement successMessage;
 
-    SuccessPage(WebDriver driver) {
+    public SuccessPage(WebDriver driver) {
         super(driver);
     }
 

@@ -48,9 +48,8 @@ public class AccountPage extends BasePage {
         return new ChangePasswordPage(driver);
     }
 
-    public AddressBookPage clickOnAddressBookPageLink() {
+    public void clickOnAddressBookPageLink() {
         addressBook.click();
-        return new AddressBookPage(driver);
     }
 
     public ProductReturnsPage clickOnProductReturnsPageLink() {
