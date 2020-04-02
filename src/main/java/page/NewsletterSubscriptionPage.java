@@ -18,15 +18,18 @@ public class NewsletterSubscriptionPage extends BasePage {
     @FindBy(xpath = "//input[@value='Continue']")
     private WebElement continueButton;
 
-    public void chooseCheckBoxNo() {
+    public NewsletterSubscriptionPage chooseCheckBoxNo() {
         chooseCheckBox(no);
+        return this;
     }
 
-    public void chooseCheckBoxYes() {
+    public NewsletterSubscriptionPage chooseCheckBoxYes() {
         chooseCheckBox(yes);
+        return this;
     }
 
-    public void clickOnContinueButton() {
+    public String clickOnContinueButton() {
         continueButton.click();
+        return new SuccessPage(driver).getSuccessMessage();
     }
 }

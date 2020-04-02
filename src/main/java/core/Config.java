@@ -21,7 +21,7 @@ public final class Config {
     public static String adminSite;
     public static String selenoidServer;
     public static String site;
-    public static  String pathForDriver;
+    public static String pathForDriver;
     public static String driver;
     public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\dev.properties";
 
@@ -31,33 +31,33 @@ public final class Config {
 
     public static WebDriver getBrowserInstance() throws MalformedURLException {
 
-        if(driver.contains("gecko")){
+        if (driver.contains("gecko")) {
             return new FirefoxDriver();
-        }else if(driver.contains("chrome")){
+        } else if (driver.contains("chrome")) {
             return new ChromeDriver();
-        }else if(driver.contains("edge")){
+        } else if (driver.contains("edge")) {
             return new EdgeDriver();
-        }else if(driver.contains(".ie.")){
+        } else if (driver.contains(".ie.")) {
             return new InternetExplorerDriver();
-        }else if(driver.contains("opera")){
+        } else if (driver.contains("opera")) {
             return new OperaDriver();
-        }else if(driver.contains("safari")){
+        } else if (driver.contains("safari")) {
             return new SafariDriver();
-        }else if(driver.contains("remote")){
+        } else if (driver.contains("remote")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setBrowserName("chrome");
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", false);
-            return new RemoteWebDriver(URI.create(selenoidServer).toURL(),capabilities);
+            return new RemoteWebDriver(URI.create(selenoidServer).toURL(), capabilities);
         }
         return null;//Exception
     }
 
-    private static void getConfig(){
+    private static void getConfig() {
         Properties properties = new Properties();
-        try(FileInputStream in = new FileInputStream(PATH_PROPERTY_FILE)){
+        try (FileInputStream in = new FileInputStream(PATH_PROPERTY_FILE)) {
             properties.load(in);
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Sorry, unable to find config.properties");
         }
         Config.site = properties.getProperty("Site");
