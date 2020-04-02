@@ -74,6 +74,7 @@ public class ProductStep extends BaseStep<ProductPage> {
         String actual = driver.getTitle();
         Assert.assertEquals(expected, actual);
         return this;
+        
     }
 
 }
