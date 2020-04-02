@@ -2,10 +2,10 @@ package step;
 
 import core.BaseStep;
 import data.User;
-import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import page.RegisterPage;
 
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import java.util.HashMap;
 
 public class RegisterStep extends BaseStep<RegisterPage> {
