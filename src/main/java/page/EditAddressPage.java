@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class EditAddressPage extends BasePage {
 
     @FindBy(id = "input-firstname")
@@ -39,6 +41,10 @@ public class EditAddressPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='pull-right']/input")
     private WebElement buttonContinue;
+
+    @FindBy(xpath = "//label[@class='radio-inline']")
+    private List<WebElement> defaultAddress;
+
 
 
     public EditAddressPage(WebDriver driver) {
@@ -88,6 +94,14 @@ public class EditAddressPage extends BasePage {
     public EditAddressPage chooseRegion(String userRegion){
         chooseDataFromDropDownMenu(zone, userRegion);
         return this;
+    }
+
+    public void defaultAddressYes(){
+        defaultAddress.get(0).click();
+    }
+
+    public void defaultAddressNo(){
+        defaultAddress.get(1).click();
     }
 
     public void clickOnButtonBack(){
