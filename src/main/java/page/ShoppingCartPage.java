@@ -1,6 +1,7 @@
 package page;
 
 import core.BasePage;
+import data.CartItem;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -63,29 +64,35 @@ public class ShoppingCartPage extends BasePage {
     private WebElement shoppingCartTitle;
 
     private List<CartItem> items;
+    private Map<String, Integer> columnName;
 
 //    @FindBy(xpath = "//*[@id='content']/form/div/table")
 //    private WebElement tableItems;
-
-
-    public List getItems(){
-        WebElement tableItems = driver.findElement(By.xpath("//*[@id='content']/form/div/table"));
-
+    private void createItemMap(WebElement tableItems){
         List<WebElement> headers = tableItems.findElement(By.tagName("thead")).findElements(By.tagName("td"));
-        Map<String, Integer> columnName = new HashMap<>();
+        columnName = new HashMap<>();
         for (int i =0; i < headers.size(); i++){
-            System.out.println(headers.get(i).getText());
-            columnName.put(headers.get(i).getText(), i);
+           columnName.put(headers.get(i).getText(), i);
         }
+    }
 
-
+    public List<CartItem> getItems(){
+        WebElement tableItems = driver.findElement(By.xpath("//*[@id='content']/form/div/table"));
+        createItemMap(tableItems);
         List<WebElement> items = tableItems.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
-        List<WebElement> itemProperty = items.get(0).findElements(By.tagName("td"));
+        ArrayList<CartItem> itemList = new ArrayList<>();
+
+        for (int i =0; i < items.size(); i++){
+            List<WebElement> itemProperty = items.get(i).findElements(By.tagName("td"));
+            CartItem item = new CartItem(itemProperty.get(columnName.get("Product Name")),
+                    itemProperty.get(columnName.get("Unit Price")));
+            itemList.add(item);
+        }
+        return itemList;
        // CartItem item = CartItem.builder().name(itemProperty.get(columnName.get("Product Name"))).price(itemProperty.get(4)).build();
 //        CartItem item = new CartItem(itemProperty.get(1), itemProperty.get(4));
-        CartItem item = new CartItem(itemProperty.get(columnName.get("Product Name")),itemProperty.get(4));
-        System.out.println(item);
-        return new ArrayList();
+
+
     }
 
     public ShoppingCartPage (WebDriver driver){
@@ -105,25 +112,4 @@ public class ShoppingCartPage extends BasePage {
     }
 }
 
-//@AllArgsConstructor
-@Getter
-@Builder
-class CartItem{
-    private WebElement name;
-    private WebElement price;
-
-    public CartItem(WebElement name, WebElement price) {
-        this.name = name;
-        this.price = price;
-    }
-
-
-    @Override
-    public String toString() {
-        return "CartItem{" +
-                "name=" + name.findElement(By.tagName("a")).getAttribute("href") +
-                ", price=" + price.getText() +
-                '}';
-    }
-}
 
