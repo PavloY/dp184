@@ -40,11 +40,11 @@ public class WishListStep extends BaseStep<WishListPage> {
     }
 
 
-    public WishListStep continueShoppingFromWishListTest() {
+    public MyAccountStep continueShoppingFromWishListTest() {
         page.continueShoppingFromWishList();
         String expected = "Account";
         String actual = page.goToAccount();
         Assert.assertEquals(expected, actual);
-        return this;
+        return new MyAccountStep(driver);
     }
 }
