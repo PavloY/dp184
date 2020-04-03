@@ -1,6 +1,7 @@
 package step;
 
 import core.BaseStep;
+import data.ContactUsData;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -62,19 +63,19 @@ public class ProductStep extends BaseStep<ProductPage> {
         return this;
     }
 
-    public ProductStep checkAddProductToWishList() {
+    public WishListStep checkAddProductToWishList() {
         page.addProductToWishList();
         wait.until(ExpectedConditions.visibilityOf(page.getWishListLink()));
         page.goToWishList();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.fillLoginEmail("opencard@mailforspam.com");
-        loginPage.fillLoginPassword("Qwerty");
+        loginPage.fillLoginEmail(ContactUsData.REG_E_MAIL);
+        loginPage.fillLoginPassword(ContactUsData.REG_PASSWORD);
         loginPage.clickLogInPageButton();
         String expected = "My Wish List";
         String actual = driver.getTitle();
         Assert.assertEquals(expected, actual);
-        return this;
-        
+        return new WishListStep(driver);
+
     }
 
 }

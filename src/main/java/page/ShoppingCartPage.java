@@ -43,7 +43,29 @@ public class ShoppingCartPage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Continue Shopping')]")
     private WebElement continueShoppingButton;
 
+    @FindBy(xpath = "//p[text()[contains(.,'Your shopping cart is empty!')]]")
+    private WebElement messageEmptyCart;
+
+    @FindBy(xpath = "//a[contains(text(), 'iPhone')]")
+    private WebElement nameOfProduct;
+
+    @FindBy(xpath = "//h1")
+    private WebElement shoppingCartTitle;
+
     public ShoppingCartPage (WebDriver driver){
         super(driver);
     }
+
+    public String getMessageEmptyCart(){
+        return messageEmptyCart.getText();
+    }
+
+    public String getNameOfProduct(){
+       return nameOfProduct.getText();
+    }
+
+    public WebElement getShoppingCartTitle(){
+        return shoppingCartTitle;
+    }
 }
+

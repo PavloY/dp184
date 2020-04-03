@@ -45,6 +45,7 @@ import java.util.concurrent.TimeUnit;
     public void setUp() throws MalformedURLException {
         driver = Config.getBrowserInstance();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         driver.get(Config.site);
     }
 
