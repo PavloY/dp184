@@ -26,17 +26,14 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
         HashMap<String,String> actual = page.getAllWarningMessages();
         Assert.assertFalse(actual.isEmpty());
         return this;
-}
+    }
     public BaseStep fillAllFieldsWithValidData(ContactUsUser user){
         fillAllFields(user);
-        String expected = "Your enquiry has been successfully sent to the store owner!";
-        //String actual = driver.findElement(By.xpath().get);
-
         HashMap<String,String> actual = page.getAllWarningMessages();   // ????
         Assert.assertTrue(actual.isEmpty());                            // ????
-
         return this;
     }
+
     private void fillAllFields(ContactUsUser user){
         page.fillName(user.getName());
         page.fillEmail(user.getEmail());

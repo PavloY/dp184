@@ -38,6 +38,7 @@ public class ContactUsPage extends BasePage {
     public void fillName(String userName){
         fillField(name,userName);
     }
+
     public void fillEmail(String userEmail){
         fillField(email,userEmail);
     }
@@ -45,7 +46,6 @@ public class ContactUsPage extends BasePage {
     public void fillEnquiry(String userEnquiry){
         fillField(enquiry, userEnquiry);
     }
-
 
     public void clickOnSubmitButton(){
         submitButton.click();
@@ -66,6 +66,6 @@ public class ContactUsPage extends BasePage {
 
         return result;
     }
-    // getWarning Message Map<имя поля. сообщение>
+
 
 }
