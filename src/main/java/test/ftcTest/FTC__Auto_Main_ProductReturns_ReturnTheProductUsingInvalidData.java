@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 
 import static org.junit.Assert.assertEquals;
 
-public class FTC_Main_ProductReturns_ReturnTheProductUsingInvalidData extends BaseTest {
+public class FTC__Auto_Main_ProductReturns_ReturnTheProductUsingInvalidData extends BaseTest {
     ProductReturnsStep productReturnsStep;
     ProductReturnsPage productReturnsPage;
 
@@ -33,11 +33,22 @@ public class FTC_Main_ProductReturns_ReturnTheProductUsingInvalidData extends Ba
     }
 
     @Test
-    public void fillWithInValidDate() {
+    public void fillWithInValidDateShort() {
         productReturnsStep.fillWithInValidDate(" ", " ", " ",
                 " ", " ", " ",
                 " ", " ", " ",
                 " ");
+        String expected = "Product Returns";
+        String actual = productReturnsPage.getTitlePage();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void fillWithInValidDateLong() {
+        productReturnsStep.fillWithInValidDate("333333333333333333333333333333333", "333333333333333333333333333333333", "example",
+                "333333333333333333333333333333333", "$", "$",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam sollicitudin tempor id eu nisl nunc. Ac tortor dignissim convallis aenean et tortor at risus viverra. Feugiat vivamus at augue", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed does", "$",
+                "$");
         String expected = "Product Returns";
         String actual = productReturnsPage.getTitlePage();
         assertEquals(expected, actual);

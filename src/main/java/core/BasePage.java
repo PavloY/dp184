@@ -10,7 +10,13 @@ import page.*;
 public abstract class BasePage extends BaseElement {
 
     @FindBy(className = "dropdown-toggle")
-    protected WebElement currency;
+    private WebElement currency;
+    @FindBy(xpath = "//button[text()='€ Euro']")
+    private WebElement euro;
+    @FindBy(xpath = "//button[text()='$ US Dollar']")
+    private WebElement dollar;
+    @FindBy(xpath = "//button[text()='£ Pound Sterling']")
+    private WebElement sterling;
 
     @FindBy(className = "dropdown")
     protected WebElement myAccount;
@@ -48,6 +54,18 @@ public abstract class BasePage extends BaseElement {
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
+
+    public WebElement getEuro() {
+        return euro;
+    }
+
+    public WebElement getDollar() {
+        return dollar;
+    }
+
+    public WebElement getSterling() {
+        return sterling;
     }
 
     public void clickReturnsButton() {
@@ -105,6 +123,4 @@ public abstract class BasePage extends BaseElement {
         productComparison.click();
         return new ProductComparisonPage(driver);
     }
-
-
 }

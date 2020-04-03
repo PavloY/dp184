@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 
 import static org.junit.Assert.assertEquals;
 
-public class FTC_Main_ProductReturns_ReturnTheProductUsingValidData extends BaseTest {
+public class FTC__Auto_Main_ProductReturns_ReturnTheProductUsingValidData extends BaseTest {
     ProductReturnsStep productReturnsStep;
     SuccessPage successPage;
 

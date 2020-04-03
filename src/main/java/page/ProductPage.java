@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
 import java.util.List;
 
 
@@ -25,7 +24,7 @@ public class ProductPage extends BasePage {
     @FindBy(id = "input-quantity")
     private WebElement quantityInput;
 
-    @FindBy(id ="button-cart")
+    @FindBy(id = "button-cart")
     private WebElement addToCartButton;
 
     @FindBy(xpath = "//*[contains(text(), 'Reviews')]")
@@ -52,7 +51,7 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(), 'shopping cart')]")
     private WebElement shoppingCartLink;
 
-    public ProductPage(WebDriver driver){
+    public ProductPage(WebDriver driver) {
         super(driver);
     }
 
@@ -76,19 +75,19 @@ public class ProductPage extends BasePage {
         return productPrice.getText();
     }
 
-    public void addProductToWishList(){
+    public void addProductToWishList() {
         wishListButton.click();
     }
 
-    public void addProductToProductComparison(){
+    public void addProductToProductComparison() {
         comparisonButton.click();
     }
 
-    public void fillProductQuantity(String userQuantity){
+    public void fillProductQuantity(String userQuantity) {
         fillField(quantityInput, userQuantity);
     }
 
-    public void addToCart(){
+    public void addToCart() {
         addToCartButton.click();
     }
 
@@ -104,11 +103,11 @@ public class ProductPage extends BasePage {
         fillField(reviewInput, userReview);
     }
 
-    public void checkRating(int userRating){
+    public void checkRating(int userRating) {
         listRatingButton.get(userRating).click();
     }
 
-    public void sendReview(){
+    public void sendReview() {
         sendReviewButton.click();
     }
 
@@ -124,4 +123,27 @@ public class ProductPage extends BasePage {
         return shoppingCartLink.getText();
     }
 
+    public double getDollarPriceAsDouble() {
+        chooseCurrency();
+        getDollar().click();
+        String dollar = getPriceValue().replaceAll("\\$", "");
+        double dollarPrice = Double.parseDouble(dollar);
+        return dollarPrice;
+    }
+
+    public double getSterlingPriceAsDouble() {
+        chooseCurrency();
+        getSterling().click();
+        String sterling = getPriceValue().replaceAll("£", "");
+        double sterlingPrice = Double.parseDouble(sterling);
+        return sterlingPrice;
+    }
+
+    public double getEuroPriceAsDouble() {
+        chooseCurrency();
+        getEuro().click();
+        String euro = getPriceValue().replaceAll("€", "");
+        double euroPrice = Double.parseDouble(euro);
+        return euroPrice;
+    }
 }

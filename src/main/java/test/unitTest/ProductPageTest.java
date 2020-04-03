@@ -1,4 +1,4 @@
-package test.Unit;
+package test.unitTest;
 
 import core.BaseTest;
 import core.Config;
@@ -37,7 +37,7 @@ public class ProductPageTest extends BaseTest {
     }
 
     @Test
-    public void addProductToWishListTest(){
+    public void addProductToWishListTest() {
         productPage.addProductToWishList();
         String expected = "wish list";
         String actual = productPage.getMessageOnAlertWishList();
@@ -45,7 +45,7 @@ public class ProductPageTest extends BaseTest {
     }
 
     @Test
-    public void addProductToProductComparisonTest(){
+    public void addProductToProductComparisonTest() {
         productPage.addProductToProductComparison();
         String expected = "product comparison";
         String actual = productPage.getMessageOnAlertProductComparison();
@@ -53,7 +53,7 @@ public class ProductPageTest extends BaseTest {
     }
 
     @Test
-    public void addToCartTest(){
+    public void addToCartTest() {
         productPage.addToCart();
         String expected = "shopping cart";
         String actual = productPage.getMessageOnAlertCart();
