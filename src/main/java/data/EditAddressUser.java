@@ -65,5 +65,5 @@ public class EditAddressUser {
 
     public boolean isDefaultAddress(){
         return defaultAddress;
-    }
+    } 
 }
