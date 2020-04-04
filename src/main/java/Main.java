@@ -1,7 +1,4 @@
 import core.Config;
-import data.ContactUsUser;
-import data.User;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
@@ -19,6 +16,7 @@ import java.net.MalformedURLException;
 
 
 public class Main {
+
     public static void main(String []args) throws MalformedURLException {
 
 
