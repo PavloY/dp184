@@ -85,7 +85,8 @@ public class ShoppingCartPage extends BasePage {
         for (int i =0; i < items.size(); i++){
             List<WebElement> itemProperty = items.get(i).findElements(By.tagName("td"));
             CartItem item = new CartItem(itemProperty.get(columnName.get("Product Name")),
-                    itemProperty.get(columnName.get("Unit Price")));
+                    itemProperty.get(columnName.get("Unit Price")),itemProperty.get(columnName.get("Quantity"))
+                    .findElement(By.xpath("//input[@class = 'form-control']")));
             itemList.add(item);
         }
         return itemList;

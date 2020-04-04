@@ -11,11 +11,13 @@ import org.openqa.selenium.WebElement;
 public class CartItem {
     private WebElement name;
     private WebElement price;
+    private WebElement quantity;
 
 
-    public CartItem(WebElement name, WebElement price) {
+    public CartItem(WebElement name, WebElement price, WebElement quantity) {
         this.name = name;
         this.price = price;
+        this.quantity = quantity;
     }
 
 
@@ -23,7 +25,7 @@ public class CartItem {
     public String toString() {
         return "CartItem{" +
                 "name=" + name.findElement(By.tagName("a")).getAttribute("href") +
-                 ", price=" + price.getText() +
+                 ", price=" + price.getText() +", quantity=" + quantity.getAttribute("value") +
                 '}';
     }
 }
