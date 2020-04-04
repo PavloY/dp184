@@ -12,14 +12,26 @@ public class CartItem {
     private WebElement name;
     private WebElement price;
     private WebElement quantity;
+    private WebElement update;
+    private WebElement remove;
 
 
-    public CartItem(WebElement name, WebElement price, WebElement quantity) {
+    public CartItem(WebElement name, WebElement price, WebElement quantity,WebElement update, WebElement remove) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.update = update;
+        this.remove = remove;
+
     }
 
+    public WebElement getUpdate() {
+        return update;
+    }
+
+    public WebElement getRemove() {
+        return remove;
+    }
 
     @Override
     public String toString() {
@@ -28,5 +40,7 @@ public class CartItem {
                  ", price=" + price.getText() +", quantity=" + quantity.getAttribute("value") +
                 '}';
     }
+
+
 }
 

@@ -86,7 +86,9 @@ public class ShoppingCartPage extends BasePage {
             List<WebElement> itemProperty = items.get(i).findElements(By.tagName("td"));
             CartItem item = new CartItem(itemProperty.get(columnName.get("Product Name")),
                     itemProperty.get(columnName.get("Unit Price")),itemProperty.get(columnName.get("Quantity"))
-                    .findElement(By.xpath("//input[@class = 'form-control']")));
+                    .findElement(By.xpath("//input[@class = 'form-control']")),itemProperty.get(columnName.get("Quantity"))
+                    .findElement(By.xpath("//button[@data-original-title='Update']")),itemProperty.get(columnName.get("Quantity"))
+                    .findElement(By.xpath("//button[@data-original-title='Remove']")));
             itemList.add(item);
         }
         return itemList;
