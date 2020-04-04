@@ -1,6 +1,7 @@
 package page;
 
 import core.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,23 +16,42 @@ public class WishListPage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Continue')]")
     protected WebElement continueShoppingFromWishListButton;
 
+    @FindBy(xpath = "//a[contains(text(), 'shopping cart')]")
+    private WebElement shoppingCartLink;
+
+    @FindBy(className = "breadcrumb")
+    private WebElement goToAccount;
+
+    @FindBy(xpath = "//p[text()[contains(.,'Your wish list is empty.')]]")
+    private WebElement messageSuccessRemove;
+
     public WishListPage(WebDriver driver){
         super(driver);
     }
 
-    public ShoppingCartPage addProductToCart(){
+    public void addProductToCart(){
         addProductToCartButton.click();
-        return new ShoppingCartPage(driver);
     }
 
-    public WishListPage removeProductFromWishList(){
+    public void removeProductFromWishList(){
         removeProductFromWishListButton.click();
-        return this;
     }
 
     public void continueShoppingFromWishList(){
         continueShoppingFromWishListButton.click();
-        // return new LogInPage(driver);
     }
 
+    public String getMessageOnAlertCart() {
+        return shoppingCartLink.getText();
+    }
+
+    public String getMessageSuccessRemove() {
+        return messageSuccessRemove.getText();
+    }
+    public WebElement getShoppingCartLink() {
+        return shoppingCartLink;
+    }
+    public String goToAccount() {
+        return goToAccount.getText();
+    }
 }

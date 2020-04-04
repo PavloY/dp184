@@ -3,7 +3,6 @@ package core;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import page.*;
@@ -40,9 +39,23 @@ public abstract class BasePage extends BaseElement {
     @FindBy(xpath = "//a[contains(text(), 'product comparison')]")
     private WebElement productComparison;
 
+    @FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=account/return/add']")
+    private WebElement returnsButton;
+
+    @FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=account/newsletter']")
+    private WebElement newsletterButton;
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
+
+    public void clickReturnsButton() {
+        returnsButton.click();
+    }
+
+    public void clickNewsletterButton() {
+        newsletterButton.click();
     }
 
     public void chooseCurrency() {
@@ -88,7 +101,7 @@ public abstract class BasePage extends BaseElement {
         return new LoginPage(driver);
     }
 
-    public ProductComparisonPage goToProductComparison(){
+    public ProductComparisonPage goToProductComparison() {
         productComparison.click();
         return new ProductComparisonPage(driver);
     }

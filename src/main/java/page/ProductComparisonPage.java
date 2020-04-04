@@ -16,19 +16,19 @@ public class ProductComparisonPage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Continue')]")
     private WebElement continueFromProductComparisonButton;
 
-    public ProductComparisonPage(WebDriver driver){
+    public ProductComparisonPage(WebDriver driver) {
         super(driver);
     }
 
-    public void goToHomePageFromProductComparison(){
+    public void goToHomePageFromProductComparison() {
         continueFromProductComparisonButton.click();
     }
 
-    public void addToCart(){
+    public void addToCart() {
         addToCartButton.click();
     }
 
-    public void removeFromProductComparisonPage(){
+    public void removeFromProductComparisonPage() {
         removeFromProductComparisonButton.click();
     }
 
