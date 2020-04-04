@@ -2,7 +2,6 @@ package step;
 
 import core.BaseStep;
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import page.BrandsPage;
 
@@ -14,7 +13,7 @@ public class BrandsStep extends BaseStep<BrandsPage> {
         super(driver, new BrandsPage(driver));
     }
 
-    @Test
+
     public BaseStep goToTheSpecificBrandProductsPage() {
         page.clickBrand("Apple");
         String expected = "Apple";

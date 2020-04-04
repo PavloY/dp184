@@ -40,7 +40,7 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
         page.fillEnquiry(user.getEnquiry());
         page.clickOnSubmitButton();
     }
-    
+
 
 }
 
