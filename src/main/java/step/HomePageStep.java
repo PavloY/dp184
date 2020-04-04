@@ -1,6 +1,7 @@
 package step;
 
 import core.BaseStep;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import page.ContactUsPage;
 import page.HomePage;
@@ -25,4 +26,12 @@ public class HomePageStep extends BaseStep<HomePage> {
     page.goToContactUsPage();
     return new ContactUsStep(driver);
   }
+  public ProductStep clickOnProduct(String nameOfProduct) {
+    page.getNameProductsList();
+    page.clickOnNameOfProduct(nameOfProduct);
+    String expected = "iPhone";
+    String actual = page.getTitlePage();
+    Assert.assertEquals(expected, actual);
+    return new ProductStep(driver);
+    }
 }
