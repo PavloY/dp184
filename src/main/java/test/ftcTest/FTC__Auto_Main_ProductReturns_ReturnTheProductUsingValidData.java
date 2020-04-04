@@ -33,8 +33,8 @@ public class FTC__Auto_Main_ProductReturns_ReturnTheProductUsingValidData extend
     }
 
     @Test
-    public void validDate() {
-        productReturnsStep.fillValidDate("Inokentiy", "Best", "someuser@example.com",
+    public void validData() {
+        productReturnsStep.fillValidData("Inokentiy", "Best", "someuser@example.com",
                 "1111111111", "11111", "2020-02-01",
                 "iphone", "product 11", "5",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");

@@ -33,8 +33,8 @@ public class FTC__Auto_Main_ProductReturns_ReturnTheProductUsingInvalidData exte
     }
 
     @Test
-    public void fillWithInValidDateShort() {
-        productReturnsStep.fillWithInValidDate(" ", " ", " ",
+    public void fillWithInValidDataShort() {
+        productReturnsStep.fillWithInValidData(" ", " ", " ",
                 " ", " ", " ",
                 " ", " ", " ",
                 " ");
@@ -44,8 +44,8 @@ public class FTC__Auto_Main_ProductReturns_ReturnTheProductUsingInvalidData exte
     }
 
     @Test
-    public void fillWithInValidDateLong() {
-        productReturnsStep.fillWithInValidDate("333333333333333333333333333333333", "333333333333333333333333333333333", "example",
+    public void fillWithInValidDataLong() {
+        productReturnsStep.fillWithInValidData("333333333333333333333333333333333", "333333333333333333333333333333333", "example",
                 "333333333333333333333333333333333", "$", "$",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam sollicitudin tempor id eu nisl nunc. Ac tortor dignissim convallis aenean et tortor at risus viverra. Feugiat vivamus at augue", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed does", "$",
                 "$");

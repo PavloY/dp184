@@ -51,6 +51,9 @@ public abstract class BasePage extends BaseElement {
     @FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=account/newsletter']")
     private WebElement newsletterButton;
 
+    @FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=affiliate/account']")
+    private WebElement affiliateButton;
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -66,6 +69,10 @@ public abstract class BasePage extends BaseElement {
 
     public WebElement getSterling() {
         return sterling;
+    }
+
+    public void clickAffiliateButton() {
+        affiliateButton.click();
     }
 
     public void clickReturnsButton() {
