@@ -34,4 +34,9 @@ public class HomePageStep extends BaseStep<HomePage> {
     Assert.assertEquals(expected, actual);
     return new ProductStep(driver);
     }
+
+    public RegisterStep goToRegisterPage(){
+      page.goToRegisterPage();
+      return new RegisterStep(driver);
+    }
 }
