@@ -20,6 +20,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//h4//a")
     private List<WebElement> productsOnShowCase;
 
+    @FindBy(id = "slideshow0")
+    private WebElement carouselItem;
+
     List<String> nameProductsList = new ArrayList<>();
 
     public HomePage(WebDriver driver) {
@@ -49,5 +52,10 @@ public class HomePage extends BasePage {
         int indexOfProduct = nameProductsList.indexOf(nameOfProduct);
         productsOnShowCase.get(indexOfProduct).click();
     }
+
+    public boolean isCarouselOnHomePage(){
+        return carouselItem.isDisplayed();
+    }
+
 }
 

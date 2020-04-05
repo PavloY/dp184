@@ -63,7 +63,7 @@ public class ProductStep extends BaseStep<ProductPage> {
         return this;
     }
 
-    public WishListStep checkAddProductToWishList() {
+    public WishListStep addProductToWishList() {
         page.addProductToWishList();
         wait.until(ExpectedConditions.visibilityOf(page.getWishListLink()));
         page.goToWishList();

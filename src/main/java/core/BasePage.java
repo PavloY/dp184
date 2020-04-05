@@ -15,6 +15,9 @@ public abstract class BasePage extends BaseElement {
     @FindBy(className = "dropdown")
     protected WebElement myAccount;
 
+    @FindBy(linkText = "Logout")
+    protected WebElement logoutDropDown;
+
     @FindBy(xpath = "//*[@id=\"logo\"]/a/img")
     protected WebElement homeRedirect;
 
@@ -106,5 +109,8 @@ public abstract class BasePage extends BaseElement {
         return new ProductComparisonPage(driver);
     }
 
-
+    public LogoutPage goToLogoutPage() {
+        logoutDropDown.click();
+        return new LogoutPage(driver);
+    }
 }

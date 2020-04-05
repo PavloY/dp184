@@ -17,14 +17,14 @@ public class CartStep extends BaseStep<ShoppingCartPage> {
         wait = new WebDriverWait(driver, 5, 1000);
     }
 
-    public CartStep checkEmptyShoppingCart(){
+    public CartStep emptyShoppingCart(){
         page.goToShoppingCartPage();
         String expected = "Your shopping cart is empty!";
         String actual = page.getMessageEmptyCart();
         Assert.assertEquals(expected, actual);
         return this;
     }
-    public CartStep checkAddProductToCart(){
+    public CartStep addProductToCart(){
         wait.until(ExpectedConditions.visibilityOf(page.getShoppingCartTitle()));
         String expected = "iPhone";
         String actual = page.getNameOfProduct();
