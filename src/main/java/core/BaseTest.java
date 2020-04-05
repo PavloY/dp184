@@ -45,10 +45,13 @@ import java.util.concurrent.TimeUnit;
     @Before
     public void setUp() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName("chrome");
+      capabilities.setBrowserName("chrome");
+ //       capabilities.setBrowserName("chrome");
+ //       capabilities.setVersion("latest");//TODO
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", false);
-        driver = new RemoteWebDriver(URI.create("http://144.76.5.68:4444/wd/hub").toURL(),capabilities);
+      driver = new RemoteWebDriver(URI.create("http://144.76.5.68:4444/wd/hub").toURL(),capabilities);
+  //      driver = new RemoteWebDriver(URI.create("http://134.209.252.19:4444/wd/hub").toURL(),capabilities);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("http://184-dp.tk");
     }
