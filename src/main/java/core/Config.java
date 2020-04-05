@@ -25,9 +25,9 @@ public final class Config {
     public static String driverName ="remote";
     public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\dev.properties";
 
-  //  static {
-  //      getConfig();
-  //  }
+    static {
+        getConfig();
+    }
 
 
 
