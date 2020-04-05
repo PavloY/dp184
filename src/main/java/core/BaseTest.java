@@ -66,7 +66,7 @@ import java.util.concurrent.TimeUnit;
  */
 @BeforeClass
 public static void start() {
-    System.setProperty(Config.driver, Config.pathForDriver);
+//    System.setProperty(Config.driver, Config.pathForDriver);
 }
 
 
