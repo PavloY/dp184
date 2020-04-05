@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 public abstract class BaseElement {
     protected WebDriver driver;
 
+
     public void fillField(WebElement webElement, String userData) {
         webElement.clear();
         webElement.sendKeys(userData);
@@ -47,7 +48,6 @@ public abstract class BaseElement {
         }
     }
 
-
     public String getTextContent(WebElement webElement) {
         return webElement.getText();
     }
@@ -55,8 +55,6 @@ public abstract class BaseElement {
     public String getTitlePage() {
         return driver.getTitle();
     }
-
-
 
     //is Element avileable
 }
