@@ -19,7 +19,7 @@ public class FTC_Auto_Main_WishList_AddProductFromWishListToShoppingCart extends
         // check empty Shopping Cart: loginStep, check the empty Cart, logoutStep
         homePageStep = new HomePageStep(driver);
         LoginUser user = new LoginUser(ContactUsData.REG_E_MAIL, ContactUsData.REG_PASSWORD);
-        homePageStep.clickMyAccount()
+  /*      homePageStep.clickMyAccount()
                 .clickloginDropDown().fillAllFields(user).clickOnShoppingCartButton();
 //                .clickOnProduct("iPhone")
 //                .checkAddProductToWishList()
@@ -27,5 +27,9 @@ public class FTC_Auto_Main_WishList_AddProductFromWishListToShoppingCart extends
         // assert item is on Shopping Cart
     }
 
-
+  */
+    }
 }
+
+
+
