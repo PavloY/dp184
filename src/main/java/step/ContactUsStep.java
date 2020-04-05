@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import page.ContactUsPage;
+import page.SuccessPage;
 
 import java.util.HashMap;
 
@@ -43,7 +44,10 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
         page.fillEnquiry(user.getEnquiry());
         page.clickOnSubmitButton();
     }
-
+    public String getSuccessfulSendEnquiryMessage(){
+        SuccessPage successPage = new SuccessPage(driver);
+        return successPage.getSuccessMessageForEnquirySending();
+    }
 
 }
 

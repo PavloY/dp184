@@ -3,6 +3,7 @@ package test;
 import core.BasePage;
 import core.BaseTest;
 import data.ContactUsUser;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -35,9 +36,9 @@ public class FTC_ContactUs_SendingMessageThroughContactUsTab extends BaseTest {
 
         ContactUsUser contactUsUser = new ContactUsUser("Alex","alex@mail.com","Hello World !!!!!!!!!!!!!");
         contactUsStep.fillAllFieldsWithValidData(contactUsUser);
-        String expected = "";
-        //String actual = successPage.getTitlePage();
-        //assertEquals(expected,actual);
+        String expected = "Your enquiry has been successfully sent to the store owner!";
+        String actual = successPage.getSuccessMessageForEnquirySending();
+        Assert.assertEquals(expected, actual);
     }
 
 
