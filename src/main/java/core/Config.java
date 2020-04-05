@@ -10,17 +10,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.Properties;
 
 public final class Config {
 
-    public static String adminSite;
-    public static String selenoidServer;
-    public static String site;
+    public static String adminSite ="http\\://184-dp.tk/admin";
+    public static String selenoidServer = "http://144.76.5.68:4444/wd/hub";
+    public static String site ="http\\://184-dp.tk";
     public static  String pathForDriver = "\\Tools\\geckodriver.exe";
     public static String driverName ="remote";
     public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\dev.properties";
@@ -31,7 +28,7 @@ public final class Config {
 
 
 
-    public static WebDriver getBrowserInstance() throws MalformedURLException {
+    public static WebDriver getBrowserInstance() throws Exception {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
@@ -51,7 +48,7 @@ public final class Config {
         }else if(driverName.contains("safari")){
             return new SafariDriver();
         }else if(driverName.contains("remote")){
-            return new RemoteWebDriver(URI.create("http://144.76.5.68:4444/wd/hub").toURL(),capabilities);
+            return new RemoteWebDriver(URI.create(selenoidServer).toURL(),capabilities);
         }
         return null;//Exception
     }
@@ -63,13 +60,22 @@ public final class Config {
     //    }catch (IOException e){
     //        System.out.println("Sorry, unable to find config.properties");
     //    }
-        Config.site = properties.getProperty("Site");
-        adminSite = properties.getProperty("AdminSite");
-        pathForDriver = properties.getProperty("PathForDriver");
-        Config.driverName = properties.getProperty("DriverName");
-        selenoidServer = properties.getProperty("Selenoid");
+        //Config.site = properties.getProperty("Site");
+   //     adminSite = properties.getProperty("AdminSite");
+        //pathForDriver = properties.getProperty("PathForDriver");
+    //    Config.driverName = properties.getProperty("DriverName");
+    //    selenoidServer = properties.getProperty("Selenoid");
     }
 
+    /*
+    Site=http\://184-dp.tk
+AdminSite=http\://184-dp.tk/admin
+DriverName=remote
+PathForDriver=\\Tools\\geckodriver.exe
+#Driver=webdriver.gecko.driver
+Selenoid=http://144.76.5.68:4444/wd/hub
+#UI selenoid link: http://144.76.5.68:6258/#/
+     */
 
 
 
