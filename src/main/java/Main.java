@@ -44,7 +44,7 @@ public class Main {
         //homePageStep.clickBrands();
         //BrandsStep brandsStep = new BrandsStep(driver);
         //brandsStep.goToTheSpecificBrandProductsPage();
-        
+
 
 
     }
