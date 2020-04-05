@@ -21,7 +21,7 @@ public final class Config {
     public static String adminSite;
     public static String selenoidServer;
     public static String site;
-    public static  String pathForDriver ="";
+    public static  String pathForDriver = "\\Tools\\geckodriver.exe";
     public static String driverName ="remote";
     public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\dev.properties";
 
@@ -65,7 +65,7 @@ public final class Config {
     //    }
         Config.site = properties.getProperty("Site");
         adminSite = properties.getProperty("AdminSite");
-      String pathForDriver = properties.getProperty("PathForDriver");
+        pathForDriver = properties.getProperty("PathForDriver");
         Config.driverName = properties.getProperty("DriverName");
         selenoidServer = properties.getProperty("Selenoid");
     }
