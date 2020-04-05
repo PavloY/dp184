@@ -1,13 +1,13 @@
 package data;
 
-import lombok.Builder;
-import lombok.Getter;
+import jdk.nashorn.internal.objects.annotations.Getter;
+
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 //@AllArgsConstructor
-@Getter
-@Builder
+
 public class CartItem {
     private WebElement name;
     private WebElement price;
