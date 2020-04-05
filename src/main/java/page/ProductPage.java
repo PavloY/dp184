@@ -51,6 +51,12 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(), 'shopping cart')]")
     private WebElement shoppingCartLink;
 
+    @FindBy(xpath = "//a[contains (text(), 'Share')]")
+    private WebElement shareLink;
+
+    @FindBy(xpath = "//a[contains(@href,'twitter')]")
+    private WebElement shareTweetLink;
+
     public ProductPage(WebDriver driver) {
         super(driver);
     }
@@ -145,5 +151,9 @@ public class ProductPage extends BasePage {
         String euro = getPriceValue().replaceAll("€", "");
         double euroPrice = Double.parseDouble(euro);
         return euroPrice;
+    }
+
+    public WebElement getShareTweetLink() {
+        return shareTweetLink;
     }
 }
