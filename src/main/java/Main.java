@@ -1,4 +1,8 @@
 import core.Config;
+import data.ContactUsUser;
+import data.EditAddressUser;
+import data.User;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
@@ -22,6 +26,10 @@ public class Main {
 
         System.setProperty(Config.driver, Config.pathForDriver);
         WebDriver driver = Config.getBrowserInstance();
+        ContactUsUser user = new ContactUsUser("Alex","alemail.com","fefjengjengjffg");
+        EditAddressUser userEditAddress = new EditAddressUser("Nataliya", "Kryuchkova", "Year",
+                "78 McCullough Dr.", "UA20143", "New Castle", "19726",
+                "United States", "Delaware", true);
         driver.get(Config.site);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //ContactUsUser user = new ContactUsUser("Alex","alemail.com","fefjengjengjffg");
@@ -36,7 +44,7 @@ public class Main {
         //homePageStep.clickBrands();
         //BrandsStep brandsStep = new BrandsStep(driver);
         //brandsStep.goToTheSpecificBrandProductsPage();
-
+        
 
 
     }
