@@ -38,22 +38,48 @@ import java.util.concurrent.TimeUnit;
                 logger.error("Test {} failed with {}.", method.getMethodName(), e);
             }
         };
-        protected RemoteWebDriver driver;
+     //   protected RemoteWebDriver driver;
+     protected WebDriver driver;
+/* protected WebDriver driver;
 
-  
-    @Attachment
+    @BeforeClass
+    public static void start() {
+        System.setProperty(Config.driver, Config.pathForDriver);
+    }
+
     @Before
     public void setUp() throws MalformedURLException {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-      capabilities.setBrowserName("chrome");
- //       capabilities.setBrowserName("chrome");
- //       capabilities.setVersion("latest");//TODO
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
-      driver = new RemoteWebDriver(URI.create("http://144.76.5.68:4444/wd/hub").toURL(),capabilities);
-  //      driver = new RemoteWebDriver(URI.create("http://134.209.252.19:4444/wd/hub").toURL(),capabilities);
+        driver = Config.getBrowserInstance();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get("http://184-dp.tk");
+        driver.manage().window().maximize();
+        driver.get(Config.site);
+    }
+
+    @After
+    public void tearDown() {
+        driver.quit();
+    }
+}
+
+
+ */
+@BeforeClass
+public static void start() {
+    System.setProperty(Config.driver, Config.pathForDriver);
+}
+
+
+        @Before
+    public void setUp() throws MalformedURLException {
+ //     DesiredCapabilities capabilities = new DesiredCapabilities();
+ //     capabilities.setBrowserName("chrome");
+ //     capabilities.setCapability("enableVNC", true);
+ //     capabilities.setCapability("enableVideo", false);
+ //     driver = new RemoteWebDriver(URI.create("http://144.76.5.68:4444/wd/hub").toURL(),capabilities);
+      driver = Config.getBrowserInstance();
+      driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+      driver.get("http://184-dp.tk");
     }
 
     @After

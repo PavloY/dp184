@@ -35,7 +35,6 @@ public final class Config {
         capabilities.setBrowserName("chrome");
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", false);
-        new RemoteWebDriver(URI.create(selenoidServer).toURL(),capabilities);
 
         if(driver.contains("gecko")){
             return new FirefoxDriver();
@@ -50,7 +49,7 @@ public final class Config {
         }else if(driver.contains("safari")){
             return new SafariDriver();
         }else if(driver.contains("remote")){
-            return new RemoteWebDriver(URI.create(selenoidServer).toURL(),capabilities);
+            return new RemoteWebDriver(URI.create("http://144.76.5.68:4444/wd/hub").toURL(),capabilities);
         }
         return null;//Exception
     }
