@@ -33,9 +33,9 @@ public class Main {
         //homePageStep.clickContactUs();
         //ContactUsStep contactUsStep = new ContactUsStep(driver);
         //contactUsStep.fillAllFieldsWithInvalidData(user);
-        homePageStep.clickBrands();
-        BrandsStep brandsStep = new BrandsStep(driver);
-        brandsStep.goToTheSpecificBrandProductsPage();
+        //homePageStep.clickBrands();
+        //BrandsStep brandsStep = new BrandsStep(driver);
+        //brandsStep.goToTheSpecificBrandProductsPage();
 
 
 

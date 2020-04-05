@@ -14,9 +14,9 @@ public class BrandsStep extends BaseStep<BrandsPage> {
     }
 
 
-    public BaseStep goToTheSpecificBrandProductsPage(){
-        page.clickBrand("Apple");
-        String expected = "Apple";
+    public BaseStep goToTheSpecificBrandProductsPage(String brand){
+        page.clickBrand(brand);
+        String expected = brand;
         String actual = driver.getTitle();
         Assert.assertEquals(expected,actual);
         return this;
