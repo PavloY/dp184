@@ -21,7 +21,7 @@ public final class Config {
     public static String adminSite;
     public static String selenoidServer;
     public static String site;
-    public static  String pathForDriver;
+    public static  String pathForDriver = "";
     public static String driver;
     public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\dev.properties";
 
