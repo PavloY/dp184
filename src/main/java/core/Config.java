@@ -21,8 +21,8 @@ public final class Config {
     public static String adminSite;
     public static String selenoidServer;
     public static String site;
-    public static  String pathForDriver = "";
-    public static String driver;
+    public static  String pathForDriver ="C\\:\\Tools\\geckodriver.exe";
+    public static String driverName ="remote";
     public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\dev.properties";
 
     static {
@@ -36,19 +36,19 @@ public final class Config {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", false);
 
-        if(driver.contains("gecko")){
+        if(driverName.contains("gecko")){
             return new FirefoxDriver();
-        }else if(driver.contains("chrome")){
+        }else if(driverName.contains("chrome")){
             return new ChromeDriver();
-        }else if(driver.contains("edge")){
+        }else if(driverName.contains("edge")){
             return new EdgeDriver();
-        }else if(driver.contains(".ie.")){
+        }else if(driverName.contains(".ie.")){
             return new InternetExplorerDriver();
-        }else if(driver.contains("opera")){
+        }else if(driverName.contains("opera")){
             return new OperaDriver();
-        }else if(driver.contains("safari")){
+        }else if(driverName.contains("safari")){
             return new SafariDriver();
-        }else if(driver.contains("remote")){
+        }else if(driverName.contains("remote")){
             return new RemoteWebDriver(URI.create("http://144.76.5.68:4444/wd/hub").toURL(),capabilities);
         }
         return null;//Exception
@@ -56,15 +56,15 @@ public final class Config {
 
     private static void getConfig(){
         Properties properties = new Properties();
-        try(FileInputStream in = new FileInputStream(PATH_PROPERTY_FILE)){
-            properties.load(in);
-        }catch (IOException e){
-            System.out.println("Sorry, unable to find config.properties");
-        }
+    //    try(FileInputStream in = new FileInputStream(PATH_PROPERTY_FILE)){
+    //        properties.load(in);
+    //    }catch (IOException e){
+    //        System.out.println("Sorry, unable to find config.properties");
+    //    }
         Config.site = properties.getProperty("Site");
         adminSite = properties.getProperty("AdminSite");
         pathForDriver = properties.getProperty("PathForDriver");
-        Config.driver = properties.getProperty("Driver");
+        Config.driverName = properties.getProperty("DriverName");
         selenoidServer = properties.getProperty("Selenoid");
     }
 

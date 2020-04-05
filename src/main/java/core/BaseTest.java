@@ -1,6 +1,5 @@
 package core;
 
-import io.qameta.allure.Attachment;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -10,13 +9,10 @@ import org.junit.runner.Description;
 import org.junit.runner.RunWith;
 import org.junit.Rule;
 import junitparams.JUnitParamsRunner;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.util.concurrent.TimeUnit;
 
     @RunWith(JUnitParamsRunner.class)
@@ -40,6 +36,7 @@ import java.util.concurrent.TimeUnit;
         };
      //   protected RemoteWebDriver driver;
      protected WebDriver driver;
+    // RemoteWebDriver driver;
 /* protected WebDriver driver;
 
     @BeforeClass
@@ -66,7 +63,7 @@ import java.util.concurrent.TimeUnit;
  */
 @BeforeClass
 public static void start() {
-//    System.setProperty(Config.driver, Config.pathForDriver);
+    System.setProperty(Config.driverName, Config.pathForDriver);
 }
 
 
