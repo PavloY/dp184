@@ -93,7 +93,7 @@ public class ProductReturnsPageTest extends BaseTest {
 
     @Test
     public void fillFirstName1() {
-        productReturnsPage.fillFirstName("333333333333333333333333333333333");
+        productReturnsPage.fillFirstName("Lorem ipsum dolor sit amet, conse");
         productReturnsPage.clickOnSubmitButton();
         String expected = "First Name must be between 1 and 32 characters!";
         String actual = productReturnsPage.getWarningForFirstName().getText();
@@ -102,7 +102,7 @@ public class ProductReturnsPageTest extends BaseTest {
 
     @Test
     public void fillLastName1() {
-        productReturnsPage.fillLastName("333333333333333333333333333333333");
+        productReturnsPage.fillLastName("Lorem ipsum dolor sit amet, conse");
         productReturnsPage.clickOnSubmitButton();
         String expected = "Last Name must be between 1 and 32 characters!";
         String actual = productReturnsPage.getWarningForLastName().getText();
@@ -111,7 +111,7 @@ public class ProductReturnsPageTest extends BaseTest {
 
     @Test
     public void fillTelephone1() {
-        productReturnsPage.fillTelephone("333333333333333333333333333333333");
+        productReturnsPage.fillTelephone("Lorem ipsum dolor sit amet, conse");
         productReturnsPage.clickOnSubmitButton();
         String expected = "Telephone must be between 3 and 32 characters!";
         String actual = productReturnsPage.getWarningForTelephone().getText();

@@ -10,7 +10,13 @@ import page.*;
 public abstract class BasePage extends BaseElement {
 
     @FindBy(className = "dropdown-toggle")
-    protected WebElement currency;
+    private WebElement currency;
+    @FindBy(xpath = "//button[text()='€ Euro']")
+    private WebElement euro;
+    @FindBy(xpath = "//button[text()='$ US Dollar']")
+    private WebElement dollar;
+    @FindBy(xpath = "//button[text()='£ Pound Sterling']")
+    private WebElement sterling;
 
     @FindBy(className = "dropdown")
     protected WebElement myAccount;
@@ -45,9 +51,28 @@ public abstract class BasePage extends BaseElement {
     @FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=account/newsletter']")
     private WebElement newsletterButton;
 
+    @FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=affiliate/account']")
+    private WebElement affiliateButton;
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
+
+    public WebElement getEuro() {
+        return euro;
+    }
+
+    public WebElement getDollar() {
+        return dollar;
+    }
+
+    public WebElement getSterling() {
+        return sterling;
+    }
+
+    public void clickAffiliateButton() {
+        affiliateButton.click();
     }
 
     public void clickReturnsButton() {
@@ -105,6 +130,4 @@ public abstract class BasePage extends BaseElement {
         productComparison.click();
         return new ProductComparisonPage(driver);
     }
-
-
 }

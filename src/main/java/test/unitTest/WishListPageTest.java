@@ -1,7 +1,6 @@
-package test.Unit;
+package test.unitTest;
 
 import core.BaseTest;
-import core.Config;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -15,13 +14,10 @@ import page.WishListPage;
 
 import java.net.MalformedURLException;
 
-import static org.junit.Assert.*;
-
 public class WishListPageTest extends BaseTest {
     ProductPage productPage;
     HomePage homePage;
     WishListPage wishListPage;
-
 
 
     @Override
@@ -65,6 +61,5 @@ public class WishListPageTest extends BaseTest {
         String expected = "Account";
         String actual = wishListPage.goToAccount();
         Assert.assertEquals(expected, actual);
-
     }
 }
