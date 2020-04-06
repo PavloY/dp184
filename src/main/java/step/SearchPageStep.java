@@ -9,40 +9,47 @@ public class SearchPageStep extends BaseStep<SearchPage> {
 
     public SearchPageStep(WebDriver driver) {
         super(driver, new SearchPage(driver));
-        page.goToSearchPage();
+//        page.quickSearch();
     }
 
-    public SearchPage quickSearchFromAnyPage(String item){
-        page.fillQuickSearchField(item)
-                .goToSearchPage();
-        return this.page;
+    public SearchPage getPage(){
+        return page;
     }
 
-    public SearchPage searchOfItem(String item){
-        page.fillSearchField(item)
-                .clickToSearchButton();
-        return this.page;
+    public SearchPageStep searchOfItem(String item){
+        page.fillSearchField(item);
+        page.clickToSearchButton();
+        return this;
     }
 
-    public SearchPage searchOfITemInCategories(String item, String category){
-        page.fillSearchField(item)
-                .selectCategory(category)
-                .clickToSearchButton();
-        return this.page;
+    public SearchPageStep searchOfITemInCategories(String item, String category){
+        page.fillSearchField(item);
+        page.selectCategory(category);
+        page.clickToSearchButton();
+        return this;
     }
 
-    public SearchPage searchOfItemInSubCategories(String item, String category){
-        page.fillSearchField(item)
-                .selectCategory(category)
-                .selectSearchInSubCategories()
-                .clickToSearchButton();
-        return this.page;
+    public SearchPageStep searchOfItemInSubCategories(String item, String category){
+        page.fillSearchField(item);
+        page.selectCategory(category);
+        page.selectSearchInSubCategories();
+        page.clickToSearchButton();
+        return this;
     }
 
-    public SearchPage searchOfItemInDescriptions(String item){
-        page.fillSearchField(item)
-                .selectSearchInDescription()
-                .clickToSearchButton();
-        return this.page;
+    public SearchPageStep searchOfItemInDescriptions(String item){
+        page.fillSearchField(item);
+        page.selectSearchInDescription();
+        page.clickToSearchButton();
+        return this;
+    }
+
+    public SearchPageStep searchOfItemInSubCategoriesAndDescriptions(String item, String category){
+        page.fillSearchField(item);
+        page.selectCategory(category);
+        page.selectSearchInSubCategories();
+        page.selectSearchInDescription();
+        page.clickToSearchButton();
+        return this;
     }
 }
