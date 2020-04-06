@@ -10,6 +10,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URI;
 import java.util.Properties;
 
@@ -55,29 +57,15 @@ public final class Config {
 
     private static void getConfig(){
         Properties properties = new Properties();
-    //    try(FileInputStream in = new FileInputStream(PATH_PROPERTY_FILE)){
-    //        properties.load(in);
-    //    }catch (IOException e){
-    //        System.out.println("Sorry, unable to find config.properties");
-    //    }
-        //Config.site = properties.getProperty("Site");
-   //     adminSite = properties.getProperty("AdminSite");
-        //pathForDriver = properties.getProperty("PathForDriver");
-    //    Config.driverName = properties.getProperty("DriverName");
-    //    selenoidServer = properties.getProperty("Selenoid");
+        try(FileInputStream in = new FileInputStream(PATH_PROPERTY_FILE)){
+            properties.load(in);
+        }catch (IOException e){
+            System.out.println("Sorry, unable to find config.properties");
+        }
+        Config.site = properties.getProperty("Site");
+        adminSite = properties.getProperty("AdminSite");
+        pathForDriver = properties.getProperty("PathForDriver");
+        Config.driverName = properties.getProperty("DriverName");
+        selenoidServer = properties.getProperty("Selenoid");
     }
-
-    /*
-    Site=http\://184-dp.tk
-AdminSite=http\://184-dp.tk/admin
-DriverName=remote
-PathForDriver=\\Tools\\geckodriver.exe
-#Driver=webdriver.gecko.driver
-Selenoid=http://144.76.5.68:4444/wd/hub
-#UI selenoid link: http://144.76.5.68:6258/#/
-     */
-
-
-
-
 }
