@@ -4,11 +4,27 @@ import core.BaseStep;
 import data.ContactUsUser;
 import data.LoginUser;
 import org.openqa.selenium.WebDriver;
+import page.AccountPage;
 import page.LoginPage;
 
 public class LoginStep extends BaseStep<LoginPage> {
+
   public LoginStep(WebDriver driver) {
     super(driver, new LoginPage(driver));
+  }
+
+  public String fillLoginWithValidData(String userEmail, String userPassword){
+    page.fillLoginEmail(userEmail);
+    page.fillLoginPassword(userPassword);
+    page.clickLogInPageButton();
+    return new LoginPage(driver).getSuccessMessage();
+  }
+
+  public String fillLoginWithInvalidData(String userEmail, String userPassword){
+    page.fillLoginEmail(userEmail);
+    page.fillLoginPassword(userPassword);
+    page.clickLogInPageButton();
+    return new LoginPage(driver).getWarningMessage();
   }
 
   public LoginStep fillLoginEmail(String userEmail){
@@ -26,14 +42,14 @@ public class LoginStep extends BaseStep<LoginPage> {
     return this;
   }
 
-  public LoginStep forgottenPasswordLink() {
-    page.forgottenPasswordLink();
-    return this; //new ForgottenPasswordPage(driver);
-  }
-
-  public boolean isAllertVisible() {
-    return page.isAllertVisible();
-  }
+//  public LoginStep forgottenPasswordLink() {
+//    page.forgottenPasswordLink();
+//    return this; //new ForgottenPasswordPage(driver);
+//  }
+//
+//  public boolean isAllertVisible() {
+//    return page.isAllertVisible();
+//  }
 
   public MyAccountStep fillAllFields(LoginUser user){
     page.fillLoginEmail(user.getEmail());

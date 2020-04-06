@@ -7,23 +7,28 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
+
+    public LoginPage (WebDriver driver){
+        super(driver);
+    }
+
     @FindBy(id = "input-email")
     protected WebElement emailAddressField;
 
     @FindBy(id = "input-password")
     protected WebElement passwordField;
 
-    @FindBy(linkText = "Forgotten Password")
-    private WebElement forgottenPasswordLink;
-
     @FindBy(xpath = "//input[@value='Login']")
     protected WebElement loginButton;
 
-    String allertByText = ("//div[text()[contains(.,'Warning')]]");
+    @FindBy(xpath = "//a[text() ='Continue']")
+    private WebElement continueButton;
 
-    public LoginPage (WebDriver driver){
-        super(driver);
-    }
+    @FindBy(xpath = "//div[contains(text(), 'Warning')]")
+    private WebElement warningMessage;
+
+    @FindBy(xpath = "//h2[contains(text(), 'My Account')]")
+    private WebElement successMessage;
 
     public void fillLoginEmail(String userEmail){
         fillField(emailAddressField,userEmail);
@@ -33,15 +38,19 @@ public class LoginPage extends BasePage {
         fillField(passwordField,userPassword);
     }
 
-    public boolean isAllertVisible() {
-        return driver.findElement(By.xpath(allertByText)).isDisplayed();
-    }
-
     public void clickLogInPageButton() {
         loginButton.click();
     }
 
-    public void forgottenPasswordLink() {
-        loginButton.click();
+    public void clickOnContinueButton(){
+        continueButton.click();
+    }
+
+    public String getWarningMessage(){
+        return warningMessage.getText();
+    }
+
+    public String getSuccessMessage(){
+        return successMessage.getText();
     }
 }

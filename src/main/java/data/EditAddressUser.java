@@ -1,5 +1,8 @@
 package data;
 
+import lombok.Getter;
+
+@Getter
 public class EditAddressUser {
 
     private String firstName;
@@ -26,6 +29,9 @@ public class EditAddressUser {
         this.region = region;
         this.defaultAddress = defaultAddress;
     }
+
+    public EditAddressUser(String firstName, String lastName, String company, String country, String region,
+                           boolean defaultAddress){}
 
     public String getFirstName(){
         return firstName;
