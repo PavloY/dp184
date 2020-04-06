@@ -78,6 +78,9 @@ public class ProductStep extends BaseStep<ProductPage> {
         return new WishListStep(driver);
 
     }
+
+    //public
+
     private void fillAllFieldsForReview(CommentsUser user){
         page.fillName(user.getName());
         page.fillReview(user.getReview());

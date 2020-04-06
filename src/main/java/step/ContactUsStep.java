@@ -39,6 +39,7 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
         page.fillEnquiry(user.getEnquiry());
         page.clickOnSubmitButton();
     }
+
     public String getSuccessfulSendEnquiryMessage(){
         SuccessPage successPage = new SuccessPage(driver);
         return successPage.getSuccessMessageForEnquirySending();
