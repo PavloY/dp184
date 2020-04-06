@@ -33,5 +33,5 @@ public class FTC_Main_Brand_BrandLinkVerification extends BaseTest {
         String actual = brandPage.getTitlePage();
         Assert.assertEquals(expected, actual);
     }
-
+    
 }
