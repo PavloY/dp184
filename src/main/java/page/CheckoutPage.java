@@ -25,7 +25,7 @@ public class CheckoutPage extends BasePage {
     @FindBy(id = "button-shipping-method")
     private WebElement continueShippingMethod;
 
-    @FindBy(xpath = "//input[@name='agree']")
+    @FindBy(xpath = "//input[@type='checkbox']")
     private WebElement checkboxAgree;
 
     @FindBy(id = "button-payment-method")
@@ -74,5 +74,11 @@ public class CheckoutPage extends BasePage {
 
     public void clickConfirmOrder() {
         confirmOrder.click();
+    }
+    public WebElement getCheckBoxAgree() {
+        return checkboxAgree;
+    }
+    public WebElement getConfirmOrder() {
+        return confirmOrder;
     }
 }
