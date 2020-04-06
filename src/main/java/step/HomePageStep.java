@@ -7,8 +7,6 @@ import page.ContactUsPage;
 import page.HomePage;
 import page.LoginPage;
 
-import java.util.List;
-
 public class HomePageStep extends BaseStep<HomePage> {
     public HomePageStep(WebDriver driver) {
         super(driver, new HomePage(driver));
@@ -24,6 +22,12 @@ public class HomePageStep extends BaseStep<HomePage> {
         return new LoginStep(driver);
     }
 
+  public BrandsStep clickBrands(){
+    page.goToBrandsPage();
+    return new BrandsStep(driver);
+  }
+
+
     public ContactUsStep clickContactUs() {
         page.goToContactUsPage();
         return new ContactUsStep(driver);
@@ -38,4 +42,8 @@ public class HomePageStep extends BaseStep<HomePage> {
         return new ProductStep(driver);
     }
 
+    public RegisterStep goToRegisterPage(){
+      page.goToRegisterPage();
+      return new RegisterStep(driver);
+    }
 }

@@ -48,7 +48,6 @@ public class BaseTest {
         driver = Config.getBrowserInstance();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
         driver.get(Config.site);
     }
 
