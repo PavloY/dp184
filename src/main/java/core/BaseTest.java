@@ -43,7 +43,7 @@ import java.util.concurrent.TimeUnit;
     }
 
     @Before
-    public void setUp() throws MalformedURLException {
+    public void setUp() throws Exception {
       driver = Config.getBrowserInstance();
       driver.manage().window().maximize();
       driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
