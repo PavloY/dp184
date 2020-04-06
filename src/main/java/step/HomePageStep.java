@@ -26,6 +26,12 @@ public class HomePageStep extends BaseStep<HomePage> {
     page.goToContactUsPage();
     return new ContactUsStep(driver);
   }
+
+  public BrandsStep clickBrands(){
+    page.goToBrandsPage();
+    return new BrandsStep(driver);
+  }
+
   public ProductStep clickOnProduct(String nameOfProduct) {
     page.getNameProductsList();
     page.clickOnNameOfProduct(nameOfProduct);
@@ -33,5 +39,10 @@ public class HomePageStep extends BaseStep<HomePage> {
     String actual = page.getTitlePage();
     Assert.assertEquals(expected, actual);
     return new ProductStep(driver);
+    }
+
+    public RegisterStep goToRegisterPage(){
+      page.goToRegisterPage();
+      return new RegisterStep(driver);
     }
 }
