@@ -16,56 +16,41 @@ public class RegisterStep extends BaseStep<RegisterPage> {
 
 
     public SuccessStep fillAllFieldWithValidData(User user){
-        page.fillFirstName(user.getFirstName());
-        page.fillLastName(user.getLastName());
-        page.fillEmail(user.getEmail());
-        page.fillTelephone(user.getTelephone());
+        fillAllNecessaryFields(user);
         page.fillFax(user.getFax());
         page.fillCompany(user.getCompany());
-        page.fillAddress1(user.getAddress1());
         page.fillAddress2(user.getAddress2());
-        page.fillCity(user.getCity());
         page.fillPostCode(user.getPostCode());
-        page.chooseCountry(user.getCountry());
-        page.chooseRegion(user.getRegion());
-        page.fillPassword(user.getPassword());
-        page.fillConfirmPassword(user.getConfirmPassword());
         if(user.isSubscribe()){
             page.subscribe();
         }
-        if(user.isPolicy()){
-            page.chooseCheckBox(page.getAgree());
-        }
-        String unexpected = driver.getTitle();
         page.clickOnButtonContinue();
-        String actual = driver.getTitle();
-        Assert.assertNotEquals(unexpected, actual);
+        String actual = driver.getCurrentUrl();
+        Assert.assertTrue(actual.contains("success"));
         return new SuccessStep(driver);
     }
 
     public SuccessStep fillOnlyNecessaryFieldWithValidData(User user){
-        page.fillFirstName(user.getFirstName());
-        page.fillLastName(user.getLastName());
-        page.fillEmail(user.getEmail());
-        page.fillTelephone(user.getTelephone());
-        page.fillAddress1(user.getAddress1());
-        page.fillCity(user.getCity());
-        page.chooseCountry(user.getCountry());
-        page.chooseRegion(user.getRegion());
-        page.fillPassword(user.getPassword());
-        page.fillConfirmPassword(user.getConfirmPassword());
-        if(user.isPolicy()){
-            page.chooseCheckBox(page.getAgree());
-        }
+        fillAllNecessaryFields(user);
         String unexpected = driver.getTitle();
         page.clickOnButtonContinue();
-        String actual = driver.getTitle();
-        Assert.assertNotEquals(unexpected, actual);
+        String actual = driver.getCurrentUrl();
+        Assert.assertTrue(actual.contains("success"));
         return new SuccessStep(driver);
     }
 
 
     public HashMap<String, String> fillOnlyNecessaryFieldWithInvalidData(User user){
+        fillAllNecessaryFields(user);
+        page.fillPostCode(user.getPostCode());
+        String expected = driver.getTitle();
+        page.clickOnButtonContinue();
+        String actual = driver.getTitle();
+        Assert.assertEquals(expected, actual);
+        return page.getAllWarningMessages();
+    }
+
+    private void fillAllNecessaryFields(User user){
         page.fillFirstName(user.getFirstName());
         page.fillLastName(user.getLastName());
         page.fillEmail(user.getEmail());
@@ -79,11 +64,6 @@ public class RegisterStep extends BaseStep<RegisterPage> {
         if(user.isPolicy()){
             page.chooseCheckBox(page.getAgree());
         }
-        String expected = driver.getTitle();
-        page.clickOnButtonContinue();
-        String actual = driver.getTitle();
-        Assert.assertEquals(expected, actual);
-        return page.getAllWarningMessages();
     }
 
 
