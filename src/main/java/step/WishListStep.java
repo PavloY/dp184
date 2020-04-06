@@ -3,7 +3,9 @@ package step;
 import core.BaseStep;
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,15 +32,36 @@ public class WishListStep extends BaseStep<WishListPage> {
 
     }
 
+    private boolean isEmptyWishList() {
+        try {
+            String expected = "Your wish list is empty.";
+            String actual = page.getMessageSuccessRemove();
+            Assert.assertEquals(expected, actual);
+            return true;
+        } catch (NoSuchElementException e) {
+            System.out.println("Your wish list isn't empty.");
+            return false;
+        }
+    }
 
-    public WishListStep removeProductFromWishListTest() {
+    public WishListStep getEmptyWishList() {
+        do {
+            if (!isEmptyWishList())
+            {
+                page.removeProductFromWishList();
+            }
+        } while (!isEmptyWishList());
+        return this;
+    }
+
+
+    public WishListStep removeProductFromWishList() {
         page.removeProductFromWishList();
         String expected = "Your wish list is empty.";
         String actual = page.getMessageSuccessRemove();
         Assert.assertEquals(expected, actual);
         return this;
     }
-
 
     public MyAccountStep continueShoppingFromWishListTest() {
         page.continueShoppingFromWishList();

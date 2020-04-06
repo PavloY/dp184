@@ -54,7 +54,7 @@ public class ShoppingCartPage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Continue Shopping')]")
     private WebElement continueShoppingButton;
 
-    @FindBy(xpath = "//p[text()[contains(.,'Your shopping cart is empty!')]]")
+    @FindBy(xpath = "//div[@id='content']/p")
     private WebElement messageEmptyCart;
 
     @FindBy(xpath = "//a[contains(text(), 'iPhone')]")
@@ -84,8 +84,15 @@ public class ShoppingCartPage extends BasePage {
 
         for (int i =0; i < items.size(); i++){
             List<WebElement> itemProperty = items.get(i).findElements(By.tagName("td"));
-            CartItem item = new CartItem(itemProperty.get(columnName.get("Product Name")),
-                    itemProperty.get(columnName.get("Unit Price")));
+            CartItem item = new CartItem(
+                    itemProperty.get(columnName.get("Product Name")),
+                    itemProperty.get(columnName.get("Unit Price")),
+                    itemProperty.get(columnName.get("Quantity"))
+                    .findElement(By.xpath("//input[@class = 'form-control']")),
+                    itemProperty.get(columnName.get("Quantity"))
+                    .findElement(By.xpath("//button[@data-original-title='Update']")),
+                    itemProperty.get(columnName.get("Quantity"))
+                    .findElement(By.xpath("//button[@data-original-title='Remove']")));
             itemList.add(item);
         }
         return itemList;
