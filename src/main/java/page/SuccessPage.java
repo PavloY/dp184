@@ -16,6 +16,9 @@ public class SuccessPage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Success')]")
     private WebElement successMessage;
 
+    @FindBy(xpath = "//p[contains(text(), 'Congratulations')]")
+    private WebElement congratulationsMessage;
+
     @FindBy(xpath = "//p[contains(text(), 'Your enquiry has')]")
     private WebElement successfulSentEnquiryMessage;
 
@@ -34,7 +37,12 @@ public class SuccessPage extends BasePage {
     public String getSuccessMessage() {
         return successMessage.getText();
     }
+
+    public String getCongratulationsMessage() {
+        return congratulationsMessage.getText();
+    }
     public String getSuccessMessageForEnquirySending(){
         return successfulSentEnquiryMessage.getText();
     }
+    
 }

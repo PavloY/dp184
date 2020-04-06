@@ -42,7 +42,6 @@ public class ProductReturnsPage extends BasePage {
     private WebElement quantity;
 
     //    radio buttons
-
     @FindBy(xpath = "//div[@class=\"radio\"]/label[contains(.,\"Dead On Arrival\")]/input")
     private WebElement deadOnArrival;
     @FindBy(xpath = "//div[@class=\"radio\"]/label[contains(.,\"Faulty, please supply details\")]/input")
@@ -54,6 +53,7 @@ public class ProductReturnsPage extends BasePage {
     @FindBy(xpath = "//div[@class=\"radio\"]/label[contains(.,\"Received Wrong Item\")]/input")
     private WebElement receivedWrongItem;
     //    end of radio buttons
+
     @FindBy(id = "input-comment")
     private WebElement faultyOrOtherDetails;
 
@@ -61,7 +61,6 @@ public class ProductReturnsPage extends BasePage {
     private WebElement submitButton;
 
     //    Error Messages
-
     @FindBy(xpath = "//div[contains(text(), 'First Name must be')]")
     private WebElement warningForFirstName;
     @FindBy(xpath = "//div[contains(text(), 'Last Name must be')]")
@@ -78,9 +77,9 @@ public class ProductReturnsPage extends BasePage {
     private WebElement warningForProductCode;
     @FindBy(xpath = "//div[contains(text(), 'You must select a return product reason!')]")
     private WebElement warningForReasonForReturn;
-    //    end of error messages
     @FindBy(xpath = "p[text()=Please complete the form below to request an RMA number.")
     private WebElement failedMessage;
+    //    end of error messages
 
     public WebElement getPleaseComplete() {
         return pleaseComplete;

@@ -11,7 +11,7 @@ public class ProductReturnsStep extends BaseStep<ProductReturnsPage> {
         super(driver, new ProductReturnsPage(driver));
     }
 
-    public String fillValidDate(String userFirstName, String userLastName,
+    public String fillValidData(String userFirstName, String userLastName,
                                 String userEmail, String userTelephone,
                                 String userOrderId, String userOrderDate,
                                 String userProductName, String userProductCode,
@@ -31,7 +31,7 @@ public class ProductReturnsStep extends BaseStep<ProductReturnsPage> {
         return new SuccessPage(driver).getThankYouSuccessMessage();
     }
 
-    public ProductReturnsStep fillWithInValidDate(String userFirstName, String userLastName,
+    public ProductReturnsStep fillWithInValidData(String userFirstName, String userLastName,
                                                   String userEmail, String userTelephone,
                                                   String userOrderId, String userOrderDate,
                                                   String userProductName, String userProductCode,
