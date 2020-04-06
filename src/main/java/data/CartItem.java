@@ -25,6 +25,18 @@ public class CartItem {
 
     }
 
+    public WebElement getName() {
+        return name;
+    }
+
+    public WebElement getPrice() {
+        return price;
+    }
+
+    public WebElement getQuantity() {
+        return quantity;
+    }
+
     public WebElement getUpdate() {
         return update;
     }

@@ -32,7 +32,7 @@ public class WishListStep extends BaseStep<WishListPage> {
 
     }
 
-    public boolean isEmptyWishList() {
+    private boolean isEmptyWishList() {
         try {
             String expected = "Your wish list is empty.";
             String actual = page.getMessageSuccessRemove();

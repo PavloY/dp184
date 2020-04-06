@@ -11,7 +11,7 @@ public class FTC_Main_WishList_DeleteProductFromWishList extends BaseTest {
     HomePageStep homePageStep;
     LoginUser user;
 
-    
+
     @Test
     public void deleteProductFromWishList() {
         homePageStep = new HomePageStep(driver);

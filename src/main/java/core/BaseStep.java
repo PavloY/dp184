@@ -3,6 +3,7 @@ package core;
 import core.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import step.CartStep;
 import step.HomePageStep;
 import step.MyAccountStep;
 
@@ -23,12 +24,18 @@ public abstract class BaseStep <T extends BasePage> {
         return new MyAccountStep(driver);
     }
 
-    public HomePageStep goToHomePage(){
-        page.goToHomePage();
-        String expected = "Logout";
+    public CartStep goToCart(){
+        page.goToShoppingCartPage();
+        String expected = "Shopping Cart";
         String actual = page.getTitlePage();
         Assert.assertEquals(expected, actual);
+        return new CartStep(driver);
+    }
+
+    public HomePageStep clickOnLogoLink(){
+        Assert.assertTrue(page.goToHomePage().isCarouselOnHomePage());
         return new HomePageStep(driver);
     }
+
 
 }

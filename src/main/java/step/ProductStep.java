@@ -19,7 +19,7 @@ public class ProductStep extends BaseStep<ProductPage> {
         wait = new WebDriverWait(driver, 5, 1000);
     }
 
-    public ProductStep checkSuccessMessageAddToProductComparison() {
+    public ProductStep successMessageAddToProductComparison() {
         page.addProductToProductComparison();
         String expected = "product comparison";
         String actual = page.getMessageOnAlertProductComparison();
@@ -27,7 +27,7 @@ public class ProductStep extends BaseStep<ProductPage> {
         return this;
     }
 
-    public ProductStep checkSuccessMessageAddToWishList() {
+    public ProductStep successMessageAddToWishList() {
         page.addProductToWishList();
         String expected = "wish list";
         String actual = page.getMessageOnAlertWishList();
@@ -35,7 +35,7 @@ public class ProductStep extends BaseStep<ProductPage> {
         return this;
     }
 
-    public ProductStep checkSuccessMessageAddToCart() {
+    public ProductStep successMessageAddToCart() {
         page.addToCart();
         String expected = "shopping cart";
         String actual = page.getMessageOnAlertCart();
@@ -43,17 +43,17 @@ public class ProductStep extends BaseStep<ProductPage> {
         return this;
     }
 
-    public ProductStep checkAddToCart() {
+    public CartStep addToCart() {
         page.addToCart();
         wait.until(ExpectedConditions.visibilityOf(page.getShoppingCartLink()));
         page.goToShoppingCartPage();
         String expected = "Shopping Cart";
         String actual = driver.getTitle();
         Assert.assertEquals(expected, actual);
-        return this;//ShoppingCartStep
+        return new CartStep(driver);
     }
 
-    public ProductStep checkAddProductToProductComparison() {
+    public ProductStep addProductToProductComparison() {
         page.addProductToProductComparison();
         wait.until(ExpectedConditions.visibilityOf(page.getProductComparisonLink()));
         page.goToProductComparison();

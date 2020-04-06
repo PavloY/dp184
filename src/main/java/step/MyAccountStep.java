@@ -43,10 +43,7 @@ public class MyAccountStep extends BaseStep<AccountPage> {
         return new WishListStep(driver);
     }
 
-    public HomePageStep clickOnLogoLink(){
-        Assert.assertTrue(page.goToHomePage().isCarouselOnHomePage());
-        return new HomePageStep(driver);
-    }
+
 
 //    public MyAccountStep clickOnBackButton(){
 //        page.clickOnBackButton();
