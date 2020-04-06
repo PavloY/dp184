@@ -23,7 +23,7 @@ public class FTC_Main_Brand_BrandLinkVerification extends BaseTest {
         brandsStep = new BrandsStep(driver);
         homePageStep.clickBrands();
     }
-
+    // переделать
     @Test
     public void goToTheSpecificBrandPage(){
         String data = "iBasso";
