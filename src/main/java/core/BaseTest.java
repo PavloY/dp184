@@ -12,6 +12,7 @@ import junitparams.JUnitParamsRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
     @RunWith(JUnitParamsRunner.class)
@@ -41,11 +42,12 @@ import java.util.concurrent.TimeUnit;
         System.setProperty(Config.driverName, Config.pathForDriver);
     }
 
-        @Before
-    public void setUp() throws Exception {
+    @Before
+    public void setUp() throws MalformedURLException {
       driver = Config.getBrowserInstance();
+      driver.manage().window().maximize();
       driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-      driver.get("http://184-dp.tk");
+      driver.get(Config.site);
     }
 
     @After
