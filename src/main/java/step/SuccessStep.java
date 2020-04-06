@@ -8,4 +8,8 @@ public class SuccessStep extends BaseStep<SuccessPage> {
     public SuccessStep(WebDriver driver) {
         super(driver, new SuccessPage(driver));
     }
+
+    public String getContent(){
+        return page.getContent();
+    }
 }

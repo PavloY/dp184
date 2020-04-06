@@ -1,10 +1,13 @@
 package data;
 
+import lombok.Getter;
+
+@Getter
 public class User {
    private String firstName;
    private String lastName;
    private String email;
-   private String Telephone;
+   private String telephone;
    private String fax;
    private String company;
    private String address1;
@@ -22,11 +25,11 @@ public class User {
     public User(String firstName, String lastName, String email, String telephone, String fax,
                 String company, String address1, String address2, String city, String postCode,
                 String country, String region, String password, String confirmPassword, boolean subscribe,
-                boolean policy) {
+                boolean policy, boolean emailRand) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = randomEmail(email);
-        Telephone = telephone;
+        this.email = emailRand ? randomEmail(email): email;
+        this.telephone = telephone;
         this.fax = fax;
         this.company = company;
         this.address1 = address1;
@@ -41,70 +44,38 @@ public class User {
         this.policy = policy;
     }
 
-
-    public String getFirstName() {
-        return firstName;
+    public User(String firstName, String lastName, String email, String telephone, String address1, String city,
+                String country, String region, String password, String confirmPassword, boolean policy, boolean emailRand){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = emailRand ? randomEmail(email): email;
+        this.telephone = telephone;
+        this.address1 = address1;
+        this.city = city;
+        this.country = country;
+        this.region = region;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.policy = policy;
     }
 
-    public String getLastName() {
-        return lastName;
+    public User(String firstName, String lastName, String email, String telephone, String address1, String city,
+                String postCode, String country, String region, String password, String confirmPassword, boolean policy,
+                boolean emailRand){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = emailRand ? randomEmail(email): email;
+        this.telephone = telephone;
+        this.address1 = address1;
+        this.city = city;
+        this.postCode = postCode;
+        this.country = country;
+        this.region = region;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.policy = policy;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getTelephone() {
-        return Telephone;
-    }
-
-    public String getFax() {
-        return fax;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public String getAddress1() {
-        return address1;
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getPostCode() {
-        return postCode;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public boolean isSubscribe() {
-        return subscribe;
-    }
-
-    public boolean isPolicy() {
-        return policy;
-    }
 
     private String randomEmail(String email){
         if(email.contains("@")){String[] randEmail  = email.split("@");
