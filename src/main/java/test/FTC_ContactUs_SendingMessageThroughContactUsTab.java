@@ -1,11 +1,9 @@
 package test;
 
-import core.BasePage;
 import core.BaseTest;
 import data.ContactUsUser;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import page.SuccessPage;
 import step.ContactUsStep;
@@ -13,7 +11,6 @@ import step.HomePageStep;
 
 import java.net.MalformedURLException;
 
-import static org.junit.Assert.assertEquals;
 
 public class FTC_ContactUs_SendingMessageThroughContactUsTab extends BaseTest {
 

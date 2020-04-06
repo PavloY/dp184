@@ -44,5 +44,5 @@ public class SuccessPage extends BasePage {
     public String getSuccessMessageForEnquirySending(){
         return successfulSentEnquiryMessage.getText();
     }
-    
+
 }
