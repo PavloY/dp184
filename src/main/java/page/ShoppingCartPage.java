@@ -89,6 +89,7 @@ public class ShoppingCartPage extends BasePage {
             itemList.add(item);
         }
         return itemList;
+
        // CartItem item = CartItem.builder().name(itemProperty.get(columnName.get("Product Name"))).price(itemProperty.get(4)).build();
 //        CartItem item = new CartItem(itemProperty.get(1), itemProperty.get(4));
 
