@@ -1,6 +1,7 @@
 package step;
 
 import core.BaseStep;
+import data.CommentsUser;
 import data.ContactUsData;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -76,6 +77,12 @@ public class ProductStep extends BaseStep<ProductPage> {
         Assert.assertEquals(expected, actual);
         return new WishListStep(driver);
 
+    }
+    private void fillAllFieldsForReview(CommentsUser user){
+        page.fillName(user.getName());
+        page.fillReview(user.getReview());
+        page.checkRating(user.getRating());
+        page.sendReview();
     }
 
 }

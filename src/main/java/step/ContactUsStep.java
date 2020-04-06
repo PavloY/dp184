@@ -17,11 +17,6 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
         super(driver, new ContactUsPage(driver));
     }
 
-    public ContactUsStep clickOnSubmitButton(){
-        page.clickOnSubmitButton();
-        return this;
-    }
-
     public ContactUsStep fillAllFieldsWithInvalidData(ContactUsUser user){
         fillAllFields(user);
         messages = page.getAllWarningMessages();
