@@ -41,13 +41,13 @@ public class CartStep extends BaseStep<ShoppingCartPage> {
             for (int i = 0; i < page.getItems().size(); i++) {
                 page.getItems().get(i).getRemove().click();
             }
-            return new CartStep(driver);
+            return this;
         }
     }
 
     public CartStep addProductToCart() {
         String expected = ContactUsData.LINK_IPHONE;
-                //page.goToHomePage().getLinkProductsList().get(1);
+            //    page.goToHomePage().getLinkProductsList().get(1); It needs to update
         String actual = page.getItems().get(0).getName().findElement(By.tagName("a")).getAttribute("href");
         Assert.assertEquals(expected, actual);
         return this;
