@@ -24,10 +24,9 @@ public class RegisterStep extends BaseStep<RegisterPage> {
         if(user.isSubscribe()){
             page.subscribe();
         }
-        String unexpected = driver.getTitle();
         page.clickOnButtonContinue();
-        String actual = driver.getTitle();
-        Assert.assertNotEquals(unexpected, actual);
+        String actual = driver.getCurrentUrl();
+        Assert.assertTrue(actual.contains("success"));
         return new SuccessStep(driver);
     }
 
@@ -35,8 +34,8 @@ public class RegisterStep extends BaseStep<RegisterPage> {
         fillAllNecessaryFields(user);
         String unexpected = driver.getTitle();
         page.clickOnButtonContinue();
-        String actual = driver.getTitle();
-        Assert.assertNotEquals(unexpected, actual);
+        String actual = driver.getCurrentUrl();
+        Assert.assertTrue(actual.contains("success"));
         return new SuccessStep(driver);
     }
 
