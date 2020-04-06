@@ -12,6 +12,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.Properties;
 
@@ -30,7 +31,7 @@ public final class Config {
 
 
 
-    public static WebDriver getBrowserInstance() throws Exception {
+    public static WebDriver getBrowserInstance() throws MalformedURLException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
