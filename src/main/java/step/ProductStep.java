@@ -78,6 +78,10 @@ public class ProductStep extends BaseStep<ProductPage> {
         return new WishListStep(driver);
 
     }
+    public ProductStep clickOnReview(){
+        page.clickOnReviewLink();
+        return this;
+    }
 
     public ProductStep fillFieldsWithInvalidName(CommentsUser user){
         fillAllFieldsForReview(user);

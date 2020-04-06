@@ -19,10 +19,11 @@ public class BaseTestComment extends BaseTest {
         super.setUp();
         homePageStep = new HomePageStep(driver);
         productStep = new ProductStep(driver);
-        homePageStep.clickOnProduct("Apple Cinema 30\""); // HardCode
+        homePageStep.clickOnProduct("iPhone"); // HardCode
+        productStep.clickOnReview();
     }
-    public HomePageStep getHomePageStep(){
-        return homePageStep;
+    public ProductStep getProductPageStep(){
+        return productStep;
     }
     @After
     @Override
