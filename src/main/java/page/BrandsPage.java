@@ -10,8 +10,8 @@ import org.openqa.selenium.support.FindBy;
 public class BrandsPage extends BasePage {
 
 
-    //@FindBy(className = "breadcrumb")
-    @FindBy(className = "col-sm-3")
+    @FindBy(className = "breadcrumb")
+    //@FindBy(className = "col-sm-3")
     private WebElement breadCrum;
 
     public BrandsPage(WebDriver driver) {
