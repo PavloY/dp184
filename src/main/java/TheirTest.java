@@ -5,5 +5,6 @@ import test.FTC_Main_Login_SignInRegisteredUserWithInvalidData;
 
 @RunWith(Categories.class)
 @Suite.SuiteClasses(FTC_Main_Login_SignInRegisteredUserWithInvalidData.class)
-public class Test {
+public class TheirTest {
+//mvn -Dtest=TheirTest test
 }

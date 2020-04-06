@@ -65,22 +65,6 @@
         </dependency>
 
     </dependencies>
-<profiles>
-    <profile>
-        <id>fast</id>
-        <build>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.1</version>
-                    <configuration>
-                        <groups>*.Test</groups>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </build>
-    </profile>
-</profiles>
     <build>
         <testSourceDirectory>src/main/java</testSourceDirectory>
         <plugins>
