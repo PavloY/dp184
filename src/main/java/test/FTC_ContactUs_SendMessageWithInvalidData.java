@@ -24,7 +24,7 @@ public class FTC_ContactUs_SendMessageWithInvalidData extends BaseTest {
         homePageStep.clickContactUs();
     }
     @Test
-    public void testContactUsWithInvalideData(){
+    public void testContactUsWithInvalidData(){
         contactUsStep.fillAllFieldsWithInvalidData(new ContactUsUser("","",""));
         int expected = 3;
         int actual = contactUsStep.getMessages().size();
