@@ -34,7 +34,7 @@ public class FTC_ContactUs_SendingMessageThroughContactUsTab extends BaseTest {
         ContactUsUser contactUsUser = new ContactUsUser("Alex","alex@mail.com","Hello World !!!!!!!!!!!!!");
         contactUsStep.fillAllFieldsWithValidData(contactUsUser);
         String expected = "Your enquiry has been successfully sent to the store owner!";
-        String actual = successPage.getSuccessMessageForEnquirySending();
+        String actual = successPage.getSuccessMessageForEnquirySending();   // Change to successStep
         Assert.assertEquals(expected, actual);
     }
 
