@@ -79,7 +79,26 @@ public class ProductStep extends BaseStep<ProductPage> {
 
     }
 
-    //public
+    public ProductStep fillFieldsWithInvalidName(CommentsUser user){
+        fillAllFieldsForReview(user);
+        //Assert
+        return this;
+    }
+    public ProductStep fillFieldsWithInvalidReview(CommentsUser user){
+        fillAllFieldsForReview(user);
+        //Assert
+        return this;
+    }
+    public ProductStep fillFieldsWithUncheckedRating(CommentsUser user){
+        fillAllFieldsForReview(user);
+        //Assert
+        return this;
+    }
+    public ProductStep fillFieldsWithValidData(CommentsUser user){
+        fillAllFieldsForReview(user);
+        //Assert
+        return this;
+    }
 
     private void fillAllFieldsForReview(CommentsUser user){
         page.fillName(user.getName());
