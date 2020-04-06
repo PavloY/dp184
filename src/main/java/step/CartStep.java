@@ -53,4 +53,12 @@ public class CartStep extends BaseStep<ShoppingCartPage> {
         return this;
     }
 
+    public CheckoutStep clickOnCheckoutButton(){
+        page.clickOnCheckoutButton();
+        String expected = "Checkout";
+        String actual = page.getTitlePage();
+        Assert.assertEquals(expected, actual);
+        return new CheckoutStep(driver);
+    }
+
 }
