@@ -1,9 +1,17 @@
 package test.ftcTest.FTS_Comments;
 
-import core.BaseTest;
 
-public class FTC_Main_Auto_Comment_CheckTheAbilityToWriteAComment extends BaseTest {
+import org.junit.Test;
 
+
+public class FTC_Main_Auto_Comment_CheckTheAbilityToWriteAComment extends BaseTestComment {
+
+
+
+    @Test
+    public void fillFieldsWithValidData(){
+
+    }
 
 
 
