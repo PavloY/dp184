@@ -23,7 +23,7 @@ public final class Config {
     public static String site;
     public static String pathForDriver;
     public static String driver;
-    public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\dev.properties";
+    public static final String PATH_PROPERTY_FILE = "src/main/resources/dev.properties";
 
     static {
         getConfig();
