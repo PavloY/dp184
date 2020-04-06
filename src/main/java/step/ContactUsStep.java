@@ -31,7 +31,7 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
     public BaseStep fillAllFieldsWithValidData(ContactUsUser user){
         fillAllFields(user);
         messages = page.getAllWarningMessages();
-        Assert.assertTrue(messages.isEmpty());                            
+        Assert.assertTrue(messages.isEmpty());
         return this;
     }
     public HashMap<String,String> getMessages(){
