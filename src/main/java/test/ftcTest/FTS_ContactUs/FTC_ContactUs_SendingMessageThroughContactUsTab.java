@@ -1,6 +1,7 @@
 package test.ftcTest.FTS_ContactUs;
 
 import core.BaseTest;
+import data.ContactUsData;
 import data.ContactUsUser;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,8 +22,7 @@ public class FTC_ContactUs_SendingMessageThroughContactUsTab extends BaseTestCon
     @Test
     public void testSendingMessageThroughContactUsTab(){
         successStep = new SuccessStep(driver);
-        ContactUsUser contactUsUser = new ContactUsUser("Alex","alex@mail.com","Hello World !!!!!!!!!!!!!");
-        getContactUsStep().fillAllFieldsWithValidData(contactUsUser);
+        getContactUsStep().fillAllFieldsWithValidData(ContactUsData.contactUsUserWithValidData);
         String expected = "Your enquiry has been successfully sent to the store owner!";
         String actual = successStep.getSuccessfulSendEnquiryMessage();
         Assert.assertEquals(expected, actual);

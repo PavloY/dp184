@@ -15,8 +15,8 @@ public class FTC_Main_Auto_Comment_CheckTheAbilityToWriteAComment extends BaseTe
     public void fillFieldsWithValidData(){
         getProductPageStep().fillFieldsWithValidData(CommentsData.commentsUserWithValidData);
         String expected = "";
-        //String actual = "";   // alert success & danger .getText добавить в Page
-        //Assert.assertEquals(expected, actual);
+        String actual = "";   // alert success & danger .getText добавить в Page
+        Assert.assertEquals(expected, actual);
     }
 
 

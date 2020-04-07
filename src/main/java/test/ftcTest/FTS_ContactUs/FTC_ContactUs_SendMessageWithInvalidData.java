@@ -1,6 +1,7 @@
 package test.ftcTest.FTS_ContactUs;
 
 import core.BaseTest;
+import data.ContactUsData;
 import data.ContactUsUser;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,7 +18,7 @@ public class FTC_ContactUs_SendMessageWithInvalidData extends BaseTestContactUs 
 
     @Test
     public void testContactUsWithInvalidData(){
-        getContactUsStep().fillAllFieldsWithInvalidData(new ContactUsUser("","",""));
+        getContactUsStep().fillAllFieldsWithInvalidData(ContactUsData.contactUsUserWithInValidData);
         HashMap<String, String> expected = new HashMap<>();
         expected.put("name","Name must be between 3 and 32 characters!");
         expected.put("email","E-Mail Address does not appear to be valid!");
