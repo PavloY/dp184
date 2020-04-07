@@ -87,27 +87,24 @@ public class ProductStep extends BaseStep<ProductPage> {
     public ProductStep fillFieldsWithInvalidName(CommentsUser user){
         fillAllFieldsForReview(user);
         messageForReview = page.getMessageAlertOnReview();
-
-        //Assert string.size != 0;
+        Assert.assertFalse(messageForReview.isEmpty());
         return this;
     }
     public ProductStep fillFieldsWithInvalidReview(CommentsUser user){
         fillAllFieldsForReview(user);
         messageForReview = page.getMessageAlertOnReview();
-
-        //Assert
-        return this;
+        Assert.assertFalse(messageForReview.isEmpty());   return this;
     }
     public ProductStep fillFieldsWithInvalidRating(CommentsUser user){
         fillAllFieldsForReview(user);
         messageForReview = page.getMessageAlertOnReview();
-
+        Assert.assertFalse(messageForReview.isEmpty());
         return this;
     }
     public ProductStep fillFieldsWithValidData(CommentsUser user){
         fillAllFieldsForReview(user);
         messageForReview = page.getMessageSuccessOnReview();
-
+        Assert.assertFalse(messageForReview.isEmpty());
         return this;
     }
     public String getMessageForReview(){
