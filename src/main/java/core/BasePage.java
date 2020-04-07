@@ -114,7 +114,7 @@ public abstract class BasePage extends BaseElement {
         return this;
     }
 
-    public void goToSearchPage() {
+    public void quickSearch() {
         searchButton.click();
     }
 
