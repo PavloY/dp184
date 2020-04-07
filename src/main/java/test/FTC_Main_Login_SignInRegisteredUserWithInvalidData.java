@@ -22,14 +22,10 @@ public class FTC_Main_Login_SignInRegisteredUserWithInvalidData extends BaseTest
     loginStep = new LoginStep(driver);
   }
 
-
   @Test
   public void testSignInRegisteredUserWithInvalidData() {
-    homePageStep.clickMyAccount();
-    homePageStep.clickloginDropDown();
-    loginStep.fillLoginEmail("test");
-    loginStep.fillLoginPassword("test");
-    loginStep.clickLogInPageButton();
+    homePageStep.clickMyAccount().clickloginDropDown();
+    loginStep.fillLoginEmail("test").fillLoginPassword("test").clickLogInPageButton();
     Assert.assertTrue(loginStep.isAllertVisible());
   }
 }
