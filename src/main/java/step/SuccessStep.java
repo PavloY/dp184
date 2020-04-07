@@ -12,4 +12,9 @@ public class SuccessStep extends BaseStep<SuccessPage> {
     public String getContent(){
         return page.getContent();
     }
+
+    public String getSuccessfulSendEnquiryMessage(){
+
+        return page.getSuccessMessageForEnquirySending();
+    }
 }

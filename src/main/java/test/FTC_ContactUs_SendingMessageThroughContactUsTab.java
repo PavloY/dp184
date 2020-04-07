@@ -8,6 +8,7 @@ import org.junit.Test;
 import page.SuccessPage;
 import step.ContactUsStep;
 import step.HomePageStep;
+import step.SuccessStep;
 
 import java.net.MalformedURLException;
 
@@ -16,7 +17,7 @@ public class FTC_ContactUs_SendingMessageThroughContactUsTab extends BaseTest {
 
     ContactUsStep contactUsStep;
     HomePageStep homePageStep;
-    SuccessPage successPage;
+    SuccessStep successStep;
 
     @Before
     @Override
@@ -24,7 +25,7 @@ public class FTC_ContactUs_SendingMessageThroughContactUsTab extends BaseTest {
         super.setUp();
         homePageStep = new HomePageStep(driver);
         contactUsStep = new ContactUsStep(driver);
-        successPage = new SuccessPage(driver);
+        successStep = new SuccessStep(driver);
         homePageStep.clickContactUs();
     }
 
@@ -34,7 +35,7 @@ public class FTC_ContactUs_SendingMessageThroughContactUsTab extends BaseTest {
         ContactUsUser contactUsUser = new ContactUsUser("Alex","alex@mail.com","Hello World !!!!!!!!!!!!!");
         contactUsStep.fillAllFieldsWithValidData(contactUsUser);
         String expected = "Your enquiry has been successfully sent to the store owner!";
-        String actual = successPage.getSuccessMessageForEnquirySending();   // Change to successStep
+        String actual = successStep.getSuccessfulSendEnquiryMessage();
         Assert.assertEquals(expected, actual);
     }
 

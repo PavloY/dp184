@@ -117,6 +117,14 @@ public class ProductPage extends BasePage {
         sendReviewButton.click();
     }
 
+    public String getMessage(){
+        String message="";
+        //if(isWarningMessage(nameDanger )){
+           // result.put("name", nameDanger.getText());
+        //}
+        return message;
+    }
+
     public String getMessageOnAlertProductComparison() {
         return productComparisonLink.getText();
     }

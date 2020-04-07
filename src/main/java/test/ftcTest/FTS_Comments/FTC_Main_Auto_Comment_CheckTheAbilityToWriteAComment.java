@@ -1,6 +1,7 @@
 package test.ftcTest.FTS_Comments;
 
 
+import data.CommentsData;
 import data.CommentsUser;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,7 +13,7 @@ public class FTC_Main_Auto_Comment_CheckTheAbilityToWriteAComment extends BaseTe
 
     @Test
     public void fillFieldsWithValidData(){
-        getProductPageStep().fillFieldsWithValidData(new CommentsUser("Alex","kbnrkscscwcewvergrgrgergergergergergregregergnbrenbjnerjbk erkjb kj",3));
+        getProductPageStep().fillFieldsWithValidData(CommentsData.commentsUserWithValidData);
         String expected = "";
         //String actual = "";   // alert success & danger .getText добавить в Page
         //Assert.assertEquals(expected, actual);
