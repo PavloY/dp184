@@ -1,13 +1,11 @@
 package step;
 
 import core.BaseStep;
-import data.ContactUsData;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import page.LoginPage;
 import page.ProductPage;
 
 
@@ -53,14 +51,14 @@ public class ProductStep extends BaseStep<ProductPage> {
         return new CartStep(driver);
     }
 
-    public ProductStep addProductToProductComparison() {
+    public ProductComparisonStep addProductToProductComparison() {
         page.addProductToProductComparison();
         wait.until(ExpectedConditions.visibilityOf(page.getProductComparisonLink()));
         page.goToProductComparison();
         String expected = "Product Comparison";
         String actual = driver.getTitle();
         Assert.assertEquals(expected, actual);
-        return this;
+        return new ProductComparisonStep(driver);
     }
 
     public WishListStep addProductToWishList() {

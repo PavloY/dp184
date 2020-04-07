@@ -1,6 +1,7 @@
 package test.ftcTest.FTS_WishList;
 
 import core.BaseTest;
+import data.Constants;
 import data.ContactUsData;
 import data.LoginUser;
 import org.junit.After;
@@ -22,7 +23,7 @@ public class FTC_Auto_Main_WishList_DeleteProductFromWishList extends BaseTest {
     @Override
     public void setUp() throws MalformedURLException {
         super.setUp();
-        user = new LoginUser(ContactUsData.REG_E_MAIL, ContactUsData.REG_PASSWORD);
+        user = new LoginUser(Constants.REG_E_MAIL, Constants.REG_PASSWORD);
         homePageStep = new HomePageStep(driver);
         wishListStep = homePageStep.clickMyAccount().clickloginDropDown()
                 .fillAllFields(user).clickOnWishListButton().getEmptyWishList()

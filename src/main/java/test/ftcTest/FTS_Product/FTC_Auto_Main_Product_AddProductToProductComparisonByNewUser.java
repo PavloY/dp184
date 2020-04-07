@@ -1,6 +1,7 @@
 package test.ftcTest.FTS_Product;
 
 import core.BaseTest;
+import data.Constants;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,17 +11,14 @@ import step.ProductStep;
 
 import java.net.MalformedURLException;
 
-
-public class FTC_Auto_Main_Product_AddProductToShoppingCartByNewUser extends BaseTest {
+public class FTC_Auto_Main_Product_AddProductToProductComparisonByNewUser extends BaseTest {
     ProductStep productStep;
 
     @Before
     @Override
     public void setUp() throws MalformedURLException {
         super.setUp();
-        productStep = new HomePageStep(driver).goToCart()
-                .getEmptyCart()
-                .clickOnLogoLink().clickOnProduct("iPhone");
+        productStep = new HomePageStep(driver).clickOnProduct("iPhone");
     }
 
     @After
@@ -30,12 +28,10 @@ public class FTC_Auto_Main_Product_AddProductToShoppingCartByNewUser extends Bas
         productStep = null;
     }
 
-   @Test
-    public void addProductToShoppingCartByNewUser() {
-       productStep.addToCart()
-               .addProductToCart();
-       String expected = "Shopping Cart";
-       String actual = driver.getTitle();
-       Assert.assertEquals(expected, actual);
+    @Test
+    public void addProductToProductComparisonByNewUser() {
+        String expected = Constants.LINK_IPHONE;
+        String actual = productStep.addProductToProductComparison().getProductLink();
+        Assert.assertEquals(expected, actual);
     }
 }

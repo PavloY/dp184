@@ -1,7 +1,7 @@
 package step;
 
 import core.BaseStep;
-import data.ContactUsData;
+import data.Constants;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -55,14 +55,15 @@ public class CartStep extends BaseStep<ShoppingCartPage> {
 
     public void removeProductFromCart() {
         page.getItems().get(0).getRemove().click();
+        wait.until(ExpectedConditions.visibilityOf(page.getContinueButtonEmptyCart()));
     }
 
     public String getMessageEmptyCart() {
-       return page.getMessageEmptyCart();
+        return page.getMessageEmptyCart();
     }
 
     public CartStep addProductToCart() {
-        String expected = ContactUsData.LINK_IPHONE;
+        String expected = Constants.LINK_IPHONE;
         String actual = page.getItems().get(0).getName().findElement(By.tagName("a")).getAttribute("href");
         Assert.assertEquals(expected, actual);
         return this;

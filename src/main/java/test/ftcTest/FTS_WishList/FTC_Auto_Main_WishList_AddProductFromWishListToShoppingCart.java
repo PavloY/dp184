@@ -1,6 +1,7 @@
 package test.ftcTest.FTS_WishList;
 
 import core.BaseTest;
+import data.Constants;
 import data.ContactUsData;
 import data.LoginUser;
 import org.junit.After;
@@ -22,9 +23,8 @@ public class FTC_Auto_Main_WishList_AddProductFromWishListToShoppingCart extends
     @Override
     public void setUp() throws MalformedURLException {
         super.setUp();
-        LoginUser user = new LoginUser(ContactUsData.REG_E_MAIL, ContactUsData.REG_PASSWORD);
-        //check: user has already in his Account
-         wishListStep = new HomePageStep(driver).clickMyAccount().clickloginDropDown()
+        LoginUser user = new LoginUser(Constants.REG_E_MAIL, Constants.REG_PASSWORD);
+        wishListStep = new HomePageStep(driver).clickMyAccount().clickloginDropDown()
                 .fillAllFields(user).clickOnWishListButton().getEmptyWishList()
                 .clickOnLogoLink().clickOnProduct("iPhone").
                         addProductToWishList();
@@ -38,7 +38,7 @@ public class FTC_Auto_Main_WishList_AddProductFromWishListToShoppingCart extends
     }
 
     @Test
-    public void addProductToCartFromWishList() {
+    public void addProductFromWishListToShoppingCart() {
         wishListStep.addProductToCartFromWishList()
                 .addProductToCart();
         String expected = "Shopping Cart";

@@ -1,6 +1,7 @@
 package test.ftcTest.FTS_Product;
 
 import core.BaseTest;
+import data.Constants;
 import data.ContactUsData;
 import data.LoginUser;
 import org.junit.After;
@@ -20,7 +21,7 @@ public class FTC_Auto_Main_Product_AddProductToShoppingCartByRegisteredUser exte
     @Override
     public void setUp() throws MalformedURLException {
         super.setUp();
-        LoginUser user = new LoginUser(ContactUsData.REG_E_MAIL, ContactUsData.REG_PASSWORD);
+        LoginUser user = new LoginUser(Constants.REG_E_MAIL, Constants.REG_PASSWORD);
         productStep = new HomePageStep(driver).clickMyAccount().clickloginDropDown()
                 .fillAllFields(user).goToCart().getEmptyCart()
                 .clickOnLogoLink()

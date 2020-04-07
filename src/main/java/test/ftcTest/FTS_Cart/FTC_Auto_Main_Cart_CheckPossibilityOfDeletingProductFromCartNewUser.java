@@ -1,9 +1,6 @@
 package test.ftcTest.FTS_Cart;
 
 import core.BaseTest;
-import data.Constants;
-import data.ContactUsData;
-import data.LoginUser;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,16 +10,14 @@ import step.HomePageStep;
 
 import java.net.MalformedURLException;
 
-public class FTC_Auto_Main_Cart_CheckPossibilityOfDeletingProductFromCartRegisteredUser extends BaseTest {
+public class FTC_Auto_Main_Cart_CheckPossibilityOfDeletingProductFromCartNewUser extends BaseTest {
     CartStep cartStep;
 
     @Before
     @Override
     public void setUp() throws MalformedURLException {
         super.setUp();
-        LoginUser user = new LoginUser(Constants.REG_E_MAIL, Constants.REG_PASSWORD);
-        cartStep = new HomePageStep(driver).clickMyAccount().clickloginDropDown()
-                .fillAllFields(user).goToCart().getEmptyCart()
+        cartStep = new HomePageStep(driver).goToCart().getEmptyCart()
                 .clickOnLogoLink()
                 .clickOnProduct("iPhone").addToCart().addProductToCart();
     }
@@ -35,7 +30,7 @@ public class FTC_Auto_Main_Cart_CheckPossibilityOfDeletingProductFromCartRegiste
     }
 
     @Test
-    public void deleteProductFromShoppingCartByRegisteredUser() {
+    public void deleteProductFromShoppingCartByNewUser() {
         cartStep.removeProductFromCart();
         String expected = "Your shopping cart is empty!";
         String actual = cartStep.getMessageEmptyCart();
