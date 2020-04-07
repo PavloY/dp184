@@ -96,7 +96,7 @@ public class ProductStep extends BaseStep<ProductPage> {
         Assert.assertFalse(messageForReview.isEmpty());   return this;
     }
     public ProductStep fillFieldsWithInvalidRating(CommentsUser user){
-        fillAllFieldsForReview(user);
+        fillAllFieldsExeptRatingForReview(user);
         messageForReview = page.getMessageAlertOnReview();
         Assert.assertFalse(messageForReview.isEmpty());
         return this;
@@ -117,5 +117,11 @@ public class ProductStep extends BaseStep<ProductPage> {
         page.checkRating(user.getRating());
         page.sendReview();
     }
+    private void fillAllFieldsExeptRatingForReview(CommentsUser user){
+        page.fillName(user.getName());
+        page.fillReview(user.getReview());
+        page.sendReview();
+    }
+
 
 }

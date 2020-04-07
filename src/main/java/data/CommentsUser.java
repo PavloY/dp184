@@ -11,6 +11,10 @@ public class CommentsUser {
         this.review = review;
         this.rating = rating;
     }
+    public CommentsUser(String name, String review){
+        this.name = name;
+        this.review = review;
+    }
 
     public String getName() {
         return name;
