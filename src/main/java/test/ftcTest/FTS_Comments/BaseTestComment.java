@@ -11,12 +11,12 @@ import java.net.MalformedURLException;
 public class BaseTestComment extends BaseTest {
 
     private ProductStep productStep;
-
+    private String data = "iPhone";
     @Before
     @Override
     public void setUp() throws MalformedURLException {
         super.setUp();
-        productStep = new HomePageStep(driver).clickOnProduct("iPhone").clickOnReview();
+        productStep = new HomePageStep(driver).clickOnProduct(data).clickOnReview();
     }
     public ProductStep getProductPageStep(){
         return productStep;
