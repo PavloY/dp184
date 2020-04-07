@@ -1,9 +1,14 @@
 package test.ftcTest;
 
 import core.BaseTest;
+import data.Constants;
+import data.ReturnsUser;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import page.ProductReturnsPage;
 import step.ProductReturnsStep;
 
@@ -11,7 +16,9 @@ import java.net.MalformedURLException;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(JUnitParamsRunner.class)
 public class FTC__Auto_Main_ProductReturns_ReturnTheProductUsingInvalidData extends BaseTest {
+
     ProductReturnsStep productReturnsStep;
     ProductReturnsPage productReturnsPage;
 
@@ -32,23 +39,17 @@ public class FTC__Auto_Main_ProductReturns_ReturnTheProductUsingInvalidData exte
         productReturnsPage = null;
     }
 
-    @Test
-    public void fillWithInValidDataShort() {
-        productReturnsStep.fillWithInValidData(" ", " ", " ",
-                " ", " ", " ",
-                " ", " ", " ",
-                " ");
-        String expected = "Product Returns";
-        String actual = productReturnsPage.getTitlePage();
-        assertEquals(expected, actual);
+    public static Object[][] fillFieldsWithInValidData() {
+        return new Object[][]{
+                {Constants.RETURNS_USER_INVALID_DATA_SHORT},
+                {Constants.RETURNS_USER_INVALID_DATA_LONG},
+        };
     }
 
     @Test
-    public void fillWithInValidDataLong() {
-        productReturnsStep.fillWithInValidData("333333333333333333333333333333333", "333333333333333333333333333333333", "example",
-                "333333333333333333333333333333333", "$", "$",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam sollicitudin tempor id eu nisl nunc. Ac tortor dignissim convallis aenean et tortor at risus viverra. Feugiat vivamus at augue", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed does", "$",
-                "$");
+    @Parameters(method = "fillFieldsWithInValidData")
+    public void testFillFieldsWithInValidData(ReturnsUser returnsUser) {
+        productReturnsStep.fillWithInValidData(returnsUser);
         String expected = "Product Returns";
         String actual = productReturnsPage.getTitlePage();
         assertEquals(expected, actual);

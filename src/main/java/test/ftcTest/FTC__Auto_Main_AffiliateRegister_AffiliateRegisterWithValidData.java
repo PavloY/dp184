@@ -1,6 +1,7 @@
 package test.ftcTest;
 
 import core.BaseTest;
+import data.Constants;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,9 +41,7 @@ public class FTC__Auto_Main_AffiliateRegister_AffiliateRegisterWithValidData ext
 
     @Test
     public void validData() {
-        affiliateRegisterPageStep.fillValidData("Inokentiy", "Best", "someuser@example.com",
-                "1111111111", "SomeAddress", "SomeCity",
-                "10000", "11111", "11111");
+        affiliateRegisterPageStep.fillValidData(Constants.AFFILIATE_REGISTER_USER_VALID_DATA);
         String expected = "Congratulations! Your new account has been successfully created!";
         String actual = successPage.getCongratulationsMessage();
         assertEquals(expected, actual);

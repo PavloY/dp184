@@ -1,6 +1,7 @@
 package test.ftcTest;
 
 import core.BaseTest;
+import data.Constants;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +13,7 @@ import java.net.MalformedURLException;
 import static org.junit.Assert.assertEquals;
 
 public class FTC__Auto_Main_ProductReturns_ReturnTheProductUsingValidData extends BaseTest {
+
     ProductReturnsStep productReturnsStep;
     SuccessPage successPage;
 
@@ -34,10 +36,7 @@ public class FTC__Auto_Main_ProductReturns_ReturnTheProductUsingValidData extend
 
     @Test
     public void validData() {
-        productReturnsStep.fillValidData("Inokentiy", "Best", "someuser@example.com",
-                "1111111111", "11111", "2020-02-01",
-                "iphone", "product 11", "5",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        productReturnsStep.fillValidData(Constants.RETURNS_USER_VALID_DATA);
         String expected = "Thank you for submitting your return request." +
                 " Your request has been sent to the relevant department for processing.";
         String actual = successPage.getThankYouSuccessMessage();

@@ -1,9 +1,14 @@
 package test.ftcTest;
 
 import core.BaseTest;
+import data.AffiliateRegisterUser;
+import data.Constants;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import page.AffiliateLoginPage;
 import page.AffiliateRegisterPage;
 import page.SuccessPage;
@@ -13,6 +18,7 @@ import java.net.MalformedURLException;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(JUnitParamsRunner.class)
 public class FTC__Auto_Main_AffiliateRegister_AffiliateRegisterWithInvalidData extends BaseTest {
 
     AffiliateRegisterPageStep affiliateRegisterPageStep;
@@ -42,21 +48,17 @@ public class FTC__Auto_Main_AffiliateRegister_AffiliateRegisterWithInvalidData e
         affiliateRegisterPage = null;
     }
 
-    @Test
-    public void inValidDataShort() {
-        affiliateRegisterPageStep.fillInvalidData(" ", " ", " ",
-                " ", " ", " ",
-                " ", " ", " ");
-        String expected = "Affiliate Program";
-        String actual = affiliateRegisterPage.getTitlePage();
-        assertEquals(expected, actual);
+    public static Object[][] inValidData() {
+        return new Object[][]{
+                {Constants.AFFILIATE_REGISTER_USER_INVALID_DATA_1},
+                {Constants.AFFILIATE_REGISTER_USER_INVALID_DATA_2}
+        };
     }
 
+    @Parameters(method = "inValidData")
     @Test
-    public void inValidDataLong() {
-        affiliateRegisterPageStep.fillInvalidData("Lorem ipsum dolor sit amet, conse", "Lorem ipsum dolor sit amet, conse", "someuserexample.com",
-                "Lorem ipsum dolor sit amet, conse", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut en", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut en",
-                "Lorem ipsum d", "Lorem ipsum dolor sit", "Lorem ipsum dolor sit");
+    public void testInValidData(AffiliateRegisterUser affiliateRegisterUser) {
+        affiliateRegisterPageStep.fillInvalidData(affiliateRegisterUser);
         String expected = "Affiliate Program";
         String actual = affiliateRegisterPage.getTitlePage();
         assertEquals(expected, actual);

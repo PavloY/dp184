@@ -1,6 +1,7 @@
 package step;
 
 import core.BaseStep;
+import data.ReturnsUser;
 import org.openqa.selenium.WebDriver;
 import page.ProductReturnsPage;
 import page.SuccessPage;
@@ -11,42 +12,34 @@ public class ProductReturnsStep extends BaseStep<ProductReturnsPage> {
         super(driver, new ProductReturnsPage(driver));
     }
 
-    public String fillValidData(String userFirstName, String userLastName,
-                                String userEmail, String userTelephone,
-                                String userOrderId, String userOrderDate,
-                                String userProductName, String userProductCode,
-                                String userQuantity, String userFaultyOrOtherDetails) {
-        page.fillFirstName(userFirstName);
-        page.fillLastName(userLastName);
-        page.fillEmail(userEmail);
-        page.fillTelephone(userTelephone);
-        page.fillOrderId(userOrderId);
-        page.fillOrderDate(userOrderDate);
-        page.fillProductName(userProductName);
-        page.fillProductCode(userProductCode);
-        page.fillQuantity(userQuantity);
+    public String fillValidData(ReturnsUser returnsUser) {
+        page.fillFirstName(returnsUser.getFirstName());
+        page.fillLastName(returnsUser.getLastName());
+        page.fillEmail(returnsUser.getEmail());
+        page.fillTelephone(returnsUser.getTelephone());
+        page.fillOrderId(returnsUser.getOrderId());
+        page.fillOrderDate(returnsUser.getOrderDate());
+        page.fillProductName(returnsUser.getProductName());
+        page.fillProductCode(returnsUser.getProductCode());
+        page.fillQuantity(returnsUser.getQuantity());
         page.chooseRadioButtonDeadOnArrival();
-        page.fillFaultyOrOtherDetails(userFaultyOrOtherDetails);
+        page.fillFaultyOrOtherDetails(returnsUser.getFaultyOrOtherDetails());
         page.clickOnSubmitButton();
         return new SuccessPage(driver).getThankYouSuccessMessage();
     }
 
-    public ProductReturnsStep fillWithInValidData(String userFirstName, String userLastName,
-                                                  String userEmail, String userTelephone,
-                                                  String userOrderId, String userOrderDate,
-                                                  String userProductName, String userProductCode,
-                                                  String userQuantity, String userFaultyOrOtherDetails) {
-        page.fillFirstName(userFirstName);
-        page.fillLastName(userLastName);
-        page.fillEmail(userEmail);
-        page.fillTelephone(userTelephone);
-        page.fillOrderId(userOrderId);
-        page.fillOrderDate(userOrderDate);
-        page.fillProductName(userProductName);
-        page.fillProductCode(userProductCode);
-        page.fillQuantity(userQuantity);
+    public ProductReturnsStep fillWithInValidData(ReturnsUser returnsUser) {
+        page.fillFirstName(returnsUser.getFirstName());
+        page.fillLastName(returnsUser.getLastName());
+        page.fillEmail(returnsUser.getEmail());
+        page.fillTelephone(returnsUser.getTelephone());
+        page.fillOrderId(returnsUser.getOrderId());
+        page.fillOrderDate(returnsUser.getOrderDate());
+        page.fillProductName(returnsUser.getProductName());
+        page.fillProductCode(returnsUser.getProductCode());
+        page.fillQuantity(returnsUser.getQuantity());
         page.chooseRadioButtonDeadOnArrival();
-        page.fillFaultyOrOtherDetails(userFaultyOrOtherDetails);
+        page.fillFaultyOrOtherDetails(returnsUser.getFaultyOrOtherDetails());
         page.clickOnSubmitButton();
         return this;
     }
