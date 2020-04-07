@@ -11,13 +11,13 @@ public class LogoutPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(), 'Continue')]")
     private  WebElement continueButton;
 
+
+
     public LogoutPage(WebDriver driver) {
         super(driver);
     }
 
-
-    public HomePage clickOnContinueButton() {
+    public void clickOnContinueButton() {
         continueButton.click();
-        return new HomePage(driver);
     }
 }

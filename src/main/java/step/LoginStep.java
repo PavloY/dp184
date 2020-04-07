@@ -1,15 +1,22 @@
 package step;
 
 import core.BaseStep;
-import data.ContactUsUser;
 import data.LoginUser;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import page.LoginPage;
+
 
 public class LoginStep extends BaseStep<LoginPage> {
     public LoginStep(WebDriver driver) {
         super(driver, new LoginPage(driver));
     }
+/*
+    LoginPage page;
+    HomePageStep homePageStep;
+    LogoutStep logoutStep;
+
+ */
 
     public LoginStep fillLoginEmail(String userEmail) {
         page.fillLoginEmail(userEmail);
@@ -41,4 +48,18 @@ public class LoginStep extends BaseStep<LoginPage> {
         page.clickLogInPageButton();
         return new MyAccountStep(driver);
     }
+/*
+    public MyAccountStep checkUserLoginExist(String userEmail, String userPassword) {
+        homePageStep = new HomePageStep(driver);
+        homePageStep.goToLogInPage();
+        page.fillLoginEmail(userEmail);
+        page.fillLoginPassword(userPassword);
+        page.clickLogInPageButton();
+        String actual = driver.getTitle();
+        String expected = "My Account";
+        Assert.assertEquals(expected, actual);
+        return new MyAccountStep(driver);
+    }
+
+ */
 }

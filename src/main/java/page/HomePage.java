@@ -24,6 +24,11 @@ public class HomePage extends BasePage {
     @FindBy(id = "slideshow0")
     private WebElement carouselItem;
 
+    String isLogin = ("//*[text()[contains(.,'Login')]]");
+
+    @FindBy(linkText = "Logout")
+    protected WebElement logoutDropDown;
+
     List<String> nameProductList = new ArrayList<>();
     List<String> linkProductList = new ArrayList<>();
 
@@ -66,5 +71,12 @@ public class HomePage extends BasePage {
         return carouselItem.isDisplayed();
     }
 
+    public boolean isUserLogIn() {
+        clickMyAccount();
+        return driver.findElement(By.xpath(isLogin)).isDisplayed();}
+
+    public void clickLogoutDropDown() {
+    logoutDropDown.click();
+  }
 }
 
