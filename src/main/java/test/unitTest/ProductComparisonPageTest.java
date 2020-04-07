@@ -1,9 +1,13 @@
-package page;
+package test.unitTest;
 
 import core.BaseTest;
 import core.Config;
 import org.junit.Assert;
 import org.junit.Test;
+import page.HomePage;
+import page.ProductComparisonPage;
+import page.ProductPage;
+
 import java.net.MalformedURLException;
 
 
