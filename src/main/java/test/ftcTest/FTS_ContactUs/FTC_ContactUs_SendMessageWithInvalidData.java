@@ -1,16 +1,9 @@
 package test.ftcTest.FTS_ContactUs;
 
-import core.BaseTest;
 import data.ContactUsData;
-import data.ContactUsUser;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import step.ContactUsStep;
-import step.HomePageStep;
 
-import java.net.MalformedURLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FTC_ContactUs_SendMessageWithInvalidData extends BaseTestContactUs {

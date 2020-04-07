@@ -1,17 +1,10 @@
 package test.ftcTest.FTS_ContactUs;
 
-import core.BaseTest;
 import data.ContactUsData;
-import data.ContactUsUser;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import page.SuccessPage;
-import step.ContactUsStep;
-import step.HomePageStep;
 import step.SuccessStep;
 
-import java.net.MalformedURLException;
 
 
 public class FTC_ContactUs_SendingMessageThroughContactUsTab extends BaseTestContactUs {

@@ -10,17 +10,13 @@ import java.net.MalformedURLException;
 
 public class BaseTestComment extends BaseTest {
 
-    private HomePageStep homePageStep;
     private ProductStep productStep;
 
     @Before
     @Override
     public void setUp() throws MalformedURLException {
         super.setUp();
-        homePageStep = new HomePageStep(driver);
-        productStep = new ProductStep(driver);
-        homePageStep.clickOnProduct("iPhone"); // HardCode
-        productStep.clickOnReview();
+        productStep = new HomePageStep(driver).clickOnProduct("iPhone").clickOnReview();
     }
     public ProductStep getProductPageStep(){
         return productStep;
@@ -29,7 +25,6 @@ public class BaseTestComment extends BaseTest {
     @Override
     public void tearDown(){
         super.tearDown();
-        homePageStep = null;
         productStep = null;
     }
 }
