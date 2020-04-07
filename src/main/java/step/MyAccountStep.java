@@ -4,7 +4,7 @@ import core.BaseStep;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import page.AccountPage;
-import page.ShoppingCartPage;
+
 
 public class MyAccountStep extends BaseStep<AccountPage> {
     public MyAccountStep(WebDriver driver) {
@@ -34,6 +34,15 @@ public class MyAccountStep extends BaseStep<AccountPage> {
         Assert.assertEquals(expected, actual);
         return new CartStep(driver);
     }
+
+    public WishListStep clickOnWishListButton(){
+        page.goToWishList();
+        String expected = "My Wish List";
+        String actual = driver.getTitle();
+        Assert.assertEquals(expected, actual);
+        return new WishListStep(driver);
+    }
+
 
 
 //    public MyAccountStep clickOnBackButton(){

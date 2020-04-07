@@ -25,6 +25,10 @@ public class WishListPage extends BasePage {
     @FindBy(xpath = "//p[text()[contains(.,'Your wish list is empty.')]]")
     private WebElement messageSuccessRemove;
 
+    @FindBy(xpath = "//div[contains(text(), 'You have modified your wish list!')]")
+    private WebElement modifiedWishList;
+
+
     public WishListPage(WebDriver driver){
         super(driver);
     }
@@ -53,5 +57,8 @@ public class WishListPage extends BasePage {
     }
     public String goToAccount() {
         return goToAccount.getText();
+    }
+    public WebElement getModifiedWishList(){
+        return modifiedWishList;
     }
 }

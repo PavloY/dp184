@@ -6,3 +6,4 @@ target
 src/main/java/Run.java
 *.properties
 *.log
+Main.java

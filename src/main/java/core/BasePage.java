@@ -10,10 +10,19 @@ import page.*;
 public abstract class BasePage extends BaseElement {
 
     @FindBy(className = "dropdown-toggle")
-    protected WebElement currency;
+    private WebElement currency;
+    @FindBy(xpath = "//button[text()='€ Euro']")
+    private WebElement euro;
+    @FindBy(xpath = "//button[text()='$ US Dollar']")
+    private WebElement dollar;
+    @FindBy(xpath = "//button[text()='£ Pound Sterling']")
+    private WebElement sterling;
 
     @FindBy(className = "dropdown")
     protected WebElement myAccount;
+
+    @FindBy(linkText = "Logout")
+    protected WebElement logoutDropDown;
 
     @FindBy(xpath = "//*[@id=\"logo\"]/a/img")
     protected WebElement homeRedirect;
@@ -45,9 +54,28 @@ public abstract class BasePage extends BaseElement {
     @FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=account/newsletter']")
     private WebElement newsletterButton;
 
+    @FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=affiliate/account']")
+    private WebElement affiliateButton;
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
+
+    public WebElement getEuro() {
+        return euro;
+    }
+
+    public WebElement getDollar() {
+        return dollar;
+    }
+
+    public WebElement getSterling() {
+        return sterling;
+    }
+
+    public void clickAffiliateButton() {
+        affiliateButton.click();
     }
 
     public void clickReturnsButton() {
@@ -77,9 +105,8 @@ public abstract class BasePage extends BaseElement {
         contactUs.click();
     }
 
-    public BrandsPage goToBrandsPage() {
+    public void goToBrandsPage() {
         brands.click();
-        return new BrandsPage(driver);
     }
 
     public BasePage fillQuickSearchField(String desireItem) {
@@ -87,7 +114,7 @@ public abstract class BasePage extends BaseElement {
         return this;
     }
 
-    public void goToSearchPage() {
+    public void quickSearch() {
         searchButton.click();
     }
 
@@ -106,5 +133,8 @@ public abstract class BasePage extends BaseElement {
         return new ProductComparisonPage(driver);
     }
 
-
+    public LogoutPage goToLogoutPage() {
+        logoutDropDown.click();
+        return new LogoutPage(driver);
+    }
 }

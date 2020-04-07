@@ -7,16 +7,12 @@
     <groupId>dp184</groupId>
     <artifactId>dp184</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-
-
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <aspectj.version>1.9.4</aspectj.version>
         <compiler.version>1.7</compiler.version>
     </properties>
-
 
     <name>Allure JUnit </name>
     <description>Allure JUnit and WebDriver Usage</description>
@@ -32,11 +28,6 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
             <version>3.141.59</version>
-        </dependency>
-        <dependency>
-            <groupId>org.subethamail</groupId>
-            <artifactId>subethasmtp</artifactId>
-            <version>3.1.7</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
@@ -57,15 +48,20 @@
             <version>1.1.1</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+        </dependency>
+
         <!-- Allure -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit4</artifactId>
             <version>2.13.1</version>
         </dependency>
-
     </dependencies>
-
     <build>
         <testSourceDirectory>src/main/java</testSourceDirectory>
         <plugins>
@@ -104,11 +100,21 @@
                 </dependencies>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <testFailureIgnore>false</testFailureIgnore>
+                    <includes>
+                        <include>**/**Tests.class</include>
+                    </includes>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>2.10.0</version>
             </plugin>
         </plugins>
     </build>
-
 </project>
