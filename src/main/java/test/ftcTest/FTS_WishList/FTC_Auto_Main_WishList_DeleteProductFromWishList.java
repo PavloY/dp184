@@ -1,11 +1,14 @@
-package test.ftcTest;
+package test.ftcTest.FTS_WishList;
 
 import core.BaseTest;
 import data.ContactUsData;
 import data.LoginUser;
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import step.HomePageStep;
+import step.WishListStep;
 
 import java.net.MalformedURLException;
 
@@ -13,6 +16,7 @@ import java.net.MalformedURLException;
 public class FTC_Auto_Main_WishList_DeleteProductFromWishList extends BaseTest {
     HomePageStep homePageStep;
     LoginUser user;
+    WishListStep wishListStep;
 
     @Before
     @Override
@@ -20,15 +24,26 @@ public class FTC_Auto_Main_WishList_DeleteProductFromWishList extends BaseTest {
         super.setUp();
         user = new LoginUser(ContactUsData.REG_E_MAIL, ContactUsData.REG_PASSWORD);
         homePageStep = new HomePageStep(driver);
-        homePageStep.clickMyAccount().clickloginDropDown()
+        wishListStep = homePageStep.clickMyAccount().clickloginDropDown()
                 .fillAllFields(user).clickOnWishListButton().getEmptyWishList()
-                .logout().clickOnLogoLink();
+                .clickOnLogoLink().clickOnProduct("iPhone")
+                .addProductToWishList();
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        super.tearDown();
+        homePageStep = null;
+        wishListStep = null;
     }
 
     @Test
     public void deleteProductFromWishList() {
-        homePageStep.clickOnProduct("MacBook")
-                .addProductToWishList().removeProductFromWishList();
-        }
+        wishListStep.removeProductFromWishList();
+        String expected = "My Wish List";
+        String actual = wishListStep.getWishList();
+        Assert.assertEquals(expected, actual);
+    }
 
 }

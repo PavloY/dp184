@@ -67,15 +67,7 @@ public class ProductStep extends BaseStep<ProductPage> {
         page.addProductToWishList();
         wait.until(ExpectedConditions.visibilityOf(page.getWishListLink()));
         page.goToWishList();
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.fillLoginEmail(ContactUsData.REG_E_MAIL);
-        loginPage.fillLoginPassword(ContactUsData.REG_PASSWORD);
-        loginPage.clickLogInPageButton();
-        String expected = "My Wish List";
-        String actual = driver.getTitle();
-        Assert.assertEquals(expected, actual);
         return new WishListStep(driver);
-
     }
 
 }

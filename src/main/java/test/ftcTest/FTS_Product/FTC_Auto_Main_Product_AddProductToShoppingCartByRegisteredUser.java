@@ -1,18 +1,19 @@
-package test.ftcTest;
+package test.ftcTest.FTS_Product;
 
 import core.BaseTest;
 import data.ContactUsData;
 import data.LoginUser;
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import step.HomePageStep;
 import step.ProductStep;
-import step.WishListStep;
+
 
 import java.net.MalformedURLException;
 
-public class FTC_Auto_Main_Product_AddProductToShoppingCartByRegisteredUser extends BaseTest {
-    HomePageStep homePageStep;
+public class FTC_Auto_Main_Product_AddProductToShoppingCartByRegisteredUser extends BaseTest{
     ProductStep productStep;
 
     @Before
@@ -20,17 +21,24 @@ public class FTC_Auto_Main_Product_AddProductToShoppingCartByRegisteredUser exte
     public void setUp() throws MalformedURLException {
         super.setUp();
         LoginUser user = new LoginUser(ContactUsData.REG_E_MAIL, ContactUsData.REG_PASSWORD);
-        //check: user has already in his Account
-        homePageStep = new HomePageStep(driver);
-        homePageStep.clickMyAccount().clickloginDropDown()
-                .fillAllFields(user).goToCart().getEmptyCart()// It needs to improve
-                .logout().clickOnLogoLink()
+        productStep = new HomePageStep(driver).clickMyAccount().clickloginDropDown()
+                .fillAllFields(user).goToCart().getEmptyCart()
+                .clickOnLogoLink()
                 .clickOnProduct("iPhone");
-        productStep = new ProductStep(driver);
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        super.tearDown();
+        productStep = null;
     }
 
     @Test
     public void addProductToShoppingCartByRegisteredUser() {
        productStep.addToCart().addProductToCart();
+        String expected = "Shopping Cart";
+        String actual = driver.getTitle();
+        Assert.assertEquals(expected, actual);
     }
 }

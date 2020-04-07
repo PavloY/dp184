@@ -1,37 +1,41 @@
-package test.ftcTest;
+package test.ftcTest.FTS_Product;
 
 import core.BaseTest;
-import core.Config;
-import data.ContactUsData;
-import data.LoginUser;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import page.HomePage;
-import page.ProductPage;
-import step.CartStep;
 import step.HomePageStep;
 import step.ProductStep;
 
 import java.net.MalformedURLException;
 
+
 public class FTC_Auto_Main_Product_AddProductToShoppingCartByNewUser extends BaseTest {
-    HomePageStep homePageStep;
+    ProductStep productStep;
 
     @Before
     @Override
     public void setUp() throws MalformedURLException {
         super.setUp();
-        homePageStep = new HomePageStep(driver);
-        homePageStep.goToCart()
+        productStep = new HomePageStep(driver).goToCart()
                 .getEmptyCart()
-                .clickOnLogoLink();
+                .clickOnLogoLink().clickOnProduct("iPhone");
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        super.tearDown();
+        productStep = null;
     }
 
    @Test
     public void addProductToCartNewCustomer() {
-       homePageStep.clickOnProduct("iPhone")
-               .addToCart()
+       productStep.addToCart()
                .addProductToCart();
+       String expected = "Shopping Cart";
+       String actual = driver.getTitle();
+       Assert.assertEquals(expected, actual);
     }
 }
