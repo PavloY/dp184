@@ -95,12 +95,16 @@ public class ProductStep extends BaseStep<ProductPage> {
     }
     public ProductStep fillFieldsWithUncheckedRating(CommentsUser user){
         fillAllFieldsForReview(user);
-        //Assert
+        String expected = " Warning: Please select a review rating!";
+        String actual = page.getMessageAlertOnReview();
+        Assert.assertEquals(expected, actual);
         return this;
     }
     public ProductStep fillFieldsWithValidData(CommentsUser user){
         fillAllFieldsForReview(user);
-        //Assert
+        String expected = " Thank you for your review. It has been submitted to the webmaster for approval.";
+        String actual = page.getMessageSuccessOnReview();
+        Assert.assertEquals(expected, actual);
         return this;
     }
 
