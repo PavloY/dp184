@@ -14,6 +14,7 @@ import page.ProductPage;
 
 public class ProductStep extends BaseStep<ProductPage> {
     private final Wait<WebDriver> wait;
+    private String messageForReview;
 
     public ProductStep(WebDriver driver) {
         super(driver, new ProductPage(driver));
@@ -85,7 +86,7 @@ public class ProductStep extends BaseStep<ProductPage> {
 
     public ProductStep fillFieldsWithInvalidName(CommentsUser user){
         fillAllFieldsForReview(user);
-        //Assert
+        //Assert string.size != 0;
         return this;
     }
     public ProductStep fillFieldsWithInvalidReview(CommentsUser user){
@@ -95,16 +96,18 @@ public class ProductStep extends BaseStep<ProductPage> {
     }
     public ProductStep fillFieldsWithUncheckedRating(CommentsUser user){
         fillAllFieldsForReview(user);
-        String expected = " Warning: Please select a review rating!";
-        String actual = page.getMessageAlertOnReview();
-        Assert.assertEquals(expected, actual);
+        //String expected = " Warning: Please select a review rating!";
+        //String actual = page.getMessageAlertOnReview();
+        //Assert.assertEquals(expected, actual);
         return this;
     }
     public ProductStep fillFieldsWithValidData(CommentsUser user){
         fillAllFieldsForReview(user);
-        String expected = " Thank you for your review. It has been submitted to the webmaster for approval.";
-        String actual = page.getMessageSuccessOnReview();
-        Assert.assertEquals(expected, actual);
+        String expected = "Thank you for your review. It has been submitted to the webmaster for approval.";
+        //String actual = page.getMessageSuccessOnReview();
+        //wait.until(ExpectedConditions.visibilityOf(page.getSuccessOnReview()));
+        messageForReview = page.getMessageSuccessOnReview();
+        Assert.assertEquals(expected, messageForReview);
         return this;
     }
 

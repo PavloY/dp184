@@ -57,10 +57,10 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//a[contains(@href,'twitter')]")
     private WebElement shareTweetLink;
 
-    @FindBy(className = "alert alert-danger")
+    @FindBy(className = "alert.alert-danger")
     private WebElement alertMessage;
 
-    @FindBy(className = "alert alert-success")
+    @FindBy(xpath = "/html/body/div[2]/div/div/div[1]/div[1]/div/div[2]/form/div[2]")  // !!!!!!!!!!!!!!!11!!!!!!
     private WebElement successMessage;
 
     public ProductPage(WebDriver driver) {
@@ -102,6 +102,7 @@ public class ProductPage extends BasePage {
     public void addToCart() {
         addToCartButton.click();
     }
+//////////////////////////////////////////////////////////////////////////////
 
     public void clickOnReviewLink() {
         reviewProductButton.click();
@@ -123,6 +124,10 @@ public class ProductPage extends BasePage {
         sendReviewButton.click();
     }
 
+    public WebElement getSuccessOnReview() {
+        return successMessage;
+    }
+
     public String getMessageAlertOnReview(){
         String message="";
         if(isWarningMessage(alertMessage )){
@@ -131,12 +136,13 @@ public class ProductPage extends BasePage {
         return message;
     }
     public String getMessageSuccessOnReview(){
-        String message="";
-        if(isWarningMessage(alertMessage )){
-            message = alertMessage.getText();
+        String message="No element";
+        if(isWarningMessage(successMessage )){
+            message = successMessage.getText();
         }
         return message;
     }
+//////////////////////////////////////////////////////////////////////
 
     public String getMessageOnAlertProductComparison() {
         return productComparisonLink.getText();
