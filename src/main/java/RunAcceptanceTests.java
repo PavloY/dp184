@@ -33,6 +33,7 @@ import test.ftcTest.FTS_Registration.FTC_Auto_Main_Registration_RegisterUserWith
         FTC_Main_Brand_BrandLinkVerification.class,
         FTC_Main_EditAddressWithValidData.class,
         FTC_Main_Login_SignInRegisteredUserWithInvalidData.class,
+        FTC_Main_Login_SignInRegisteredUserWithInvalidData.class,
         FTC_Main_Registration_RegisterUserWithValidData.class,
         SearchStepTest.class})
 public class RunAcceptanceTests {
