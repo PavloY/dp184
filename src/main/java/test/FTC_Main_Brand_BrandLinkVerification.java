@@ -26,7 +26,7 @@ public class FTC_Main_Brand_BrandLinkVerification extends BaseTest {
     // переделать
     @Test
     public void goToTheSpecificBrandPage(){
-        String data = "iBasso";
+        String data = "Apple";
         brandsStep.goToTheSpecificBrandProductsPage(data);
         BrandPage brandPage = new BrandPage(driver);
         String expected = data;

@@ -101,12 +101,14 @@ public abstract class BasePage extends BaseElement {
         return new HomePage(driver);
     }
 
-    public void goToContactUsPage() {
+    public ContactUsPage goToContactUsPage() {
         contactUs.click();
+        return new ContactUsPage(driver);
     }
 
-    public void goToBrandsPage() {
+    public BrandsPage goToBrandsPage() {
         brands.click();
+        return new BrandsPage(driver);
     }
 
     public BasePage fillQuickSearchField(String desireItem) {
