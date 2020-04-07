@@ -86,29 +86,32 @@ public class ProductStep extends BaseStep<ProductPage> {
 
     public ProductStep fillFieldsWithInvalidName(CommentsUser user){
         fillAllFieldsForReview(user);
+        messageForReview = page.getMessageAlertOnReview();
+
         //Assert string.size != 0;
         return this;
     }
     public ProductStep fillFieldsWithInvalidReview(CommentsUser user){
         fillAllFieldsForReview(user);
+        messageForReview = page.getMessageAlertOnReview();
+
         //Assert
         return this;
     }
-    public ProductStep fillFieldsWithUncheckedRating(CommentsUser user){
+    public ProductStep fillFieldsWithInvalidRating(CommentsUser user){
         fillAllFieldsForReview(user);
-        //String expected = " Warning: Please select a review rating!";
-        //String actual = page.getMessageAlertOnReview();
-        //Assert.assertEquals(expected, actual);
+        messageForReview = page.getMessageAlertOnReview();
+
         return this;
     }
     public ProductStep fillFieldsWithValidData(CommentsUser user){
         fillAllFieldsForReview(user);
-        String expected = "Thank you for your review. It has been submitted to the webmaster for approval.";
-        //String actual = page.getMessageSuccessOnReview();
-        //wait.until(ExpectedConditions.visibilityOf(page.getSuccessOnReview()));
         messageForReview = page.getMessageSuccessOnReview();
-        Assert.assertEquals(expected, messageForReview);
+
         return this;
+    }
+    public String getMessageForReview(){
+        return messageForReview;
     }
 
     private void fillAllFieldsForReview(CommentsUser user){
