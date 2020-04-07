@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import step.CartStep;
 import step.HomePageStep;
 import step.MyAccountStep;
+import step.SearchPageStep;
 
 public abstract class BaseStep <T extends BasePage> {
     protected WebDriver driver;
@@ -38,4 +39,10 @@ public abstract class BaseStep <T extends BasePage> {
     }
 
 
+
+    public SearchPageStep quickSearch(String item){
+        page.fillQuickSearchField(item);
+        page.quickSearch();
+        return new SearchPageStep(driver);
+    }
 }
