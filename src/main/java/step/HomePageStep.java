@@ -12,10 +12,6 @@ public class HomePageStep extends BaseStep<HomePage> {
     super(driver, new HomePage(driver));
   }
 
-//  LoginStep loginStep;
-//  HomePageStep homePageStep;
-//  LogoutStep logoutStep;
-
   public HomePageStep clickMyAccount() {
     page.clickMyAccount();
     return this;
@@ -67,16 +63,4 @@ public class HomePageStep extends BaseStep<HomePage> {
     page.clickLogoutDropDown();
     return new LogoutPage(driver);
   }
-/*
-  public HomePageStep logoutExistUser() {
-      logoutStep = new LogoutStep(driver);
-      logoutStep.clickContinioButton();
-      homePageStep = new HomePageStep(driver);
-      clickMyAccount().clickLogoutDropDown();
-      String actual = driver.getTitle();
-      String expected = "Account Logout";
-      Assert.assertEquals(expected, actual);
-    return this;
-  }
- */
 }
