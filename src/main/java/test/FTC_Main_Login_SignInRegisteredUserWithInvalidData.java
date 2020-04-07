@@ -16,9 +16,9 @@ import java.net.MalformedURLException;
 @RunWith(JUnitParamsRunner.class)
 public class FTC_Main_Login_SignInRegisteredUserWithInvalidData extends BaseTest {
 
-  private HomePageStep homePageStep;
-  private LoginStep loginStep;
-  protected LogoutPage logoutPage;
+  HomePageStep homePageStep;
+  LoginStep loginStep;
+  LogoutPage logoutPage;
 
   @Before
   @Override
