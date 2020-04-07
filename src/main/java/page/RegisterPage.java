@@ -20,8 +20,6 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "input-email")
     private WebElement email;
 
-    @FindBy(id = "input-email")
-    private WebElement _email;
 
     @FindBy(id = "input-telephone")
     private WebElement telephone;
@@ -56,7 +54,7 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "input-confirm")
     private WebElement confirm;
 
-    @FindBy(xpath = "//input[@value='1']")
+    @FindBy(xpath = "//label[@class='radio-inline']/input")
     private WebElement subscribe;
 
 
@@ -67,7 +65,7 @@ public class RegisterPage extends BasePage {
     private WebElement button;
 
     @FindBy(className = "alert-danger")
-    private WebElement policyWarning;
+    private WebElement warning;
 
     @FindBy(xpath = "//div[contains(text(), 'First Name must be')]")
     private WebElement firstNameDanger;
@@ -178,8 +176,8 @@ public class RegisterPage extends BasePage {
 
     public HashMap<String, String> getAllWarningMessages(){
         HashMap<String, String> result = new HashMap<>();
-        if(isWarningMessage(policyWarning )){
-            result.put("policy", policyWarning.getText());
+        if(isWarningMessage(warning )){
+            result.put("warning", warning.getText());
         }
         if(isWarningMessage(firstNameDanger)){
             result.put("fName", firstNameDanger.getText());

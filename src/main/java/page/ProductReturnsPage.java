@@ -11,6 +11,9 @@ public class ProductReturnsPage extends BasePage {
         super(driver);
     }
 
+    @FindBy(xpath = "//p[text()=Please complete the form below to request an RMA number.]")
+    private WebElement pleaseComplete;
+
     @FindBy(id = "input-firstname")
     private WebElement firstName;
 
@@ -59,68 +62,63 @@ public class ProductReturnsPage extends BasePage {
 
     //    Error Messages
     @FindBy(xpath = "//div[contains(text(), 'First Name must be')]")
-    private WebElement WarningForFirstName;
+    private WebElement warningForFirstName;
     @FindBy(xpath = "//div[contains(text(), 'Last Name must be')]")
-    private WebElement WarningForLastName;
+    private WebElement warningForLastName;
     @FindBy(xpath = "//div[contains(text(), 'E-Mail Address does not appear')]")
-    private WebElement WarningForEmail;
+    private WebElement warningForEmail;
     @FindBy(xpath = "//div[contains(text(), 'Telephone must be')]")
-    private WebElement WarningForTelephone;
+    private WebElement warningForTelephone;
     @FindBy(xpath = "//div[contains(text(), 'Order ID required!')]")
-    private WebElement WarningForOrderId;
-    private WebElement WarningForOrderDate = null;
+    private WebElement warningForOrderId;
     @FindBy(xpath = "//div[contains(text(), 'Product Name must be')]")
-    private WebElement WarningForProductName;
+    private WebElement warningForProductName;
     @FindBy(xpath = "//div[contains(text(), 'Product Model must be')]")
-    private WebElement WarningForProductCode;
-    private WebElement WarningForQuantity = null;
+    private WebElement warningForProductCode;
     @FindBy(xpath = "//div[contains(text(), 'You must select a return product reason!')]")
-    private WebElement WarningForReasonForReturn;
-    private WebElement WarningForOtherDetails = null;
+    private WebElement warningForReasonForReturn;
+    @FindBy(xpath = "p[text()=Please complete the form below to request an RMA number.")
+    private WebElement failedMessage;
     //    end of error messages
 
+    public WebElement getPleaseComplete() {
+        return pleaseComplete;
+    }
+
     public WebElement getWarningForFirstName() {
-        return WarningForFirstName;
+        return warningForFirstName;
     }
 
     public WebElement getWarningForLastName() {
-        return WarningForLastName;
+        return warningForLastName;
     }
 
     public WebElement getWarningForEmail() {
-        return WarningForEmail;
+        return warningForEmail;
     }
 
     public WebElement getWarningForTelephone() {
-        return WarningForTelephone;
+        return warningForTelephone;
     }
 
     public WebElement getWarningForOrderId() {
-        return WarningForOrderId;
-    }
-
-    public WebElement getWarningForOrderDate() {
-        return WarningForOrderDate;
+        return warningForOrderId;
     }
 
     public WebElement getWarningForProductName() {
-        return WarningForProductName;
+        return warningForProductName;
     }
 
     public WebElement getWarningForProductCode() {
-        return WarningForProductCode;
-    }
-
-    public WebElement getWarningForQuantity() {
-        return WarningForQuantity;
+        return warningForProductCode;
     }
 
     public WebElement getWarningForReasonForReturn() {
-        return WarningForReasonForReturn;
+        return warningForReasonForReturn;
     }
 
-    public WebElement getWarningForOtherDetails() {
-        return WarningForOtherDetails;
+    public WebElement getFailedMessage() {
+        return failedMessage;
     }
 
     public void fillFirstName(String userFirstName) {

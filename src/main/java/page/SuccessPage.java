@@ -10,11 +10,17 @@ public class SuccessPage extends BasePage {
     @FindBy(tagName = "h1")
     private WebElement content;
 
-    @FindBy(tagName = "p")
-    private WebElement pSuccessMessage;
+    @FindBy(xpath = "//p[contains(text(), 'Thank you')]")
+    private WebElement thankYouSuccessMessage;
 
     @FindBy(xpath = "//*[contains(text(), 'Success')]")
     private WebElement successMessage;
+
+    @FindBy(xpath = "//p[contains(text(), 'Congratulations')]")
+    private WebElement congratulationsMessage;
+
+    @FindBy(xpath = "//p[contains(text(), 'Your enquiry has')]")
+    private WebElement successfulSentEnquiryMessage;
 
     public SuccessPage(WebDriver driver) {
         super(driver);
@@ -24,11 +30,19 @@ public class SuccessPage extends BasePage {
         return content.getText();
     }
 
-    public String getPsuccessMessage() {
-        return pSuccessMessage.getText();
+    public String getThankYouSuccessMessage() {
+        return thankYouSuccessMessage.getText();
     }
 
     public String getSuccessMessage() {
         return successMessage.getText();
     }
+
+    public String getCongratulationsMessage() {
+        return congratulationsMessage.getText();
+    }
+    public String getSuccessMessageForEnquirySending(){
+        return successfulSentEnquiryMessage.getText();
+    }
+
 }
