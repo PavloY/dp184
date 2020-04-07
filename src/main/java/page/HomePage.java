@@ -12,70 +12,71 @@ import java.util.List;
 
 public class HomePage extends BasePage {
 
-    @FindBy(className = "dropdown")
-    protected WebElement myAccountDropDown;
+  @FindBy(className = "dropdown")
+  protected WebElement myAccountDropDown;
 
-    @FindBy(linkText = "Login")
-    protected WebElement loginDropDown;
+  @FindBy(linkText = "Login")
+  protected WebElement loginDropDown;
 
-    @FindBy(xpath = "//h4//a")
-    private List<WebElement> productsOnShowCase;
+  @FindBy(xpath = "//h4//a")
+  private List<WebElement> productsOnShowCase;
 
-    @FindBy(id = "slideshow0")
-    private WebElement carouselItem;
+  @FindBy(id = "slideshow0")
+  private WebElement carouselItem;
 
-    String isLogin = ("//*[text()[contains(.,'Login')]]");
+  String isLogin = ("//*[text()[contains(.,'Login')]]");
 
-    @FindBy(linkText = "Logout")
-    protected WebElement logoutDropDown;
+  @FindBy(linkText = "Logout")
+  protected WebElement logoutDropDown;
 
-    List<String> nameProductList = new ArrayList<>();
-    List<String> linkProductList = new ArrayList<>();
+  List<String> nameProductList = new ArrayList<>();
+  List<String> linkProductList = new ArrayList<>();
 
-    public HomePage(WebDriver driver) {
-        super(driver);
+  public HomePage(WebDriver driver) {
+    super(driver);
+  }
+
+  public void clickMyAccount() {
+    myAccountDropDown.click();
+  }
+
+  public void clickloginDropDown() {
+    loginDropDown.click();
+  }
+
+  public List<String> getNameProductsList() {
+    for (WebElement webElement : productsOnShowCase) {
+      nameProductList.add(webElement.getText());
     }
+    return nameProductList;
+  }
 
-    public void clickMyAccount() {
-        myAccountDropDown.click();
+  public List<String> getLinkProductsList() {
+    for (WebElement webElement : productsOnShowCase) {
+      linkProductList.add(webElement.findElement(By.tagName("a")).getAttribute("href"));
     }
+    return linkProductList;
+  }
 
-    public void clickloginDropDown() {
-        loginDropDown.click();
-    }
+  public void clickOnNumberOfProduct(int numberOfProduct) {
+    productsOnShowCase.get(numberOfProduct).click();
+  }
 
-    public List<String> getNameProductsList() {
-        for (WebElement webElement : productsOnShowCase) {
-            nameProductList.add(webElement.getText());
-        }
-        return nameProductList;
-    }
+  public void clickOnNameOfProduct(String nameOfProduct) {
+    int indexOfProduct = nameProductList.indexOf(nameOfProduct);
+    productsOnShowCase.get(indexOfProduct).click();
+  }
 
-    public List<String> getLinkProductsList() {
-        for (WebElement webElement : productsOnShowCase) {
-            linkProductList.add(webElement.findElement(By.tagName("a")).getAttribute("href"));
-        }
-        return linkProductList;
-    }
+  public boolean isCarouselOnHomePage() {
+    return carouselItem.isDisplayed();
+  }
 
-    public void clickOnNumberOfProduct(int numberOfProduct) {
-        productsOnShowCase.get(numberOfProduct).click();
-    }
+  public boolean isUserLogIn() {
+    clickMyAccount();
+    return driver.findElement(By.xpath(isLogin)).isDisplayed();
+  }
 
-    public void clickOnNameOfProduct(String nameOfProduct) {
-        int indexOfProduct = nameProductList.indexOf(nameOfProduct);
-        productsOnShowCase.get(indexOfProduct).click();
-    }
-
-    public boolean isCarouselOnHomePage() {
-        return carouselItem.isDisplayed();
-    }
-
-    public boolean isUserLogIn() {
-        clickMyAccount();
-        return driver.findElement(By.xpath(isLogin)).isDisplayed();}
-
-    public void clickLogoutDropDown() {
+  public void clickLogoutDropDown() {
     logoutDropDown.click();
   }
 }
