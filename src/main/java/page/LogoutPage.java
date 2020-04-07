@@ -7,17 +7,14 @@ import org.openqa.selenium.support.FindBy;
 
 public class LogoutPage extends BasePage {
 
-    
-    @FindBy(xpath = "//a[contains(text(), 'Continue')]")
-    private  WebElement continueButton;
+  @FindBy(xpath = "//a[contains(text(), 'Continue')]")
+  private WebElement continueButton;
 
+  public LogoutPage(WebDriver driver) {
+    super(driver);
+  }
 
-
-    public LogoutPage(WebDriver driver) {
-        super(driver);
-    }
-
-    public void clickOnContinueButton() {
-        continueButton.click();
-    }
+  public void clickOnContinueButton() {
+    continueButton.click();
+  }
 }
