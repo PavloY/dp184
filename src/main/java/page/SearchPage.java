@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchPage extends BasePage {
@@ -27,8 +28,11 @@ public class SearchPage extends BasePage {
     @FindBy(xpath = "//div[@class = 'product-thumb']/div[2]//a")
     public List<WebElement> itemsName;
 
-    @FindBy(xpath = "//div[@class = 'product-thumb']//p [@class = 'price']")
-    public List<WebElement> itemsPrice;
+    @FindBy(xpath = "//div[@class = 'caption']//p[1]")
+    public List<WebElement> itemsDescriptions;
+
+    @FindBy(xpath = "//*[contains(text(), 'There is no product')]")
+    private WebElement invalidSearchMessage;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -54,12 +58,24 @@ public class SearchPage extends BasePage {
         searchButton.click();
     }
 
-    public String getSearchResult(){
-        StringBuilder result = new StringBuilder();
+    public boolean invalidSearchMessageIsVisible(){
+        return invalidSearchMessage.isDisplayed();
+    }
+
+    public List<String> getSearchResult(){
+        List<String> result = new ArrayList<>();
         for (WebElement w : itemsName){
-            result = result.append(w.getText());
+            result.add(w.getText());
         }
-        return result.toString();
+        return result;
+    }
+
+    public List<String> getSearchResultInDescriptions(){
+        List<String> result = new ArrayList<>();
+        for (WebElement w : itemsDescriptions){
+            result.add(w.getText());
+        }
+        return result;
     }
 
 }

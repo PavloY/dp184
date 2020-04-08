@@ -66,11 +66,13 @@ public class ShoppingCartPage extends BasePage {
     @FindBy(xpath = "//a[text() = 'Checkout']")
     private WebElement checkoutButton;
 
+    @FindBy(xpath = "//a[text() = 'Continue']")
+    private WebElement continueButtonEmptyCart;
+
     private List<CartItem> items;
     private Map<String, Integer> columnName;
 
-    //    @FindBy(xpath = "//*[@id='content']/form/div/table")
-//    private WebElement tableItems;
+
     private void createItemMap(WebElement tableItems) {
         List<WebElement> headers = tableItems.findElement(By.tagName("thead")).findElements(By.tagName("td"));
         columnName = new HashMap<>();
@@ -84,25 +86,20 @@ public class ShoppingCartPage extends BasePage {
         createItemMap(tableItems);
         List<WebElement> items = tableItems.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
         ArrayList<CartItem> itemList = new ArrayList<>();
-
-        for (int i = 0; i < items.size(); i++) {
-            List<WebElement> itemProperty = items.get(i).findElements(By.tagName("td"));
+        for (WebElement webElement : items) {
+            List<WebElement> itemProperty = webElement.findElements(By.tagName("td"));
             CartItem item = new CartItem(
                     itemProperty.get(columnName.get("Product Name")),
                     itemProperty.get(columnName.get("Unit Price")),
                     itemProperty.get(columnName.get("Quantity"))
-                    .findElement(By.xpath("//input[@class = 'form-control']")),
+                            .findElement(By.xpath("//input[@class = 'form-control']")),
                     itemProperty.get(columnName.get("Quantity"))
-                    .findElement(By.xpath("//button[@data-original-title='Update']")),
+                            .findElement(By.xpath("//button[@data-original-title='Update']")),
                     itemProperty.get(columnName.get("Quantity"))
-                    .findElement(By.xpath("//button[@data-original-title='Remove']")));
+                            .findElement(By.xpath("//button[@data-original-title='Remove']")));
             itemList.add(item);
         }
         return itemList;
-        // CartItem item = CartItem.builder().name(itemProperty.get(columnName.get("Product Name"))).price(itemProperty.get(4)).build();
-//        CartItem item = new CartItem(itemProperty.get(1), itemProperty.get(4));
-
-
     }
 
     public ShoppingCartPage(WebDriver driver) {
@@ -121,9 +118,20 @@ public class ShoppingCartPage extends BasePage {
         return shoppingCartTitle;
     }
 
+
+
     public void clickOnCheckoutButton(){
         checkoutButton.click();
     }
+
+    public WebElement getContinueButtonEmptyCart() {
+        return continueButtonEmptyCart;
+    }
+
+    public void clickOnContinueButtonEmptyCart(){
+        continueButtonEmptyCart.click();
+    }
+
 }
 
 
