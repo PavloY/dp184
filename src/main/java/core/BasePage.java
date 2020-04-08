@@ -135,6 +135,10 @@ public abstract class BasePage extends BaseElement {
         return new ProductComparisonPage(driver);
     }
 
+    public WebElement getProductComparisonLink(){
+        return productComparison;
+    }
+
     public LogoutPage goToLogoutPage() {
         logoutDropDown.click();
         return new LogoutPage(driver);

@@ -18,6 +18,7 @@ public class BaseTestComment extends BaseTest {
         super.setUp();
         productStep = new HomePageStep(driver).clickOnProduct(data).clickOnReview();
     }
+
     public ProductStep getProductPageStep(){
         return productStep;
     }

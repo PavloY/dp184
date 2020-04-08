@@ -1,7 +1,7 @@
 package test.ftcTest.FTS_Checkout;
 
 import core.BaseTest;
-import data.ContactUsData;
+import data.Constants;
 import data.LoginUser;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class FTC_Auto_Main_Checkout_CheckoutRegisteredUser extends BaseTest {
     @Override
     public void setUp() throws MalformedURLException {
         super.setUp();
-        user = new LoginUser(ContactUsData.REG_E_MAIL, ContactUsData.REG_PASSWORD);
+        user = new LoginUser(Constants.REG_E_MAIL, Constants.REG_PASSWORD);
         homePageStep = new HomePageStep(driver);
         homePageStep.clickOnProduct("iPhone").addToCart().goToCart();
         cartStep = new CartStep(driver);
