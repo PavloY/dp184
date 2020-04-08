@@ -53,7 +53,6 @@ import test.ftcTest.FTS_WishList.FTC_Auto_Main_WishList_DeleteProductFromWishLis
         FTC_ContactUs_SendMessageWithInvalidData.class,
         FTC_Main_Brand_BrandLinkVerification.class,
         FTC_Main_EditAddressWithValidData.class,
-        FTC_Main_Login_SignInRegisteredUserWithInvalidData.class,
-        SearchStepTest.class})
+        FTC_Main_Login_SignInRegisteredUserWithInvalidData.class})
 public class RunAcceptanceTests {
 }
