@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class SearchPage extends BasePage {
 
     @FindBy(id = "input-search")
@@ -22,39 +24,42 @@ public class SearchPage extends BasePage {
     @FindBy(id = "button-search")
     private WebElement searchButton;
 
+    @FindBy(xpath = "//div[@class = 'product-thumb']/div[2]//a")
+    public List<WebElement> itemsName;
+
+    @FindBy(xpath = "//div[@class = 'product-thumb']//p [@class = 'price']")
+    public List<WebElement> itemsPrice;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
 
-    public SearchPage fillSearchField(String desireItem){
-        fillField(searchField,desireItem);
-        return this;
+    public void fillSearchField(String desireItem) {
+        fillField(searchField, desireItem);
     }
 
-    public SearchPage selectCategory(String categoryOfItem){
-        chooseDataFromDropDownMenu(category,categoryOfItem);
-        return this;
+    public void selectCategory(String categoryOfItem) {
+        chooseDataFromDropDownMenu(category, categoryOfItem);
     }
 
-    public SearchPage selectSearchInSubCategories(){
+    public void selectSearchInSubCategories() {
         chooseCheckBox(searchInSubcategories);
-        return this;
     }
 
-    public SearchPage selectSearchInDescription(){
+    public void selectSearchInDescription() {
         chooseCheckBox(searchInProductDescriptions);
-        return this;
     }
 
-    public SearchPage clickToSearchButton(){
+    public void clickToSearchButton() {
         searchButton.click();
-        return this;
     }
 
-
-
-
-
-
+    public String getSearchResult(){
+        StringBuilder result = new StringBuilder();
+        for (WebElement w : itemsName){
+            result = result.append(w.getText());
+        }
+        return result.toString();
+    }
 
 }
