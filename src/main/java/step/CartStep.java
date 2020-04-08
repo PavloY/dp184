@@ -1,7 +1,7 @@
 package step;
 
 import core.BaseStep;
-import data.ContactUsData;
+import data.Constants;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -20,45 +20,60 @@ public class CartStep extends BaseStep<ShoppingCartPage> {
         wait = new WebDriverWait(driver, 5, 1000);
     }
 
-    public boolean isEmptyShoppingCart() {
+    private void emptyShoppingCart() {
+        page.goToShoppingCartPage();
+        wait.until(ExpectedConditions.visibilityOf(page.getShoppingCartTitle()));
+        String expected = "Your shopping cart is empty!";
+        String actual = page.getMessageEmptyCart();
+        Assert.assertEquals(expected, actual);
+    }
+
+    private boolean isEmptyShoppingCart() {
+        boolean elementCondition = false;
         try {
-            page.goToShoppingCartPage();
-            wait.until(ExpectedConditions.visibilityOf(page.getShoppingCartTitle()));
-            String expected = "Your shopping cart is empty!";
-            String actual = page.getMessageEmptyCart();
-            Assert.assertEquals(expected, actual);
-            return true;
+            elementCondition = page.getContinueButtonEmptyCart().isDisplayed();
         } catch (NoSuchElementException e) {
-            System.out.println("Your cart isn't empty.");
-            return false;
+            return elementCondition;
+        }
+        return elementCondition;
+    }
+
+
+    public CartStep getEmptyCart() {
+        if (!isEmptyShoppingCart()) {
+            do {
+                removeProductFromCart();
+            } while (!isEmptyShoppingCart());
+            emptyShoppingCart();
+            return this;
+        } else {
+            isEmptyShoppingCart();
+            emptyShoppingCart();
+            return this;
         }
     }
 
-    public CartStep getEmptyCart() {
-        if (isEmptyShoppingCart()) {
-            return this;
-        } else {
-            for (int i = 0; i < page.getItems().size(); i++) {
-                page.getItems().get(i).getRemove().click();
-            }
-            return this;
-        }
+    public void removeProductFromCart() {
+        page.getItems().get(0).getRemove().click();
+        wait.until(ExpectedConditions.visibilityOf(page.getContinueButtonEmptyCart()));
+    }
+
+    public String getMessageEmptyCart() {
+        return page.getMessageEmptyCart();
     }
 
     public CartStep addProductToCart() {
-        String expected = ContactUsData.LINK_IPHONE;
-            //    page.goToHomePage().getLinkProductsList().get(1); It needs to update
+        String expected = Constants.LINK_IPHONE;
         String actual = page.getItems().get(0).getName().findElement(By.tagName("a")).getAttribute("href");
         Assert.assertEquals(expected, actual);
         return this;
     }
 
-    public CheckoutStep clickOnCheckoutButton(){
+    public CheckoutStep clickOnCheckoutButton() {
         page.clickOnCheckoutButton();
         String expected = "Checkout";
         String actual = page.getTitlePage();
         Assert.assertEquals(expected, actual);
         return new CheckoutStep(driver);
     }
-
 }

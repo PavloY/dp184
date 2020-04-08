@@ -76,4 +76,8 @@ public final class Constants {
         put("postCode", "Postcode must be between 2 and 10 characters and contains only digits");
         put("password", "Password must be between 4 and 20 characters!");
     }};
+
+    public static final String REG_E_MAIL = "ira@i.ua";
+    public static final String REG_PASSWORD = "Ira007";
+    public static final String LINK_IPHONE = "http://184-dp.tk/index.php?route=product/product&product_id=40";
 }
