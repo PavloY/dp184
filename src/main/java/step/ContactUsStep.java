@@ -17,11 +17,6 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
         super(driver, new ContactUsPage(driver));
     }
 
-    public ContactUsStep clickOnSubmitButton(){
-        page.clickOnSubmitButton();
-        return this;
-    }
-
     public ContactUsStep fillAllFieldsWithInvalidData(ContactUsUser user){
         fillAllFields(user);
         messages = page.getAllWarningMessages();
@@ -44,10 +39,8 @@ public class ContactUsStep extends BaseStep<ContactUsPage> {
         page.fillEnquiry(user.getEnquiry());
         page.clickOnSubmitButton();
     }
-    public String getSuccessfulSendEnquiryMessage(){
-        SuccessPage successPage = new SuccessPage(driver);
-        return successPage.getSuccessMessageForEnquirySending();
-    }
+
+
 
 }
 

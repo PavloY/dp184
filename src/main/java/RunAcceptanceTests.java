@@ -9,6 +9,12 @@ import test.ftcTest.FTS_Cart.FTC_Auto_Main_Cart_CheckPossibilityOfDeletingProduc
 import test.ftcTest.FTS_Cart.FTC_Auto_Main_Cart_CheckPossibilityOfDeletingProductFromCartRegisteredUser;
 import test.ftcTest.FTS_Checkout.FTC_Auto_Main_Checkout_CheckoutRegisteredUser;
 import test.ftcTest.FTS_Product.*;
+import test.ftcTest.FTS_Comments.FTC_Main_Auto_Comment_CheckTheAbilityToWriteAComment;
+import test.ftcTest.FTS_Comments.FTC_Main_Auto_Comment_ValidationNameFieldWithInvalidData;
+import test.ftcTest.FTS_Comments.FTC_Main_Auto_Comment_ValidationRatingFieldWithInvalidData;
+import test.ftcTest.FTS_Comments.FTC_Main_Auto_Comment_ValidationReviewFieldWithInvalidData;
+import test.ftcTest.FTS_ContactUs.FTC_ContactUs_SendMessageWithInvalidData;
+import test.ftcTest.FTS_ContactUs.FTC_ContactUs_SendingMessageThroughContactUsTab;
 import test.ftcTest.FTS_Registration.FTC_Auto_Main_Registration_RegisterUserWithInvalidDataUsingOnlyNecessaryFields;
 import test.ftcTest.FTS_Registration.FTC_Auto_Main_Registration_RegisterUserWithValidDataUsingAllFields;
 import test.ftcTest.FTS_Registration.FTC_Auto_Main_Registration_RegisterUserWithValidDataUsingOnlyNecessaryFields;
@@ -44,10 +50,14 @@ import test.ftcTest.FTS_WishList.FTC_Auto_Main_WishList_DeleteProductFromWishLis
         FTC_Auto_Main_ProductComparison_DeleteProductFromProductComparison.class,
         FTC_ContactUs_SendingMessageThroughContactUsTab.class,
         FTC_ContactUs_SendMessageWithInvalidData.class,
+        FTC_Main_Auto_Comment_CheckTheAbilityToWriteAComment.class,
+        FTC_Main_Auto_Comment_ValidationNameFieldWithInvalidData.class,
+        FTC_Main_Auto_Comment_ValidationRatingFieldWithInvalidData.class,
+        FTC_Main_Auto_Comment_ValidationReviewFieldWithInvalidData.class,
         FTC_Main_Brand_BrandLinkVerification.class,
         FTC_Main_EditAddressWithValidData.class,
         FTC_Main_Login_SignInRegisteredUserWithInvalidData.class,
         FTC_Main_Registration_RegisterUserWithValidData.class,
-        SearchStepTest.class})
+        /*SearchStepTest.class*/})
 public class RunAcceptanceTests {
 }

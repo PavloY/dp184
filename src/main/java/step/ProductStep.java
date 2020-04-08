@@ -1,6 +1,8 @@
 package step;
 
 import core.BaseStep;
+import data.CommentsUser;
+import data.ContactUsData;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,6 +13,7 @@ import page.ProductPage;
 
 public class ProductStep extends BaseStep<ProductPage> {
     private final Wait<WebDriver> wait;
+    private String messageForReview;
 
     public ProductStep(WebDriver driver) {
         super(driver, new ProductPage(driver));
@@ -67,5 +70,49 @@ public class ProductStep extends BaseStep<ProductPage> {
         page.goToWishList();
         return new WishListStep(driver);
     }
+    public ProductStep clickOnReview(){
+        page.clickOnReviewLink();
+        return this;
+    }
+
+    public ProductStep fillFieldsWithInvalidName(CommentsUser user){
+        fillAllFieldsForReview(user);
+        messageForReview = page.getMessageAlertOnReview();
+        Assert.assertFalse(messageForReview.isEmpty());
+        return this;
+    }
+    public ProductStep fillFieldsWithInvalidReview(CommentsUser user){
+        fillAllFieldsForReview(user);
+        messageForReview = page.getMessageAlertOnReview();
+        Assert.assertFalse(messageForReview.isEmpty());   return this;
+    }
+    public ProductStep fillFieldsWithInvalidRating(CommentsUser user){
+        fillAllFieldsExeptRatingForReview(user);
+        messageForReview = page.getMessageAlertOnReview();
+        Assert.assertFalse(messageForReview.isEmpty());
+        return this;
+    }
+    public ProductStep fillFieldsWithValidData(CommentsUser user){
+        fillAllFieldsForReview(user);
+        messageForReview = page.getMessageSuccessOnReview();
+        Assert.assertFalse(messageForReview.isEmpty());
+        return this;
+    }
+    public String getMessageForReview(){
+        return messageForReview;
+    }
+
+    private void fillAllFieldsForReview(CommentsUser user){
+        page.fillName(user.getName());
+        page.fillReview(user.getReview());
+        page.checkRating(user.getRating());
+        page.sendReview();
+    }
+    private void fillAllFieldsExeptRatingForReview(CommentsUser user){
+        page.fillName(user.getName());
+        page.fillReview(user.getReview());
+        page.sendReview();
+    }
+
 
 }

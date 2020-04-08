@@ -1,8 +1,9 @@
 package data;
 
-public interface ContactUsData {
+public final class ContactUsData {
 
-    String VALID_NAME = "Alexander";
-    String VALID_E_MAIL = "alexvonbor@gmail.com";
-    String VALID_ENQUIRY = "Hello World from automation testers ";
+
+    public static final ContactUsUser contactUsUserWithValidData = new ContactUsUser("Alex","alex@mail.com","Hello World !!!!!!!!!!!!!");
+    public static final ContactUsUser contactUsUserWithInValidData = new ContactUsUser("","","");
+
 }

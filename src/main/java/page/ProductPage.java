@@ -57,6 +57,12 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//a[contains(@href,'twitter')]")
     private WebElement shareTweetLink;
 
+    @FindBy(xpath = "//*[contains(text(), 'Warning')]")
+    private WebElement alertMessage;
+
+    @FindBy(xpath = "//*[contains(text(), 'Thank you for your review')]")
+    private WebElement successMessage;
+
     public ProductPage(WebDriver driver) {
         super(driver);
     }
@@ -115,6 +121,21 @@ public class ProductPage extends BasePage {
 
     public void sendReview() {
         sendReviewButton.click();
+    }
+
+    public String getMessageAlertOnReview(){
+        String message="";
+        if(isWarningMessage(alertMessage )){
+            message = alertMessage.getText();
+        }
+        return message;
+    }
+    public String getMessageSuccessOnReview(){
+        String message="";
+        if(isWarningMessage(successMessage )){
+            message = successMessage.getText();
+        }
+        return message;
     }
 
     public String getMessageOnAlertProductComparison() {
