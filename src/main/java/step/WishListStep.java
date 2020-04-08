@@ -39,7 +39,6 @@ public class WishListStep extends BaseStep<WishListPage> {
             Assert.assertEquals(expected, actual);
             return true;
         } catch (NoSuchElementException e) {
-            System.out.println("Your wish list isn't empty.");
             return false;
         }
     }
@@ -69,5 +68,8 @@ public class WishListStep extends BaseStep<WishListPage> {
         String actual = page.goToAccount();
         Assert.assertEquals(expected, actual);
         return new MyAccountStep(driver);
+    }
+    public String getWishList(){
+        return page.getTitlePage();
     }
 }
