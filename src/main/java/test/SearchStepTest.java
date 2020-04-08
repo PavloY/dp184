@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import step.SearchPageStep;
 
+import java.util.List;
+
 public class SearchStepTest extends BaseTest {
     private static SearchPageStep searchPageStep;
 
@@ -22,7 +24,7 @@ public class SearchStepTest extends BaseTest {
 
         String expected = "iPhone";
 
-        String actual = searchPageStep.getPage().getSearchResult();
+        List<String> actual = searchPageStep.getPage().getSearchResult();
 
         Assert.assertEquals(expected, actual);
     }
@@ -38,7 +40,7 @@ public class SearchStepTest extends BaseTest {
                 "Apple MacBook Air" +
                 "Apple MacBook Pro";
 
-        String actual = searchPageStep.getPage().getSearchResult();
+        List<String> actual = searchPageStep.getPage().getSearchResult();
 
         Assert.assertEquals(expected, actual);
     }
@@ -51,7 +53,7 @@ public class SearchStepTest extends BaseTest {
                 "MacBook Air" +
                 "MacBook Pro";
 
-        String actual = searchPageStep.getPage().getSearchResult();
+        List<String> actual = searchPageStep.getPage().getSearchResult();
 
         Assert.assertEquals(expected, actual);
     }
@@ -66,7 +68,7 @@ public class SearchStepTest extends BaseTest {
                 "Apple MacBook Air" +
                 "Apple MacBook Pro";
 
-        String actual = searchPageStep.getPage().getSearchResult();
+        List<String> actual = searchPageStep.getPage().getSearchResult();
 
         Assert.assertEquals(expected, actual);
     }
@@ -81,7 +83,7 @@ public class SearchStepTest extends BaseTest {
                 "Apple MacBook Air" +
                 "Apple MacBook Pro";
 
-        String actual = searchPageStep.getPage().getSearchResult();
+        List<String> actual = searchPageStep.getPage().getSearchResult();
 
         Assert.assertEquals(expected, actual);
     }
@@ -96,7 +98,7 @@ public class SearchStepTest extends BaseTest {
                 "Apple MacBook Air" +
                 "Apple MacBook Pro";
 
-        String actual = searchPageStep.getPage().getSearchResult();
+        List<String> actual = searchPageStep.getPage().getSearchResult();
 
         Assert.assertEquals(expected, actual);
     }

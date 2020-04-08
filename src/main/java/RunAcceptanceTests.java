@@ -12,15 +12,33 @@ import test.ftcTest.FTS_Product.*;
 import test.ftcTest.FTS_Registration.FTC_Auto_Main_Registration_RegisterUserWithInvalidDataUsingOnlyNecessaryFields;
 import test.ftcTest.FTS_Registration.FTC_Auto_Main_Registration_RegisterUserWithValidDataUsingAllFields;
 import test.ftcTest.FTS_Registration.FTC_Auto_Main_Registration_RegisterUserWithValidDataUsingOnlyNecessaryFields;
+import test.ftcTest.FTS_Search.*;
 import test.ftcTest.FTS_WishList.FTC_Auto_Main_WishList_AddProductFromWishListToShoppingCart;
 import test.ftcTest.FTS_WishList.FTC_Auto_Main_WishList_DeleteProductFromWishList;
 
 @RunWith(Categories.class)
 @Suite.SuiteClasses({
+        FTC_Auto_Main_ProductComparison_AddProductFromProductComparisonToShoppingCart.class,
+        FTC_Auto_Main_ProductComparison_DeleteProductFromProductComparison.class,
+        FTC_Auto_Main_Cart_CheckPossibilityOfDeletingProductFromCartNewUser.class,
+        FTC_Auto_Main_Cart_CheckPossibilityOfDeletingProductFromCartRegisteredUser.class,
         FTC_Auto_Main_Checkout_CheckoutRegisteredUser.class,
+        FTC_Auto_Main_Product_AddProductToProductComparisonByNewUser.class,
+        FTC_Auto_Main_Product_AddProductToProductComparisonByRegisteredUser.class,
+        FTC_Auto_Main_Product_AddProductToShoppingCartByNewUser.class,
+        FTC_Auto_Main_Product_AddProductToShoppingCartByRegisteredUser.class,
+        FTC_Auto_Main_Product_AddProductToWishListByRegisteredUser.class,
         FTC_Auto_Main_Registration_RegisterUserWithInvalidDataUsingOnlyNecessaryFields.class,
         FTC_Auto_Main_Registration_RegisterUserWithValidDataUsingAllFields.class,
         FTC_Auto_Main_Registration_RegisterUserWithValidDataUsingOnlyNecessaryFields.class,
+        FTC_Auto_Main_HomePage_QuickSearchFunction.class,
+        FTC_Auto_Main_SearchPage_SearchFunction.class,
+        FTC_Auto_Main_SearchPage_SearchFunctionInCategories.class,
+        FTC_Auto_Main_SearchPage_SearchFunctionInSubcategories.class,
+        FTC_Main_HomePage_QuickSearchFunction_InvalidDataInput.class,
+        FTC_Main_SearchPage_SearchFunctionInProductDescriptions.class,
+        FTC_Auto_Main_WishList_AddProductFromWishListToShoppingCart.class,
+        FTC_Auto_Main_WishList_DeleteProductFromWishList.class,
         FTC__Auto_Main_AffiliateLogin_AffiliateLoginWithInvalidData.class,
         FTC__Auto_Main_AffiliateLogin_AffiliateLoginWithValidData.class,
         FTC__Auto_Main_AffiliateRegister_AffiliateRegisterWithInvalidData.class,
@@ -31,24 +49,11 @@ import test.ftcTest.FTS_WishList.FTC_Auto_Main_WishList_DeleteProductFromWishLis
         FTC__Auto_Main_ProductReturns_ReturnTheProductUsingInvalidData.class,
         FTC__Auto_Main_ProductReturns_ReturnTheProductUsingValidData.class,
         FTC__Auto_Main_Share_SharingTheProduct.class,
-        FTC_Auto_Main_Product_AddProductToShoppingCartByNewUser.class,
-        FTC_Auto_Main_Product_AddProductToShoppingCartByRegisteredUser.class,
-        FTC_Auto_Main_Product_AddProductToProductComparisonByNewUser.class,
-        FTC_Auto_Main_Product_AddProductToProductComparisonByRegisteredUser.class,
-        FTC_Auto_Main_Product_AddProductToWishListByRegisteredUser.class,
-        FTC_Auto_Main_WishList_AddProductFromWishListToShoppingCart.class,
-        FTC_Auto_Main_WishList_DeleteProductFromWishList.class,
-        FTC_Auto_Main_Cart_CheckPossibilityOfDeletingProductFromCartNewUser.class,
-        FTC_Auto_Main_Cart_CheckPossibilityOfDeletingProductFromCartRegisteredUser.class,
-        FTC_Auto_Main_ProductComparison_AddProductFromProductComparisonToShoppingCart.class,
-        FTC_Auto_Main_ProductComparison_DeleteProductFromProductComparison.class,
         FTC_ContactUs_SendingMessageThroughContactUsTab.class,
         FTC_ContactUs_SendMessageWithInvalidData.class,
         FTC_Main_Brand_BrandLinkVerification.class,
         FTC_Main_EditAddressWithValidData.class,
         FTC_Main_Login_SignInRegisteredUserWithInvalidData.class,
-        FTC_Main_Login_SignInRegisteredUserWithInvalidData.class,
-        FTC_Main_Registration_RegisterUserWithValidData.class,
         SearchStepTest.class})
 public class RunAcceptanceTests {
 }

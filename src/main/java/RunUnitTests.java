@@ -9,6 +9,7 @@ import test.unitTest.*;
         AffiliateLoginPageTest.class,
         AffiliateRegisterPageTest.class,
         NewsletterSubscriptionPageTest.class,
+        ProductComparisonPageTest.class,
         ProductPageTest.class,
         ProductReturnsPageTest.class,
         WishListPageTest.class})
