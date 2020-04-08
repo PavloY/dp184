@@ -1,6 +1,7 @@
 package test.ftcTest;
 
 import core.BaseTest;
+import data.Constants;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +36,7 @@ public class FTC__Auto_Main_AffiliateLogin_AffiliateLoginWithValidData extends B
 
     @Test
     public void validData() {
-        affiliateLoginStep.fillAffiliateLoginValid("opencard@mailforspam.com", "Qwerty");
+        affiliateLoginStep.fillAffiliateLoginValid(Constants.AFFILIATE_LOGIN_USER_VALID_DATA);
         String expected = "My Affiliate Account";
         String actual = affiliateLoginPage.getSuccessMessage();
         assertEquals(expected, actual);

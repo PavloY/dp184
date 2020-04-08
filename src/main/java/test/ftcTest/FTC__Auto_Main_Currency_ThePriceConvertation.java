@@ -1,6 +1,7 @@
 package test.ftcTest;
 
 import core.BaseTest;
+import data.Constants;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,7 +37,8 @@ public class FTC__Auto_Main_Currency_ThePriceConvertation extends BaseTest {
 
     @Test
     public void priceConvertationEuroToDollar() {
-        double expected = productPage.getEuroPriceAsDouble() * 1.274608783442706;
+        double dollarPrice = productPage.getEuroPriceAsDouble() * Constants.EURO_TO_DOLLAR_COURSE;
+        double expected = dollarPrice;
         double actual = productPage.getDollarPriceAsDouble();
         assertEquals(expected, actual, delta);
 
@@ -44,14 +46,16 @@ public class FTC__Auto_Main_Currency_ThePriceConvertation extends BaseTest {
 
     @Test
     public void priceConvertationEuroToSterling() {
-        double expected = productPage.getEuroPriceAsDouble() * 0.7806663301362948;
+        double sterlingPrice = productPage.getEuroPriceAsDouble() * Constants.EURO_TO_STERLING_COURSE;
+        double expected = sterlingPrice;
         double actual = productPage.getSterlingPriceAsDouble();
         assertEquals(expected, actual, delta);
     }
 
     @Test
     public void priceConvertationDollarToSterling() {
-        double expected = productPage.getDollarPriceAsDouble() * 0.6124752475247525;
+        double sterlingPrice = productPage.getDollarPriceAsDouble() * Constants.DOLLAR_TO_STERLING_COURSE;
+        double expected = sterlingPrice;
         double actual = productPage.getSterlingPriceAsDouble();
         assertEquals(expected, actual, delta);
     }
