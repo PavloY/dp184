@@ -13,7 +13,7 @@ public class AddressBookPage extends BasePage {
     @FindBy(className = "btn-primary")
     private WebElement newAddressButton;
 
-    @FindBy(className = "btn-info")
+    @FindBy(xpath = "//a[@class='btn btn-info']")
     private WebElement editButton;
 
     @FindBy(xpath = "//*[contains(text(), 'Delete')]")
@@ -21,6 +21,9 @@ public class AddressBookPage extends BasePage {
 
     @FindBy(className = "alert-warning")
     private WebElement warningMessage;
+
+    @FindBy(xpath = "//div[@class = 'alert alert-success']")
+    private WebElement successfullyUpdatedMessage;
 
 
     public AddressBookPage(WebDriver driver) {
@@ -55,5 +58,20 @@ public class AddressBookPage extends BasePage {
         return null;
      }
 
+     private boolean isSuccessfullyUpdatedMessageDisplay (){
+        return successfullyUpdatedMessage.isDisplayed();
+     }
+
+     public String getContentSuccessfullyUpdatedMessage (){
+        if(isSuccessfullyUpdatedMessageDisplay()){
+            return successfullyUpdatedMessage.getText();
+        }
+         System.out.println("111111");
+        return null;
+     }
+
+//     public String onAddressBook(){
+//        return entriesMessage.getText();
+//     }
 
 }

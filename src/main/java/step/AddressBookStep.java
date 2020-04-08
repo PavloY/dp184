@@ -29,7 +29,9 @@ public class AddressBookStep extends BaseStep<AddressBookPage> {
 
     public EditAddressStep clickOnEditButton(){
         page.clickOnEditButton();
-        Assert.assertTrue(driver.findElement(By.id("input-firstname")).getAttribute("value").isEmpty());
+        System.out.println(driver.findElement(By.id("input-firstname")).getAttribute("value"));
+        Assert.assertTrue(!driver.findElement(By.id("input-firstname")).getAttribute("value").isEmpty());
+        System.out.println("11111");
         return new EditAddressStep(driver);
     }
 
@@ -41,4 +43,7 @@ public class AddressBookStep extends BaseStep<AddressBookPage> {
         return this;
     }
 
+    public String getSuccessfullyUpdatedMessage(){
+        return page.getContentSuccessfullyUpdatedMessage();
+    }
 }

@@ -22,6 +22,7 @@ public class SuccessPage extends BasePage {
     @FindBy(xpath = "//p[contains(text(), 'Your enquiry has')]")
     private WebElement successfulSentEnquiryMessage;
 
+
     public SuccessPage(WebDriver driver) {
         super(driver);
     }

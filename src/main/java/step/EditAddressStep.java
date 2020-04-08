@@ -16,53 +16,48 @@ public class EditAddressStep extends BaseStep<EditAddressPage> {
         super(driver, new EditAddressPage(driver));
     }
 
-    public AddressBookStep FillAllFieldWithValidData (EditAddressUser editAddressUser){
-        page.fillFirstName(editAddressUser.getFirstName());
-        page.fillLastName(editAddressUser.getLastName());
+    public AddressBookStep fillAllFieldWithValidData (EditAddressUser editAddressUser){
+        System.out.println("4444");
+        fillAllNecessaryFields(editAddressUser);
+        System.out.println("22222");
         page.fillCompany(editAddressUser.getCompany());
-        page.fillAddress1(editAddressUser.getAddress1());
+        System.out.println("33333");
         page.fillAddress2(editAddressUser.getAddress2());
-        page.fillCity(editAddressUser.getCity());
         page.fillPostCode(editAddressUser.getPostCode());
-        page.chooseCountry(editAddressUser.getCountry());
-        page.chooseRegion(editAddressUser.getRegion());
         page.defaultAddressYes();
-        String unexpected = driver.getTitle();
         page.clickOnButtonContinue();
-        String actual = driver.getTitle();
-        Assert.assertNotEquals(unexpected,actual);
+        String expected = "Your address has been successfully updated";
+        String actual = page.clickOnButtonContinue().getContentSuccessfullyUpdatedMessage();
+        Assert.assertEquals(expected, actual);
         return new AddressBookStep(driver);
     }
 
-    public AddressBookStep FillOnlyNecessaryFieldWithValidData (EditAddressUser editAddressUser){
-        page.fillFirstName(editAddressUser.getFirstName());
-        page.fillLastName(editAddressUser.getLastName());
-        page.fillAddress1(editAddressUser.getAddress1());
-        page.fillCity(editAddressUser.getCity());
-        page.chooseCountry(editAddressUser.getCountry());
-        page.chooseRegion(editAddressUser.getRegion());
-        page.defaultAddressYes();
-        String unexpected = driver.getTitle();
-        page.clickOnButtonContinue();
-        String actual = driver.getTitle();
-        Assert.assertNotEquals(unexpected,actual);
+    public AddressBookStep fillOnlyNecessaryFieldWithValidData (EditAddressUser editAddressUser){
+        fillAllNecessaryFields(editAddressUser);
+        String expected = "Your address has been successfully updated";
+        String actual = page.clickOnButtonContinue().getContentSuccessfullyUpdatedMessage();
+        Assert.assertEquals(expected, actual);
         return new AddressBookStep(driver);
     }
 
-    public HashMap<String, String> fillOnlyNecessaryFieldWithInvalidData(User user){
-        page.fillFirstName(user.getFirstName());
-        page.fillLastName(user.getLastName());
-        page.fillAddress1(user.getAddress1());
-        page.fillCity(user.getCity());
-        if(!user.getCountry().isEmpty()) page.chooseCountry(user.getCountry());
-        if(!user.getRegion().isEmpty()) page.chooseRegion(user.getRegion());
-        page.defaultAddressYes();
+    public HashMap<String, String> fillOnlyNecessaryFieldWithInvalidData(EditAddressUser editAddressUser){
+        fillAllNecessaryFields(editAddressUser);
         String expected = driver.getTitle();
         page.clickOnButtonContinue();
         String actual = driver.getTitle();
         Assert.assertEquals(expected, actual);
         return page.getAllWarningMessages();
     }
+
+    private void fillAllNecessaryFields(EditAddressUser editAddressUser){
+        page.fillFirstName(editAddressUser.getFirstName());
+        page.fillLastName(editAddressUser.getLastName());
+        page.fillAddress1(editAddressUser.getAddress1());
+        page.fillCity(editAddressUser.getCity());
+        if(!editAddressUser.getCountry().isEmpty()) page.chooseCountry(editAddressUser.getCountry());
+        if(!editAddressUser.getRegion().isEmpty()) page.chooseRegion(editAddressUser.getRegion());
+    }
+
 
 
 }

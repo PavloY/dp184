@@ -27,6 +27,29 @@ public class EditAddressUser {
         this.defaultAddress = defaultAddress;
     }
 
+    public EditAddressUser(String firstName, String lastName, String address1,
+                           String city, String country, String region, boolean defaultAddress) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address1 = address1;
+        this.city = city;
+        this.country = country;
+        this.region = region;
+        this.defaultAddress = defaultAddress;
+    }
+
+    public EditAddressUser(String firstName, String lastName, String address1,
+                           String city, String postCode, String country, String region, boolean defaultAddress) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address1 = address1;
+        this.city = city;
+        this.postCode = postCode;
+        this.country = country;
+        this.region = region;
+        this.defaultAddress = defaultAddress;
+    }
+
     public String getFirstName(){
         return firstName;
     }

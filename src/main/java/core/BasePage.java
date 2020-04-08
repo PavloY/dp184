@@ -57,6 +57,11 @@ public abstract class BasePage extends BaseElement {
     @FindBy(xpath = "//a[@href='http://184-dp.tk/index.php?route=affiliate/account']")
     private WebElement affiliateButton;
 
+    @FindBy(linkText = "Login")
+    protected WebElement loginDropDown;
+
+
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -137,4 +142,10 @@ public abstract class BasePage extends BaseElement {
         logoutDropDown.click();
         return new LogoutPage(driver);
     }
+
+    public void clickloginDropDown() {
+        loginDropDown.click();
+    }
+
+
 }

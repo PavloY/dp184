@@ -34,6 +34,9 @@ public class CheckoutPage extends BasePage {
     @FindBy(id ="button-confirm")
     private WebElement confirmOrder;
 
+    @FindBy(xpath = "//div[@class='alert alert-danger']")
+    private WebElement warningMessage;
+
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
@@ -81,4 +84,22 @@ public class CheckoutPage extends BasePage {
     public WebElement getConfirmOrder() {
         return confirmOrder;
     }
+
+    public WebElement getContinuePaymentAddress() {
+        return continuePaymentAddress;
+    }
+    public WebElement getContinueShippingAddress() {
+        return continueShippingAddress;
+    }
+    public WebElement getContinueShippingMethod() {
+        return continueShippingMethod;
+    }
+    public WebElement getContinuePaymentMethod() {
+        return continuePaymentMethod;
+    }
+    public String getAgreeWarningMessage (){
+        return warningMessage.getText();
+    }
+
+
 }

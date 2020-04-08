@@ -28,13 +28,37 @@ public class CheckoutStep  extends BaseStep<CheckoutPage> {
         return this;
     }
 
-    public SuccessStep checkoutAllContinueButtons(){
+    public CheckoutStep checkoutWithoutAgree (){
+        wait.until(ExpectedConditions.visibilityOf(page.getContinuePaymentAddress()));
         page.clickPaymentAddress();
+        wait.until(ExpectedConditions.visibilityOf(page.getContinueShippingAddress()));
         page.clickShippingAddress();
+        wait.until(ExpectedConditions.visibilityOf(page.getContinueShippingMethod()));
+        page.clickShippingMethod();
+        wait.until(ExpectedConditions.visibilityOf(page.getContinuePaymentMethod()));
+        page.clickPaymentMethod();
+        String expected = "Warning: You must agree to the Terms & Conditions!";
+        String actual = page.getAgreeWarningMessage().trim();
+        Assert.assertEquals(expected, actual);
+        return this;
+
+    }
+    public String getMessage() {
+       return page.getAgreeWarningMessage();
+    }
+
+    public SuccessStep checkoutAllContinueButtons(){
+        wait.until(ExpectedConditions.visibilityOf(page.getContinuePaymentAddress()));
+        page.clickPaymentAddress();
+        wait.until(ExpectedConditions.visibilityOf(page.getContinueShippingAddress()));
+        page.clickShippingAddress();
+        wait.until(ExpectedConditions.visibilityOf(page.getContinueShippingMethod()));
         page.clickShippingMethod();
         wait.until(ExpectedConditions.visibilityOf(page.getCheckBoxAgree()));
         page.checkboxAgree();
+        wait.until(ExpectedConditions.visibilityOf(page.getContinuePaymentMethod()));
         page.clickPaymentMethod();
+        wait.until(ExpectedConditions.visibilityOf(page.getConfirmOrder()));
         page.clickConfirmOrder();
         wait.until(ExpectedConditions.titleContains("Your order has been placed!"));
         String expected = "Your order has been placed!";
