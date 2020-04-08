@@ -9,7 +9,10 @@ public class SearchPageStep extends BaseStep<SearchPage> {
 
     public SearchPageStep(WebDriver driver) {
         super(driver, new SearchPage(driver));
-//        page.quickSearch();
+    }
+
+    public boolean invalidSearch(){
+        return page.invalidSearchMessageIsVisible();
     }
 
     public SearchPage getPage(){
