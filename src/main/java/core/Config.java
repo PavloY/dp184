@@ -19,10 +19,11 @@ import java.util.Properties;
 public final class Config {
 
     public static String adminSite ="http://184-dp.tk/admin";
-    public static String selenoidServer = "http://134.209.252.19:4444/wd/hub";
+    public static String selenoidServer = "http://144.76.5.68:4444/wd/hub";
     public static String site ="http://184-dp.tk";
     public static  String pathForDriver = "\\Tools\\geckodriver.exe";
     public static String driver ="remote";
+    //public static String driver ="gecko";
     public static final String PATH_PROPERTY_FILE = "src\\main\\resources\\dev.properties";
 
     // static {
@@ -47,7 +48,7 @@ public final class Config {
         } else if (driver.contains("remote")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setBrowserName("chrome");
-            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVNC", false);
             capabilities.setCapability("enableVideo", false);
             return new RemoteWebDriver(URI.create(selenoidServer).toURL(), capabilities);
         }
