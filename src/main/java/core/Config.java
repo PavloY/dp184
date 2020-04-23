@@ -48,8 +48,8 @@ public final class Config {
         } else if (driver.contains("remote")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setBrowserName("chrome");
-            capabilities.setCapability("enableVNC", false);
-            capabilities.setCapability("enableVideo", false);
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
             return new RemoteWebDriver(URI.create(selenoidServer).toURL(), capabilities);
         }
         return null;//Exception
